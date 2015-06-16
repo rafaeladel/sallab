@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h4>upload:</h4>
+<div id="uploaderWrapper" class="dropzone" data-name="photo[image]" data-url="<%= url_for seven_gallery.gallery_photos_url(@banner.gallery) %>">
+  <p class="dz-message">Select photos</p>
+</div>
+
+
+<p><%= @banner.slogan1 %></p>
+<p><%= @banner.slogan2 %></p>
+<p><%= @banner.banner_type %></p>
+
+<%= link_to 'Edit', edit_banner_path(@banner) %> |
+<%= link_to 'Back', banners_path %>
