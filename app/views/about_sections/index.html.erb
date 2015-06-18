@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing About Sections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @about_sections.each do |about_section| %>
+      <tr>
+        <td><%= about_section.title %></td>
+        <td><%= about_section.content %></td>
+        <td><%= image_tag(about_section.image.thumb.url) %></td>
+        <td><%= link_to 'Show', about_section %></td>
+        <td><%= link_to 'Edit', edit_about_section_path(about_section) %></td>
+        <td><%= link_to 'Destroy', about_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New About section', new_about_section_path %>

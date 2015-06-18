@@ -11,9 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615220014) do
+ActiveRecord::Schema.define(version: 20150618184945) do
 
   create_table "about", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "about_section_translations", force: :cascade do |t|
+    t.integer  "about_section_id", null: false
+    t.string   "locale",           null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "title"
+    t.text     "content"
+  end
+
+  add_index "about_section_translations", ["about_section_id"], name: "index_about_section_translations_on_about_section_id"
+  add_index "about_section_translations", ["locale"], name: "index_about_section_translations_on_locale"
+
+  create_table "about_sections", force: :cascade do |t|
+    t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
