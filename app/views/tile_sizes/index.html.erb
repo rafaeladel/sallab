@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tile Sizes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Height</th>
+      <th>Width</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tile_sizes.each do |tile_size| %>
+      <tr>
+        <td><%= tile_size.height %></td>
+        <td><%= tile_size.width %></td>
+        <td><%= link_to 'Show', tile_size %></td>
+        <td><%= link_to 'Edit', edit_tile_size_path(tile_size) %></td>
+        <td><%= link_to 'Destroy', tile_size, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tile size', new_tile_size_path %>

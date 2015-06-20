@@ -1,0 +1,25 @@
+<%= form_for(@tile_size) do |f| %>
+  <% if @tile_size.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tile_size.errors.count, "error") %> prohibited this tile_size from being saved:</h2>
+
+      <ul>
+      <% @tile_size.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.number_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :width %><br>
+    <%= f.number_field :width %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

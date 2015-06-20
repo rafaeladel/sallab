@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618184945) do
+ActiveRecord::Schema.define(version: 20150620212849) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -68,6 +68,22 @@ ActiveRecord::Schema.define(version: 20150618184945) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "brand_translations", force: :cascade do |t|
+    t.integer  "brand_id",   null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  add_index "brand_translations", ["brand_id"], name: "index_brand_translations_on_brand_id"
+  add_index "brand_translations", ["locale"], name: "index_brand_translations_on_locale"
+
+  create_table "brands", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "home", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -85,6 +101,60 @@ ActiveRecord::Schema.define(version: 20150618184945) do
 
   add_index "home_translations", ["home_id"], name: "index_home_translations_on_home_id"
   add_index "home_translations", ["locale"], name: "index_home_translations_on_locale"
+
+  create_table "origin_translations", force: :cascade do |t|
+    t.integer  "origin_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  add_index "origin_translations", ["locale"], name: "index_origin_translations_on_locale"
+  add_index "origin_translations", ["origin_id"], name: "index_origin_translations_on_origin_id"
+
+  create_table "origins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_section_translations", force: :cascade do |t|
+    t.integer  "product_section_id", null: false
+    t.string   "locale",             null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "title"
+  end
+
+  add_index "product_section_translations", ["locale"], name: "index_product_section_translations_on_locale"
+  add_index "product_section_translations", ["product_section_id"], name: "index_product_section_translations_on_product_section_id"
+
+  create_table "product_sections", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_translations", force: :cascade do |t|
+    t.integer  "product_id",  null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
+  end
+
+  add_index "product_translations", ["locale"], name: "index_product_translations_on_locale"
+  add_index "product_translations", ["product_id"], name: "index_product_translations_on_product_id"
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "origin_id"
+    t.integer  "brand_id"
+    t.integer  "tile_size_id"
+    t.string   "color"
+    t.string   "code"
+    t.string   "image"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "seven_careers_candidate_statuses", force: :cascade do |t|
     t.string   "name"
@@ -162,6 +232,13 @@ ActiveRecord::Schema.define(version: 20150618184945) do
     t.date     "finished_at"
     t.boolean  "is_featured", default: false
     t.integer  "item_type",   default: 0
+  end
+
+  create_table "tile_sizes", force: :cascade do |t|
+    t.integer  "height"
+    t.integer  "width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
