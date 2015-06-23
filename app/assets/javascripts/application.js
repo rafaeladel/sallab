@@ -13,4 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require seven_gallery/application
-//= require_tree .

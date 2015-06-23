@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 			resources :origins
 			resources :brands
 			resources :tile_sizes
+      resources :colors
 			resources :products
 
 			get "/home", as: "get_home_admin", to: "home#get_home_admin"

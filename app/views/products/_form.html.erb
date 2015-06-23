@@ -23,10 +23,16 @@
     <%= f.label :tile_size %><br>
     <%= f.collection_select :tile_size_id, @tile_sizes, :id, :height %>
   </div>
-  <div class="field">
+    <div id="colors_wrapper">
+
     <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
+    <%= link_to "add color", "#", id: "add_color_btn" %>
+    <%= f.fields_for :colors do |c| %>
+        <div class="field color_field">
+          <%= c.text_field :code %>
+        </div>
+    <% end %>
+    </div>
   <div class="field">
     <%= f.label :code %><br>
     <%= f.text_field :code %>
