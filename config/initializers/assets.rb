@@ -8,4 +8,12 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( about_sections.js banners.js brands.js origins.js product_sections.js products.js tile_sizes.js )
+
+controllers = ["about_sections", "banners", "brands", "origins", "product_sections", "products", "tile_sizes", "seven_gallery/galleries", "regions", "branches"]
+
+script_files = controllers.map { |c| "#{c}.js"}
+
+style_files = controllers.map { |c| "#{c}.css"}
+
+Rails.application.config.assets.precompile += script_files
+Rails.application.config.assets.precompile += style_files

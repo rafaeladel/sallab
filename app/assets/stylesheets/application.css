@@ -12,5 +12,6 @@
  *
  *= require_tree .
  *= require seven_gallery/application
+ *= require colorpicker/css/bootstrap-colorpicker.min
  *= require_self
  */

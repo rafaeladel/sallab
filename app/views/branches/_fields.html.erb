@@ -1,0 +1,23 @@
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :address_en %><br>
+    <%= f.text_area :address_en %>
+  </div>
+  <div class="field">
+    <%= f.label :address_ar %><br>
+    <%= f.text_area :address_ar %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div id="map_canvas" style="width:100%; height:150px"></div>
+  <div class="field">
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat , class: "lat_input" %>
+  </div>
+  <div class="field">
+    <%= f.label :long %><br>
+    <%= f.text_field :long , class: "long_input" %>
+  </div>
+</div>

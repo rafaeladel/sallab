@@ -25,6 +25,7 @@ module Sallab
     config.active_record.raise_in_transactional_callbacks = true
 
     config.generators do |g|
+      g.scr
       g.test_framework :rspec,
           view_specs: false,
           helper_specs: false

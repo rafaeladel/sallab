@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622235039) do
+ActiveRecord::Schema.define(version: 20150623223032) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -67,6 +67,28 @@ ActiveRecord::Schema.define(version: 20150622235039) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "branch_translations", force: :cascade do |t|
+    t.integer  "branch_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "address"
+  end
+
+  add_index "branch_translations", ["branch_id"], name: "index_branch_translations_on_branch_id"
+  add_index "branch_translations", ["locale"], name: "index_branch_translations_on_locale"
+
+  create_table "branches", force: :cascade do |t|
+    t.string   "phone"
+    t.integer  "region_id"
+    t.string   "lat"
+    t.string   "long"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "branches", ["region_id"], name: "index_branches_on_region_id"
 
   create_table "brand_translations", force: :cascade do |t|
     t.integer  "brand_id",   null: false
@@ -156,11 +178,26 @@ ActiveRecord::Schema.define(version: 20150622235039) do
     t.integer  "origin_id"
     t.integer  "brand_id"
     t.integer  "tile_size_id"
-    t.string   "color"
     t.string   "code"
     t.string   "image"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "region_translations", force: :cascade do |t|
+    t.integer  "region_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+  end
+
+  add_index "region_translations", ["locale"], name: "index_region_translations_on_locale"
+  add_index "region_translations", ["region_id"], name: "index_region_translations_on_region_id"
+
+  create_table "regions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "seven_careers_candidate_statuses", force: :cascade do |t|
@@ -196,7 +233,6 @@ ActiveRecord::Schema.define(version: 20150622235039) do
   end
 
   create_table "seven_gallery_galleries", force: :cascade do |t|
-    t.string   "title"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "seven_portfolio_item_id"
@@ -205,6 +241,17 @@ ActiveRecord::Schema.define(version: 20150622235039) do
 
   add_index "seven_gallery_galleries", ["banner_id"], name: "index_seven_gallery_galleries_on_banner_id"
   add_index "seven_gallery_galleries", ["seven_portfolio_item_id"], name: "index_seven_gallery_galleries_on_seven_portfolio_item_id"
+
+  create_table "seven_gallery_gallery_translations", force: :cascade do |t|
+    t.integer  "seven_gallery_gallery_id", null: false
+    t.string   "locale",                   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "title"
+  end
+
+  add_index "seven_gallery_gallery_translations", ["locale"], name: "index_seven_gallery_gallery_translations_on_locale"
+  add_index "seven_gallery_gallery_translations", ["seven_gallery_gallery_id"], name: "index_12c811f3dc8e166265a35a85a4ae1e062d1a24ca"
 
   create_table "seven_gallery_photos", force: :cascade do |t|
     t.string   "caption"

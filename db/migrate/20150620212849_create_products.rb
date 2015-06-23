@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration
       t.references :origin
       t.references :brand
       t.references :tile_size
-      t.string :color
       t.string :code
       t.string :image
 

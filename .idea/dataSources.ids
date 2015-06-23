@@ -212,7 +212,6 @@
     </table>
     <table name="seven_gallery_galleries" schema="" catalog="sallab_db" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="seven_portfolio_item_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
@@ -223,6 +222,17 @@
       <exported-key name="fk_rails_ae2f08d478" table="seven_gallery_photos" schema="" catalog="sallab_db" columns="seven_gallery_gallery_id"/>
       <index name="index_seven_gallery_galleries_on_banner_id" unique="false" columns="banner_id"/>
       <index name="index_seven_gallery_galleries_on_seven_portfolio_item_id" unique="false" columns="seven_portfolio_item_id"/>
+    </table>
+    <table name="seven_gallery_gallery_translations" schema="" catalog="sallab_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="seven_gallery_gallery_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="locale" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_12c811f3dc8e166265a35a85a4ae1e062d1a24ca" unique="false" columns="seven_gallery_gallery_id"/>
+      <index name="index_seven_gallery_gallery_translations_on_locale" unique="false" columns="locale"/>
     </table>
     <table name="seven_gallery_photos" schema="" catalog="sallab_db" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>

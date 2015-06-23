@@ -1,55 +1,54 @@
 <%= form_for(@product) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-      <% @product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :origin %><br>
-    <%= f.collection_select :origin_id, @origins, :id, :title %>
-  </div>
-  <div class="field">
-    <%= f.label :brand %><br>
-    <%= f.collection_select :brand_id, @brands, :id, :title %>
-  </div>
-  <div class="field">
-    <%= f.label :tile_size %><br>
-    <%= f.collection_select :tile_size_id, @tile_sizes, :id, :height %>
-  </div>
-    <div id="colors_wrapper">
-
-    <%= f.label :color %><br>
-    <%= link_to "add color", "#", id: "add_color_btn" %>
-    <%= f.fields_for :colors do |c| %>
-        <div class="field color_field">
-          <%= c.text_field :code %>
+          <ul>
+            <% @product.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
         </div>
     <% end %>
-    </div>
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :description_en %><br>
-    <%= f.text_area :description_en %>
-  </div>
+
     <div class="field">
-    <%= f.label :description_ar %><br>
-    <%= f.text_area :description_ar %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+      <%= f.label :origin %><br>
+      <%= f.collection_select :origin_id, @origins, :id, :title %>
+    </div>
+    <div class="field">
+      <%= f.label :brand %><br>
+      <%= f.collection_select :brand_id, @brands, :id, :title %>
+    </div>
+    <div class="field">
+      <%= f.label :tile_size %><br>
+      <%= f.collection_select :tile_size_id, @tile_sizes, :id, :height %>
+    </div>
+    <div id="colors">
+      <%= f.label :color %><br>
+      <%= f.fields_for :colors do |c| %>
+          <%= render "colors/color_fields", f: c %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "add color", f, :colors, partial: "colors/color_fields" %>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :code %><br>
+      <%= f.text_field :code %>
+    </div>
+    <div class="field">
+      <%= f.label :description_en %><br>
+      <%= f.text_area :description_en %>
+    </div>
+    <div class="field">
+      <%= f.label :description_ar %><br>
+      <%= f.text_area :description_ar %>
+    </div>
+    <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

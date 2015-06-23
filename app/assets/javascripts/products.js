@@ -1,9 +1,15 @@
 $(function() {
-    $("body").on("click", "#add_color_btn", function (e) {
-        e.preventDefault();
-        var wrapper = $(e.target).closest("#colors_wrapper");
-        var text_field = wrapper.find(".color_field").last().clone();
-        text_field.find("input").val("");
-        wrapper.append(text_field);
-    })
+    activateColorpicker($("body").find(".colorpicker_field"));
+
+    $("body").on("cocoon:after-insert", "#colors", function(e, inserted_item){
+        var codeInput = $(inserted_item).find(".colorpicker_field");
+        activateColorpicker(codeInput);
+    });
+
+    function activateColorpicker(element) {
+        element.colorpicker()
+            .on("changeColor", function (e) {
+                element.css("background", e.color.toHex());
+            });
+    }
 });

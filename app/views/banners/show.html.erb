@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h4>upload:</h4>
-<div id="uploaderWrapper" class="dropzone" data-name="photo[image]" data-url="<%= url_for seven_gallery.gallery_photos_url(@banner.gallery) %>">
+<div id="uploaderWrapper" class="dropzone" data-name="photo[image]" data-url="<%= seven_gallery.gallery_photos_url(@banner.gallery, script_name: "/admin") %>">
   <p class="dz-message">Select photos</p>
 </div>
-
 
 <p><%= @banner.slogan1 %></p>
 <p><%= @banner.slogan2 %></p>
