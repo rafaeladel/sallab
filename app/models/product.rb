@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   belongs_to :origin
   belongs_to :tile_size
   belongs_to :brand
+  belongs_to :product_section
   has_many :colors
 
   mount_uploader :image, ProductUploader

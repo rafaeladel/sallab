@@ -27,11 +27,11 @@ RSpec.describe BrandsController, type: :controller do
   # Brand. As you add validations to Brand, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:valid_brand)
+    attributes_for(:valid_brand)
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:invalid_brand)
+    attributes_for(:invalid_brand)
   }
 
   # This should return the minimal set of values that should be in the session

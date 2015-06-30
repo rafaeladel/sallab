@@ -27,11 +27,11 @@ RSpec.describe OriginsController, type: :controller do
   # Origin. As you add validations to Origin, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:valid_origin)
+    attributes_for(:valid_origin)
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:invalid_origin)
+    attributes_for(:invalid_origin)
   }
 
   # This should return the minimal set of values that should be in the session

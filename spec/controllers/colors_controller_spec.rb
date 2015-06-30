@@ -26,11 +26,11 @@ RSpec.describe ColorsController, type: :controller do
   # Color. As you add validations to Color, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:valid_color)
+    attributes_for(:valid_color)
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:invalid_color)
+    attributes_for(:invalid_color)
   }
 
   # This should return the minimal set of values that should be in the session

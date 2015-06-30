@@ -1,15 +1,191 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sallab</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- HEADER -->
+<header class="navbar clearfix" id="header">
+  <div class="container">
+    <div class="navbar-brand">
+      <!-- COMPANY LOGO -->
+      <a href="index.html">
+        <img src="img/tropicana.png" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120">
+      </a>
+      <!-- /COMPANY LOGO -->
+      <!-- /TEAM STATUS FOR MOBILE -->
+      <!-- SIDEBAR COLLAPSE -->
+      <div id="sidebar-collapse" class="sidebar-collapse btn">
+        <i class="fa fa-bars"
+           data-icon1="fa fa-bars"
+           data-icon2="fa fa-bars"></i>
+      </div>
+      <!-- /SIDEBAR COLLAPSE -->
+    </div>
+    <!-- /NAVBAR LEFT -->
+    <!-- BEGIN TOP NAVIGATION MENU -->
+    <ul class="nav navbar-nav pull-right">
 
-<%= yield %>
+      <!-- BEGIN USER LOGIN DROPDOWN -->
+      <li class="dropdown" id="header-user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <span class="username">Mina</span>
+          <i class="fa fa-angle-down"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
+          <li><a href="login.html"><i class="fa fa-power-off"></i> Log Out</a></li>
+        </ul>
+      </li>
+      <!-- END USER LOGIN DROPDOWN -->
+    </ul>
+    <!-- END TOP NAVIGATION MENU -->
+  </div>
 
+</header>
+<!--/HEADER -->
+
+<!-- PAGE -->
+<section id="page">
+  <!-- SIDEBAR -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-menu nav-collapse">
+      <!-- SIDEBAR MENU -->
+      <ul>
+        <li>
+          <a href="">
+            <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">General</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">About</span>
+          </a>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;" class="">
+            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Banners</span>
+            <span class="arrow"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="" href="<%= banners_url %>"><span class="sub-menu-text">List Banners</span></a></li>
+            <li><a class="" href="<%= new_banner_url %>"><span class="sub-menu-text">Add Banner</span></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;" class="">
+            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Branches</span>
+            <span class="arrow"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="" href="<%= regions_url %>"><span class="sub-menu-text">List Regions</span></a></li>
+            <li><a class="" href="<%= new_region_url %>"><span class="sub-menu-text">Add Region</span></a></li>
+            <li><a class="" href="<%= branches_url %>"><span class="sub-menu-text">List Branches</span></a></li>
+            <li><a class="" href="<%= new_branch_url %>"><span class="sub-menu-text">Add Branch</span></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;" class="">
+            <i class="fa fa-table fa-fw"></i> <span class="menu-text">News</span>
+            <span class="arrow"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="" href="<%= seven_portfolio.items_url %>"><span class="sub-menu-text">List News</span></a></li>
+            <li><a class="" href="<%= seven_portfolio.new_item_url %>"><span class="sub-menu-text">Add News</span></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;" class="">
+            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Careers</span>
+            <span class="arrow"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="" href="<%= seven_careers.jobs_url %>"><span class="sub-menu-text">List Careers</span></a></li>
+            <li><a class="" href="<%= seven_careers.new_job_url %>"><span class="sub-menu-text">Add Career</span></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;" class="">
+            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Products</span>
+            <span class="arrow"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="" href="<%= new_product_section_url %>"><span class="sub-menu-text">Add Product Section</span></a></li>
+            <li><a class="" href="<%= product_sections_url %>"><span class="sub-menu-text">List Product Section</span></a></li>
+            <li><a class="" href="<%= new_product_url %>"><span class="sub-menu-text">Add Product</span></a></li>
+            <li><a class="" href="<%= products_url %>"><span class="sub-menu-text">List Products</span></a></li>
+            <li><a class="" href="<%= new_origin_url %>"><span class="sub-menu-text">Add Origin</span></a></li>
+            <li><a class="" href="<%= origins_url %>"><span class="sub-menu-text">List Origins</span></a></li>
+            <li><a class="" href="<%= new_brand_url %>"><span class="sub-menu-text">Add Brand</span></a></li>
+            <li><a class="" href="<%= brands_url %>"><span class="sub-menu-text">List Brands</span></a></li>
+            <li><a class="" href="<%= new_tile_size_url %>"><span class="sub-menu-text">Add Tile size</span></a></li>
+            <li><a class="" href="<%= tile_sizes_url %>"><span class="sub-menu-text">List Tile sizes</span></a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;" class="">
+            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Galleries</span>
+            <span class="arrow"></span>
+          </a>
+          <ul class="sub">
+            <li><a class="" href="<%= seven_gallery.galleries_url %>"><span class="sub-menu-text">Add Gallery</span></a></li>
+            <li><a class="" href="<%= seven_gallery.new_gallery_url %>"><span class="sub-menu-text">List Galleries</span></a></li>
+          </ul>
+        </li>
+
+      </ul>
+      <!-- /SIDEBAR MENU -->
+    </div>
+  </div>
+  <!-- /SIDEBAR -->
+  <div id="main-content">
+    <div class="container">
+      <div class="row">
+        <div id="content" class="col-lg-12">
+          <!-- PAGE HEADER-->
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="page-header">
+                <!-- STYLER -->
+
+                <!-- /STYLER -->
+                <!-- BREADCRUMBS -->
+                <ul class="breadcrumb">
+                  <li>
+                    <i class="fa fa-home"></i>
+                    <a href="index.html">Home</a>
+                  </li>
+                  <li>DashBoard</li>
+                </ul>
+                <!-- /BREADCRUMBS -->
+                <div class="clearfix">
+                  <h3 class="content-title pull-left">DashBoard</h3>
+                </div>
+                <div class="description">Tropicana Statistics</div>
+              </div>
+            </div>
+          </div>
+          <!-- /PAGE HEADER -->
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+      </div>
+</section>
+<!--/PAGE -->
+<!-- JAVASCRIPTS -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- JQUERY -->
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<!-- CUSTOM SCRIPT -->
+<%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+      App.init();
+  })
+</script>
 </body>
 </html>

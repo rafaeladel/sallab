@@ -67,6 +67,7 @@ class ProductsController < ApplicationController
       @brands = Brand.all
       @origins = Origin.all
       @tile_sizes = TileSize.all
+      @product_sections = ProductSection.all
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -76,6 +77,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:origin_id, :brand_id, :tile_size_id, :code, :description, :image, colors_attributes: [:code, :_destroy, :id])
+      params.require(:product).permit(:product_section_id, :origin_id, :brand_id, :tile_size_id, :code, :description, :image, colors_attributes: [:code, :_destroy, :id])
     end
 end

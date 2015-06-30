@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div><%= @item.title %></div>
+<div><%= @item.description %></div>
+<div><%= @item.item_type %></div>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
+
+<% if @item.gallery? %>
+    <%= render "seven_portfolio/item_gallery/photos/form" %>
+<% elsif @item.video? %>
+    <%= render "seven_portfolio/item_videos/show" %>
+<% end %>

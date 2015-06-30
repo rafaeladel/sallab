@@ -27,11 +27,11 @@ RSpec.describe TileSizesController, type: :controller do
   # TileSize. As you add validations to TileSize, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:valid_tile_size)
+    attributes_for(:valid_tile_size)
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:invalid_tile_size)
+    attributes_for(:invalid_tile_size)
   }
 
   # This should return the minimal set of values that should be in the session

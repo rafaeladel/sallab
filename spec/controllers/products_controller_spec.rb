@@ -26,11 +26,11 @@ RSpec.describe ProductsController, type: :controller do
   # Product. As you add validations to Product, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.build(:valid_product).attributes
+    attributes_for(:valid_product)
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.build(:invalid_product).attributes
+    attributes_for(:invalid_product)
   }
 
   # This should return the minimal set of values that should be in the session

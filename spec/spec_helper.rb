@@ -16,6 +16,16 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+# Instead of FactoryGirl.attributes_for to capture associations too
+def attributes_for(factory)
+  factory = factory.to_sym
+  attr_for_vals = FactoryGirl.attributes_for(factory)
+  build_vals = FactoryGirl.build(factory).attributes.symbolize_keys
+  build_vals.merge(attr_for_vals)
+  # attr_for_vals.merge(build_vals)
+end
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

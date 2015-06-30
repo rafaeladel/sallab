@@ -6,7 +6,7 @@ FactoryGirl.define do
     	slogan2_en "test slogan2"
     	slogan1_ar "arabic slogan1"
     	slogan2_ar "arabic slogan2"
-    	banner_type "home"
+    	banner_type :news
     	association :gallery, factory: :valid_gallery
     end
   end

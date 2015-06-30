@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Product Section:</strong>
+  <%= @product.product_section %>
+</p>
+
+<p>
   <strong>Origin:</strong>
   <%= @product.origin %>
 </p>
@@ -17,7 +22,9 @@
 
 <p>
   <strong>Color:</strong>
-  <%= @product.color %>
+  <% @product.colors.each do |color| %>
+    <%= color.code %>
+  <% end %>
 </p>
 
 <p>

@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
+//= require jQuery-Cookie/jquery.cookie.min
 //= require seven_gallery/application
 //= require cocoon
 //= require colorpicker/js/bootstrap-colorpicker.min
+//= require jquery-validation-1.13.1/dist/jquery.validate.min
+//= require script

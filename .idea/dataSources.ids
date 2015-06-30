@@ -66,6 +66,29 @@
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="fk_rails_88e33acd2e" table="seven_gallery_galleries" schema="" catalog="sallab_db" columns="banner_id"/>
     </table>
+    <table name="branch_translations" schema="" catalog="sallab_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="branch_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="locale" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="address" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_branch_translations_on_branch_id" unique="false" columns="branch_id"/>
+      <index name="index_branch_translations_on_locale" unique="false" columns="locale"/>
+    </table>
+    <table name="branches" schema="" catalog="sallab_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="region_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="lat" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="long" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_rails_f63310192a" columns="region_id" ref-table="regions" ref-schema="" ref-catalog="sallab_db" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <index name="index_branches_on_region_id" unique="false" columns="region_id"/>
+    </table>
     <table name="brand_translations" schema="" catalog="sallab_db" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="brand_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -145,6 +168,7 @@
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_rails_0b001f140b" table="products" schema="" catalog="sallab_db" columns="product_section_id"/>
     </table>
     <table name="product_translations" schema="" catalog="sallab_db" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
@@ -162,13 +186,33 @@
       <column name="origin_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="brand_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="tile_size_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="color" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="code" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="product_section_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="fk_rails_0b001f140b" columns="product_section_id" ref-table="product_sections" ref-schema="" ref-catalog="sallab_db" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <exported-key name="fk_rails_4d68238213" table="colors" schema="" catalog="sallab_db" columns="product_id"/>
+      <index name="fk_rails_0b001f140b" unique="false" columns="product_section_id"/>
+    </table>
+    <table name="region_translations" schema="" catalog="sallab_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="region_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="locale" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_region_translations_on_locale" unique="false" columns="locale"/>
+      <index name="index_region_translations_on_region_id" unique="false" columns="region_id"/>
+    </table>
+    <table name="regions" schema="" catalog="sallab_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_rails_f63310192a" table="branches" schema="" catalog="sallab_db" columns="region_id"/>
     </table>
     <table name="schema_migrations" schema="" catalog="sallab_db" type="TABLE">
       <column name="version" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
@@ -214,11 +258,11 @@
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="seven_portfolio_item_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="banner_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="seven_portfolio_item_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="fk_rails_88e33acd2e" columns="banner_id" ref-table="banners" ref-schema="" ref-catalog="sallab_db" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <foreign-key name="fk_rails_5f13bde474" columns="seven_portfolio_item_id" ref-table="seven_portfolio_items" ref-schema="" ref-catalog="sallab_db" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_rails_88e33acd2e" columns="banner_id" ref-table="banners" ref-schema="" ref-catalog="sallab_db" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <exported-key name="fk_rails_ae2f08d478" table="seven_gallery_photos" schema="" catalog="sallab_db" columns="seven_gallery_gallery_id"/>
       <index name="index_seven_gallery_galleries_on_banner_id" unique="false" columns="banner_id"/>
       <index name="index_seven_gallery_galleries_on_seven_portfolio_item_id" unique="false" columns="seven_portfolio_item_id"/>
@@ -250,6 +294,18 @@
       <foreign-key name="fk_rails_ae2f08d478" columns="seven_gallery_gallery_id" ref-table="seven_gallery_galleries" ref-schema="" ref-catalog="sallab_db" ref-columns="id" update-rule="3" delete-rule="0" deferrability="2"/>
       <index name="index_seven_gallery_photos_on_seven_gallery_gallery_id" unique="false" columns="seven_gallery_gallery_id"/>
     </table>
+    <table name="seven_portfolio_item_translations" schema="" catalog="sallab_db" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="seven_portfolio_item_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="locale" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="index_1b38162cacc51f94c8320b143f7be178214ff78b" unique="false" columns="seven_portfolio_item_id"/>
+      <index name="index_seven_portfolio_item_translations_on_locale" unique="false" columns="locale"/>
+    </table>
     <table name="seven_portfolio_item_videos" schema="" catalog="sallab_db" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
@@ -266,9 +322,6 @@
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="created_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
-      <column name="finished_at" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
-      <column name="is_featured" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
       <column name="item_type" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="fk_rails_5f13bde474" table="seven_gallery_galleries" schema="" catalog="sallab_db" columns="seven_portfolio_item_id"/>

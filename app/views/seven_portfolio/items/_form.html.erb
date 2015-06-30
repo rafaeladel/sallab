@@ -1,0 +1,54 @@
+<%= form_for @item do |f| %>
+    <% if @item.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+          <ul>
+            <% @item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div>
+      <%= f.label :title_en %>
+      <%= f.text_field :title_en %>
+    </div>
+    <div>
+      <%= f.label :title_ar %>
+      <%= f.text_field :title_ar %>
+    </div>
+    <div>
+      <%= f.label :description_en %>
+      <%= f.text_area :description_en %>
+    </div>
+    <div>
+      <%= f.label :description_ar %>
+      <%= f.text_area :description_ar %>
+    </div>
+    <div>
+      <%= f.label :item_type %>
+      <br/>
+
+      <div class="item_type_radio_wrapper">
+        <%= f.radio_button :item_type, :no_media, id: :item_type_no_media, class: :item_type_radio %>
+        <%= f.label :item_type, "No Media", for: :item_type_no_media %>
+
+        <%= f.radio_button :item_type, :gallery, id: :item_type_gallery, class: :item_type_radio %>
+        <%= f.label :item_type, "Gallery", for: :item_type_gallery %>
+
+        <%= f.radio_button :item_type, :video, id: :item_type_video, class: :item_type_radio %>
+        <%= f.label :item_type, "Video", for: :item_type_video %>
+      </div>
+    </div>
+    <div class="item_type_wrapper">
+      <div class="item_video_wrapper" data-id="item_type_video">
+        <%= f.fields_for :item_video do |f_v| %>
+            <%= render "seven_portfolio/item_videos/fields", f: f_v %>
+        <% end %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

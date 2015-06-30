@@ -26,11 +26,11 @@ RSpec.describe RegionsController, type: :controller do
   # Region. As you add validations to Region, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:valid_region)
+    attributes_for(:valid_region)
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:invalid_region)
+    attributes_for(:invalid_region)
   }
 
   # This should return the minimal set of values that should be in the session
@@ -85,7 +85,7 @@ RSpec.describe RegionsController, type: :controller do
 
       it "redirects to the created region" do
         post :create, {:region => valid_attributes}, valid_session
-        expect(response).to redirect_to(Region.last)
+        expect(response).to redirect_to(new_branch_url)
       end
     end
 

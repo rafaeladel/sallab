@@ -28,11 +28,11 @@ RSpec.describe AboutSectionsController, type: :controller do
   # AboutSection. As you add validations to AboutSection, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    FactoryGirl.attributes_for(:valid_about_section)
+    attributes_for(:valid_about_section)
   }
 
   let(:invalid_attributes) {
-    FactoryGirl.attributes_for(:invalid_about_section)
+    attributes_for(:invalid_about_section)
   }
 
   # This should return the minimal set of values that should be in the session

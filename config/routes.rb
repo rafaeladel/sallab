@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 	    put "/about", as: "post_about_admin", to: "about#post_about_admin"
 
 			mount SevenGallery::Engine, at: "/"
-
+			mount SevenPortfolio::Engine, at: "/news"
+			mount SevenCareers::Engine, at: "/"
 		end
 
 end

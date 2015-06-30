@@ -7,7 +7,7 @@ $(function () {
             map_holder = wrapper.find("#map_canvas");
 
         if(lat_input.val() != '' && long_input.val() != '') {
-            myLatlng = new google.maps.LatLng($('#branch_type_longitude').val(),$('#branch_type_latitude').val())
+            myLatlng = new google.maps.LatLng($('.lat_input').val(),$('.long_input').val())
         } else {
             myLatlng = new google.maps.LatLng(30.1011046,31.219684);
         }

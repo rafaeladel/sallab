@@ -7,6 +7,7 @@ FactoryGirl.define do
     factory :valid_branch do
       address_en "english MyText"
       address_ar "arabic mytext"
+      association :region, factory: :valid_region
     end
 
     factory :invalid_branch do
@@ -14,5 +15,4 @@ FactoryGirl.define do
       address_ar ""
     end
   end
-
 end
