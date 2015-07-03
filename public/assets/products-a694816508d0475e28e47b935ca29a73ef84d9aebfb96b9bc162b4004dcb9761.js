@@ -1,0 +1,1 @@
+$(function(){function o(o){o.colorpicker().on("changeColor",function(c){o.css("background",c.color.toHex())})}o($("body").find(".colorpicker_field")),$("body").on("cocoon:after-insert","#colors",function(c,n){var r=$(n).find(".colorpicker_field");o(r)})});
