@@ -32,15 +32,19 @@
 							<td><a href="javascript:;" class="nameClickable"><img src="<%= image_url banner.image.url(:thumb) %>" /></a></td>
 							<td><%= banner.banner_type %></td>
 							<td>
-								<%= link_to(raw("Show" +("<i class='fa fa-eye'></i>")), banner, :class => "btn btn-default" %>
+								<%= link_to banner, :class => "btn btn-default" do %>
+								  <i class='fa fa-eye'></i> Show
+								<% end %>
 							</td>
 							<td>
-								<%= link_to(raw("Edit" +("<i class='fa fa-pencil'></i>")), edit_banner_path(banner), :class => "btn btn-warning" %>
+								<%= link_to edit_banner_path(banner), :class => "btn btn-warning" do %>
+								  <i class='fa fa-eye'></i> Edit
+								<% end %>
 							</td>
 							<td>
-								<a class="btn btn-danger tip" href="javascript:;" data-original-title="Remove">
-								<i class="fa fa-times"></i></a>
-								<%= link_to(raw("Remove" +("<i class='fa fa-times'></i>")), banner, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+								<%= link_to banner, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+								  <i class='fa fa-times'></i> Remove
+								<% end %>
 							</td>
 						</tr>
 						<% end %>
