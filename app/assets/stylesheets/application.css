@@ -16,5 +16,6 @@
  *= require themes/graphite.css
  *= require responsive.min
  *= require font-awesome/css/font-awesome.min
+ *= require bootstrap-table.min
  *= require_self
  */
