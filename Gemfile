@@ -24,10 +24,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
-gem 'seven_gallery', git: "https://github.com/rafaeladel/seven-gallery.git"
-gem 'seven_portfolio', git: "https://github.com/rafaeladel/seven-portfolio.git"
+gem 'seven_gallery', git: "https://github.com/rafaeladel/seven-gallery.git", branch: "postgre"
+gem 'seven_portfolio', git: "https://github.com/rafaeladel/seven-portfolio.git", branch: "postgre"
 gem 'seven_careers', git: "https://github.com/rafaeladel/seven-careers.git"
-gem 'seven_contact', git: "https://github.com/rafaeladel/seven_contact.git"
+gem 'seven_contact', git: "https://github.com/rafaeladel/seven_contact.git", branch: "postgre"
 
 gem 'mysql2'
 

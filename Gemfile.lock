@@ -8,7 +8,8 @@ GIT
 
 GIT
   remote: https://github.com/rafaeladel/seven-gallery.git
-  revision: f03a2517429ff9b7b6824ecdc6042a9cd3d23451
+  revision: 56fdeecb36fb3d0ece7f063e1c6b0e7a3276ee3d
+  branch: postgre
   specs:
     seven_gallery (0.0.6)
       bootstrap-sass
@@ -27,7 +28,8 @@ GIT
 
 GIT
   remote: https://github.com/rafaeladel/seven-portfolio.git
-  revision: 40c230f2f173b71d07e4368393b0dc4262499d85
+  revision: 0a371c41f97f33146962d0c353962faf4efea7f8
+  branch: postgre
   specs:
     seven_portfolio (0.0.1)
       auto_html
@@ -43,7 +45,8 @@ GIT
 
 GIT
   remote: https://github.com/rafaeladel/seven_contact.git
-  revision: 8c599ff30f4ce9e8cecb53aadf4cab50ca5438cf
+  revision: 38382f2b006ace020024316e3871585c0be9fc8c
+  branch: postgre
   specs:
     seven_contact (0.0.1)
       mysql2
