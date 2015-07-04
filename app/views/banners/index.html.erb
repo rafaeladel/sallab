@@ -1,27 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-sm-12">
+		<p class="alert alert-block alert-info hide" id="notice">
+			<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+			<%= notice %>
+		</p>
 
-<h1>Listing Banners</h1>
+		<div class="box border red">
+			<div class="box-title">
+				<h4><i class="fa fa-users"></i>Listing Banners</h4>
+			</div>
+			<div class="box-body">
+				<div class="box-body table-responsive">
+			<div id="custem-toolbar" class="form-group">
+				<div class="btn-toolbar">
+					<a href="<%= new_banner_url %>" class="btn btn-success"><i class="fa fa-plus-square"></i> New Banner</a>
+				</div>
+			</div>
+				<table id="newTable" data-search="true" data-toolbar="#custem-toolbar" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-click-to-select="true" data-sort-name="name" data-sort-order="desc" data-pagination="true" cellpadding="0" cellspacing="0" border="0" class="center table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th data-align="center">photo</th>
+							<th data-field="name" data-align="center" data-sortable="true">In:</th>
+							<th data-field="action1" data-align="center">Show</th>
+							<th data-field="action1" data-align="center">Edit</th>
+							<th data-field="action1" data-align="center">Destroy</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @banners.each do |banner| %>
+						<tr class="gradeX">
+							<td><a href="javascript:;" class="nameClickable"><img src="<%= image_url banner.image.url(:thumb) %>" /></a></td>
+							<td><%= banner.banner_type %></td>
+							<td>
+								<%= link_to banner, :class => "btn btn-default" do %>
+								  <i class='fa fa-eye'></i> Show
+								<% end %>
+							</td>
+							<td>
+								<%= link_to edit_banner_path(banner), :class => "btn btn-warning" do %>
+								  <i class='fa fa-eye'></i> Edit
+								<% end %>
+							</td>
+							<td>
+								<%= link_to banner, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+								  <i class='fa fa-times'></i> Remove
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @banners.each do |banner| %>
-      <tr>
-        <td><img src="<%= image_url banner.image.url(:thumb) %>" /></td>
-        <td>In: <%= banner.banner_type %></td>
-        <td><%= link_to 'Show', banner %></td>
-        <td><%= link_to 'Edit', edit_banner_path(banner) %></td>
-        <td><%= link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Banner', new_banner_path %>
+			</div>
+		</div>
+	</div>
+</div>

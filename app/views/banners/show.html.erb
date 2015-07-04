@@ -1,13 +1,55 @@
-<p id="notice"><%= notice %></p>
-
-<h4>upload:</h4>
-<div id="uploaderWrapper" class="dropzone" data-name="photo[image]" data-url="<%= seven_gallery.gallery_photos_url(@banner.gallery, script_name: "/admin") %>">
-  <p class="dz-message">Select photos</p>
-</div>
-
-<p><%= @banner.slogan1 %></p>
-<p><%= @banner.slogan2 %></p>
-<p><%= @banner.banner_type %></p>
-
-<%= link_to 'Edit', edit_banner_path(@banner) %> |
-<%= link_to 'Back', banners_path %>
+<p class="alert alert-block alert-info hide" id="notice">
+	<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+	<%= notice %>
+</p>
+<div class="box border blue">
+	<div class="box-title">
+		<h4><i class="fa fa-calendar"></i>Upload Images:</h4>
+	</div>
+	<div class="box-body">
+		 <div class="form-horizontal " action="#">
+			<div class="form-group">
+				<label class="col-md-3 control-label">Select Images</label>
+				<div class="col-md-9">
+					<div id="uploaderWrapper" class="dropzone" data-name="photo[image]" data-url="<%= seven_gallery.gallery_photos_url(@banner.gallery, script_name: "/admin") %>">
+					  <p class="dz-message">Select photos</p>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Slogan 1 (English)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @banner.slogan1_en %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Slogan 2 (English)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @banner.slogan2_en %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Slogan 1 (Arabic)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @banner.slogan1_ar %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Slogan 2 (Arabic)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @banner.slogan2_ar %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Page</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @banner.banner_type %>" disabled>
+				</div>
+			</div>	
+			<div class="form-group text-center">
+				<%= link_to 'Edit', edit_banner_path(@banner), :class => "btn btn-warning" %> | 
+				<%= link_to 'Back', banners_path ,:class => "btn btn-primary" %>
+			</div>																			
+		</div>
+	</div>
+<!-- /DATE PICKER -->

@@ -1,39 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-sm-12">
+		<p class="alert alert-block alert-info hide" id="notice">
+			<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+			<%= notice %>
+		</p>
+		<div class="box border red">
+			<div class="box-title">
+				<h4><i class="fa fa-users"></i>Listing Products</h4>
+			</div>
+			<div class="box-body">
+				<div class="box-body table-responsive">
+			<div id="custem-toolbar" class="form-group">
+				<div class="btn-toolbar">
+					<a href="<%= new_product_url %>" class="btn btn-success"><i class="fa fa-plus-square"></i> New Banner</a>
+				</div>
+			</div>
+				<table id="newTable" data-search="true" data-toolbar="#custem-toolbar" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-click-to-select="true" data-sort-name="name" data-sort-order="desc" data-pagination="true" cellpadding="0" cellspacing="0" border="0" class="center table table-striped table-bordered table-hover">
+					<thead>
+						<tr class="text-center">
+							<th data-field="Origin">Origin</th>
+							<th data-field="Brand">Brand</th>
+							<th data-field="Tile">Tile size</th>
+							<th data-field="Colors">Colors</th>
+							<th data-field="Code">Code</th>
+							<th data-field="Description">Description</th>
+							<th data-field="Image">Image</th>
+							<th data-field="action1">Show</th>
+							<th data-field="action2">Edit</th>
+							<th data-field="action3">Destroy</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% @products.each do |product| %>
+						<tr class="gradeX">
+							<td><%= product.origin.title %></td>
+							<td><%= product.brand.title %></td>
+							<td><%= product.tile_size.height %> x <%= product.tile_size.width %> </td>
+							<td><%= product.colors %></td>
+							<td><%= product.code %></td>
+							<td><%= product.description %></td>
+							<td><%= image_tag(product.image.thumb.url) %></td>
+							<td>
+								<%= link_to product, :class => "btn btn-default" do %>
+								  <i class='fa fa-eye'></i> Show
+								<% end %>
+							</td>
+							<td>
+								<%= link_to edit_product_path(product), :class => "btn btn-warning" do %>
+								  <i class='fa fa-pencil'></i> Edit
+								<% end %>
+							</td>
+							<td>
+								<%= link_to product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+								  <i class='fa fa-times'></i> Remove
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
 
-<h1>Listing Products</h1>
-
-<table border="1">
-  <thead>
-    <tr>
-      <th>Origin</th>
-      <th>Brand</th>
-      <th>Tile size</th>
-      <th>Colors</th>
-      <th>Code</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.origin.title %></td>
-        <td><%= product.brand.title %></td>
-        <td><%= product.tile_size.height %> x <%= product.tile_size.width %> </td>
-        <td><%= product.colors %></td>
-        <td><%= product.code %></td>
-        <td><%= product.description %></td>
-        <td><%= image_tag(product.image.thumb.url) %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>
+			</div>
+		</div>
+	</div>
+</div>
