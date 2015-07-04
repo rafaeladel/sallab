@@ -1,19 +1,47 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @about_section.title %>
+<p class="alert alert-block alert-info hide" id="notice">
+	<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+	<%= notice %>
 </p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @about_section.content %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @about_section.image %>
-</p>
-
-<%= link_to 'Edit', edit_about_section_path(@about_section) %> |
-<%= link_to 'Back', about_sections_path %>
+<div class="box border blue">
+	<div class="box-title">
+		<h4><i class="fa fa-calendar"></i>Upload Images:</h4>
+	</div>
+	<div class="box-body">
+		 <div class="form-horizontal " action="#">
+			<div class="form-group">
+				<label class="col-md-3 control-label">Title (English)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @about_section.title_en %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Title (Arabic)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @about_section.title_ar %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Content (English)</label>
+				<div class="col-md-9">
+					<textarea class="form-control" disabled><%= @about_section.content_en %></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Content (Arabic)</label>
+				<div class="col-md-9">
+					<textarea class="form-control" disabled><%= @about_section.content_ar %></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Image</label>
+				<div class="col-md-9">
+					<%= @about_section.image %>
+				</div>
+			</div>
+			<div class="form-group text-center">
+				<%= link_to 'Edit', edit_about_section_path(@about_section), :class => "btn btn-warning" %> | 
+				<%= link_to 'Back', about_sections_path ,:class => "btn btn-primary" %>
+			</div>																			
+		</div>
+	</div>
+<!-- /DATE PICKER -->
