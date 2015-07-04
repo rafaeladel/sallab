@@ -9,9 +9,6 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 
-app.config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')  
-app.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-
 controllers = [
     "about_sections",
     "banners",
