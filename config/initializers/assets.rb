@@ -27,3 +27,6 @@ controllers = [
 script_files = controllers.map { |c| "#{c}.js" }
 
 style_files = controllers.map { |c| "#{c}.css" }
+
+Rails.application.config.assets.precompile += script_files
+Rails.application.config.assets.precompile += style_files
