@@ -71,8 +71,8 @@
             <span class="arrow"></span>
           </a>
           <ul class="sub">
-            <li><a class="" href="<%= banners_url %>"><span class="sub-menu-text">List Banners</span></a></li>
-            <li><a class="" href="<%= new_banner_url %>"><span class="sub-menu-text">Add Banner</span></a></li>
+            <li><a class="" href="<%= main_app.banners_url %>"><span class="sub-menu-text">List Banners</span></a></li>
+            <li><a class="" href="<%= main_app.new_banner_url %>"><span class="sub-menu-text">Add Banner</span></a></li>
           </ul>
         </li>
         <li class="has-sub">
@@ -81,10 +81,10 @@
             <span class="arrow"></span>
           </a>
           <ul class="sub">
-            <li><a class="" href="<%= regions_url %>"><span class="sub-menu-text">List Regions</span></a></li>
-            <li><a class="" href="<%= new_region_url %>"><span class="sub-menu-text">Add Region</span></a></li>
-            <li><a class="" href="<%= branches_url %>"><span class="sub-menu-text">List Branches</span></a></li>
-            <li><a class="" href="<%= new_branch_url %>"><span class="sub-menu-text">Add Branch</span></a></li>
+            <li><a class="" href="<%= main_app.regions_url %>"><span class="sub-menu-text">List Regions</span></a></li>
+            <li><a class="" href="<%= main_app.new_region_url %>"><span class="sub-menu-text">Add Region</span></a></li>
+            <li><a class="" href="<%= main_app.branches_url %>"><span class="sub-menu-text">List Branches</span></a></li>
+            <li><a class="" href="<%= main_app.new_branch_url %>"><span class="sub-menu-text">Add Branch</span></a></li>
           </ul>
         </li>
         <li class="has-sub">
@@ -113,16 +113,16 @@
             <span class="arrow"></span>
           </a>
           <ul class="sub">
-            <li><a class="" href="<%= new_product_section_url %>"><span class="sub-menu-text">Add Product Section</span></a></li>
-            <li><a class="" href="<%= product_sections_url %>"><span class="sub-menu-text">List Product Section</span></a></li>
-            <li><a class="" href="<%= new_product_url %>"><span class="sub-menu-text">Add Product</span></a></li>
-            <li><a class="" href="<%= products_url %>"><span class="sub-menu-text">List Products</span></a></li>
-            <li><a class="" href="<%= new_origin_url %>"><span class="sub-menu-text">Add Origin</span></a></li>
-            <li><a class="" href="<%= origins_url %>"><span class="sub-menu-text">List Origins</span></a></li>
-            <li><a class="" href="<%= new_brand_url %>"><span class="sub-menu-text">Add Brand</span></a></li>
-            <li><a class="" href="<%= brands_url %>"><span class="sub-menu-text">List Brands</span></a></li>
-            <li><a class="" href="<%= new_tile_size_url %>"><span class="sub-menu-text">Add Tile size</span></a></li>
-            <li><a class="" href="<%= tile_sizes_url %>"><span class="sub-menu-text">List Tile sizes</span></a></li>
+            <li><a class="" href="<%= main_app.new_product_section_url %>"><span class="sub-menu-text">Add Product Section</span></a></li>
+            <li><a class="" href="<%= main_app.product_sections_url %>"><span class="sub-menu-text">List Product Section</span></a></li>
+            <li><a class="" href="<%= main_app.new_product_url %>"><span class="sub-menu-text">Add Product</span></a></li>
+            <li><a class="" href="<%= main_app.products_url %>"><span class="sub-menu-text">List Products</span></a></li>
+            <li><a class="" href="<%= main_app.new_origin_url %>"><span class="sub-menu-text">Add Origin</span></a></li>
+            <li><a class="" href="<%= main_app.origins_url %>"><span class="sub-menu-text">List Origins</span></a></li>
+            <li><a class="" href="<%= main_app.new_brand_url %>"><span class="sub-menu-text">Add Brand</span></a></li>
+            <li><a class="" href="<%= main_app.brands_url %>"><span class="sub-menu-text">List Brands</span></a></li>
+            <li><a class="" href="<%= main_app.new_tile_size_url %>"><span class="sub-menu-text">Add Tile size</span></a></li>
+            <li><a class="" href="<%= main_app.tile_sizes_url %>"><span class="sub-menu-text">List Tile sizes</span></a></li>
           </ul>
         </li>
         <li class="has-sub">
@@ -185,7 +185,7 @@
 <script type="text/javascript" charset="utf-8">
   $(function() {
       App.init();
-	  $("#newTable").bootstrapTable()
+      $("#newTable").bootstrapTable()
   })
 </script>
 </body>
