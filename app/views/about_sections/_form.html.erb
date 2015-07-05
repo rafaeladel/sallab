@@ -1,4 +1,4 @@
-<%= form_for (@about_section), class: "form-horizontal form-validate" do |f| %>
+<%= form_for @about_section, class: "form-horizontal form-validate" do |f| %>
   <% if @about_section.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@about_section.errors.count, "error") %> prohibited this about_section from being saved:</h2>

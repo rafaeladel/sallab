@@ -1,4 +1,4 @@
-<%= form_for(@origin), class: "form-horizontal form-validate" do |f| %>
+<%= form_for @origin, class: "form-horizontal form-validate" do |f| %>
   <% if @origin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@origin.errors.count, "error") %> prohibited this origin from being saved:</h2>
