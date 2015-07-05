@@ -17,3 +17,16 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+<%= form_for [@gallery, @photo], html: { multipart: true }, class: "form-horizontal form-validate" do |f| %>
+  <div class="box border primary">
+      <div class="box-title">
+        <h4><i class="fa fa-money"></i>Gallery Photos</h4>
+      </div>
+      <div class="box-body">
+		<%= render "fields", f: f %>
+      </div>
+    </div>
+    <%= f.submit class: "btn btn-primary btn-block" %>
+<% end %>
