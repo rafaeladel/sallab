@@ -1,4 +1,4 @@
-<%= form_for(@item_video) do |f| %>
+<%= form_for(@item_video), class: "form-horizontal form-validate" do |f| %>
     <% if @item_video.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@item_video.errors.count, "error") %> prohibited this item_video from being saved:</h2>
@@ -11,21 +11,13 @@
         </div>
     <% end %>
 
-    <%= render "seven_portfolio/item_videos/fields", f: f %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-<%= form_for [@gallery, @photo], html: { multipart: true }, class: "form-horizontal form-validate" do |f| %>
-  <div class="box border primary">
+<div class="box border primary">
       <div class="box-title">
-        <h4><i class="fa fa-money"></i>Gallery Photos</h4>
+        <h4><i class="fa fa-money"></i>Videos</h4>
       </div>
       <div class="box-body">
-		<%= render "fields", f: f %>
+		
+		<%= render "seven_portfolio/item_videos/fields", f: f %>
       </div>
     </div>
     <%= f.submit class: "btn btn-primary btn-block" %>
