@@ -1,11 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @gallery.title %>
+<p class="alert alert-block alert-info hide" id="notice">
+	<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+	<%= notice %>
 </p>
-<%= link_to 'Edit', seven_gallery.edit_gallery_path(@gallery) %> |
-<%= link_to 'Back', seven_gallery.galleries_path %>
+<div class="box border blue">
+	<div class="box-title">
+		<h4><i class="fa fa-calendar"></i>Gallery Info:</h4>
+	</div>
+	<div class="box-body">
+		 <div class="form-horizontal ">
+			<div class="form-group">
+				<label class="col-md-3 control-label">Title: (English)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @gallery.title_en %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Title: (Arabic)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @gallery.title_ar %>" disabled>
+				</div>
+			</div>
+			<div class="form-group text-center">
+				<%= link_to 'Edit', seven_gallery.edit_gallery_path(@gallery), :class => "btn btn-warning" %> | 
+				<%= link_to 'Back', seven_gallery.galleries_path,:class => "btn btn-primary" %>
+			</div>	
 
 <%= render "seven_gallery/photos/photo_wrapper" %>
 
@@ -15,3 +33,6 @@
 <div class="row">
   <%= will_paginate @photos %>
 </div>
+			
+		</div>
+	</div>
