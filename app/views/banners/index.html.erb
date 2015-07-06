@@ -29,7 +29,7 @@
 					<tbody>
 						<% @banners.each do |banner| %>
 						<tr class="gradeX">
-							<td><a href="javascript:;" class="nameClickable"><img src="<%= image_url banner.image.url(:thumb) %>" /></a></td>
+							<td><img src="<%= image_url banner.image.url(:thumb) %>" /></td>
 							<td><%= banner.banner_type %></td>
 							<td>
 								<%= link_to banner, :class => "btn btn-default" do %>
@@ -38,7 +38,7 @@
 							</td>
 							<td>
 								<%= link_to edit_banner_path(banner), :class => "btn btn-warning" do %>
-								  <i class='fa fa-eye'></i> Edit
+								  <i class='fa fa-pencil'></i> Edit
 								<% end %>
 							</td>
 							<td>
