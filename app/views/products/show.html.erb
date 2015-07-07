@@ -11,32 +11,32 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label">Product Section:</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" value="<%= @product.product_section %>" disabled>
+					<input type="text" class="form-control" value="<%= @product.product_section.title %>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label">Origin</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" value="<%= @product.origin %>" disabled>
+					<input type="text" class="form-control" value="<%= @product.origin.title %>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label">Brand</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" value="<%= @product.brand %>" disabled>
+					<input type="text" class="form-control" value="<%= @product.brand.title %>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label">Tile size</label>
 				<div class="col-md-9">
-					<input type="text" class="form-control" value="<%= @product.tile_size %>" disabled>
+					<input type="text" class="form-control" value="<%= @product.tile_size.height %> x <%= @product.tile_size.width %>" disabled>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Tile size</label>
+				<label class="col-md-3 control-label">Colors</label>
 				<div class="col-md-9">
 					  <% @product.colors.each do |color| %>
-						<div><%= color.code %></div>
+						<div style="background: <%= color.code %>; width: 100px; height: 30px;"></div>
 					  <% end %>
 				</div>
 			</div>
