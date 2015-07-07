@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rafaeladel/seven-careers.git
-  revision: 10614fc920ffacfeb01513b7c2bc2e4618d7d20e
+  revision: f53c81a3997affab06c31bfef4dd0d1d846aa73e
   specs:
     seven_careers (0.0.1)
       carrierwave
@@ -28,7 +28,7 @@ GIT
 
 GIT
   remote: https://github.com/rafaeladel/seven-portfolio.git
-  revision: 0a371c41f97f33146962d0c353962faf4efea7f8
+  revision: 8741d5c8edda74672c0997de5f337f5affb6418d
   branch: postgre
   specs:
     seven_portfolio (0.0.1)
@@ -144,7 +144,7 @@ GEM
     globalize-accessors (0.2.1)
       globalize (~> 5.0, >= 5.0.0)
     i18n (0.7.0)
-    jbuilder (2.3.0)
+    jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jcrop-rails-v2 (0.9.12.3)
@@ -163,7 +163,7 @@ GEM
     mini_magick (4.2.7)
     mini_portile (0.6.2)
     minitest (5.7.0)
-    multi_json (1.11.1)
+    multi_json (1.11.2)
     mysql2 (0.3.18)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
