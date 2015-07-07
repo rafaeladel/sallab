@@ -38,7 +38,7 @@
 							<td><%= product.tile_size.height %> x <%= product.tile_size.width %> </td>
 							<td>
                               <% product.colors.each do |color| %>
-                                <span><%= color.code %></span>
+                                  <div style="background: <%= color.code %>; width: 100px; height: 30px;"></div>
                               <% end %>
                             </td>
 							<td><%= product.code %></td>
