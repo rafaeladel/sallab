@@ -1,12 +1,18 @@
-<div>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="form-group clearfix">
+  <%= f.label :title, class: "col-sm-3 control-label" %>
+  <div class="col-sm-9">
+	<%= f.text_field :title, class: "form-control" %>
+  </div>
 </div>
-<div>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
+<div class="form-group clearfix">
+  <%= f.label :url, class: "col-sm-3 control-label" %>
+  <div class="col-sm-9">
+	<%= f.text_field :url, class: "form-control" %>
+  </div>
 </div>
-<div>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+<div class="form-group clearfix">
+  <%= f.label :description, class: "col-sm-3 control-label" %>
+  <div class="col-sm-9">
+	<%= f.text_field :description, class: "form-control" %>
+  </div>
 </div>

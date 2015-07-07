@@ -1,4 +1,4 @@
-<%= form_for(@product) do |f| %>
+<%= form_for @product, :html => {:class => 'form-horizontal form-validate'} do |f| %>
     <% if @product.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -11,48 +11,92 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :product_section %><br>
-      <%= f.collection_select :product_section_id, @product_sections, :id, :title %>
-    </div>
-    <div class="field">
-      <%= f.label :origin %><br>
-      <%= f.collection_select :origin_id, @origins, :id, :title %>
-    </div>
-    <div class="field">
-      <%= f.label :brand %><br>
-      <%= f.collection_select :brand_id, @brands, :id, :title %>
-    </div>
-    <div class="field">
-      <%= f.label :tile_size %><br>
-      <%= f.collection_select :tile_size_id, @tile_sizes, :id, :height %>
-    </div>
-    <div id="colors">
-      <%= f.label :color %><br>
-      <%= f.fields_for :colors do |c| %>
-          <%= render "colors/color_fields", f: c %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association "add color", f, :colors, partial: "colors/color_fields" %>
+    <div class="box border primary">
+      <div class="box-title">
+        <h4><i class="fa fa-money"></i>Produst Info</h4>
+      </div>
+      <div class="box-body">
+        <div class="tabbable header-tabs">
+          <ul class="nav nav-tabs">
+            <li><a href="#box_tab1" data-toggle="tab"><i class="fa fa-keyboard-o"></i>
+              <span class="hidden-inline-mobile">Arabic</span></a></li>
+            <li class="active"><a href="#box_tab2" data-toggle="tab"><i class="fa fa-globe"></i>
+              <span class="hidden-inline-mobile">English</span></a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade" id="box_tab1">
+              <div class="form-group clearfix">
+                <%= f.label :description_ar, class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                  <%= f.text_area :description_ar, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade in active" id="box_tab2">
+              <div class="form-group clearfix">
+                <%= f.label :description_en, class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                  <%= f.text_area :description_en, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="field">
-      <%= f.label :code %><br>
-      <%= f.text_field :code %>
+    <div class="box border lite">
+      <div class="box-title">
+        <h4><i class="fa fa-bars"></i>General</h4>
+      </div>
+      <div class="box-body center">
+        <div class="form-group clearfix">
+		  <%= f.label :product_section, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+			<%= f.collection_select :product_section_id, @product_sections, :id, :title,{ :class => 'form-control' } %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+		  <%= f.label :origin, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+			<%= f.collection_select :origin_id, @origins, :id, :title,{ :class => 'form-control' } %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+		  <%= f.label :brand, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+			<%= f.collection_select :brand_id, @brands, :id, :title,{ :class => 'form-control' } %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+		  <%= f.label :tile_size, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+			<%= f.collection_select :tile_size_id, @tile_sizes, :id, :height,{ :class => 'form-control' } %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+		  <%= f.label :color, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+			  <%= f.fields_for :colors do |c| %>
+				<%= render "colors/color_fields", f: c %>
+			  <% end %>
+			  <div class="links">
+				<%= link_to_add_association "add color", f, :colors, partial: "colors/color_fields" %>
+			  </div>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+		  <%= f.label :code, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+			<%= f.text_field :code, class: "control-label" %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+		  <%= f.label :image, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+			<%= f.file_field :image, class: "control-label" %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <%= f.label :description_en %><br>
-      <%= f.text_area :description_en %>
-    </div>
-    <div class="field">
-      <%= f.label :description_ar %><br>
-      <%= f.text_area :description_ar %>
-    </div>
-    <div class="field">
-      <%= f.label :image %><br>
-      <%= f.file_field :image %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+    <%= f.submit class: "btn btn-primary btn-block" %>
 <% end %>

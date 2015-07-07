@@ -1,45 +1,67 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Product Section:</strong>
-  <%= @product.product_section %>
+<p class="alert alert-block alert-info hide" id="notice">
+	<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+	<%= notice %>
 </p>
-
-<p>
-  <strong>Origin:</strong>
-  <%= @product.origin %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand %>
-</p>
-
-<p>
-  <strong>Tile size:</strong>
-  <%= @product.tile_size %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <% @product.colors.each do |color| %>
-    <%= color.code %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @product.code %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag(@product.image.thumb.url) %></p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="box border blue">
+	<div class="box-title">
+		<h4><i class="fa fa-calendar"></i> Origins:</h4>
+	</div>
+	<div class="box-body">
+		 <div class="form-horizontal " action="#">
+			<div class="form-group">
+				<label class="col-md-3 control-label">Product Section:</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" value="<%= @product.product_section %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Origin</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" value="<%= @product.origin %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Brand</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" value="<%= @product.brand %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Tile size</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" value="<%= @product.tile_size %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Tile size</label>
+				<div class="col-md-9">
+					  <% @product.colors.each do |color| %>
+						<div><%= color.code %></div>
+					  <% end %>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Code</label>
+				<div class="col-md-9">
+					<input type="text" class="form-control" value="<%= @product.code %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Description</label>
+				<div class="col-md-9">
+					<textarea class="form-control" disabled><%= @product.description %></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Image</label>
+				<div class="col-md-9">
+					<%= image_tag(@product.image.thumb.url) %>
+				</div>
+			</div>
+			<div class="form-group text-center">
+				<%= link_to 'Edit', edit_product_path(@product), :class => "btn btn-warning" %> |
+				<%= link_to 'Back', products_path ,:class => "btn btn-primary" %>
+			</div>																			
+		</div>
+	</div>
+</div>
