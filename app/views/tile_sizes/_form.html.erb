@@ -1,4 +1,4 @@
-<%= form_for @tile_size, class: "form-horizontal form-validate" do |f| %>
+<%= form_for @tile_size, :html => {:class => 'form-horizontal form-validate'} do |f| %>
   <% if @tile_size.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tile_size.errors.count, "error") %> prohibited this tile_size from being saved:</h2>
