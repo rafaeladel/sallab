@@ -8,6 +8,7 @@ class HomeController < ApplicationController
 	# POST /admin/home
 	def post_home_admin
 		if @home.update(home_params)
+			flash[:notice] = "Saved!"
 			redirect_to get_home_admin_url
 		else
 			render "get_home_admin"

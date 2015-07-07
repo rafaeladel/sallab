@@ -8,6 +8,7 @@ class AboutController < ApplicationController
 	# POST /admin/about
 	def post_about_admin
 		if @about.update(about_params)
+			flash[:notice] = "Saved!"
 			redirect_to get_about_admin_url
 		else
 			render "get_about_admin"
