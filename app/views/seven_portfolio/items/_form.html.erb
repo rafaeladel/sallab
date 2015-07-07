@@ -1,27 +1,3 @@
-      <div class="item_type_radio_wrapper">
-        <%= f.radio_button :item_type, :no_media, id: :item_type_no_media, class: :item_type_radio %>
-        <%= f.label :item_type, "No Media", for: :item_type_no_media %>
-
-        <%= f.radio_button :item_type, :gallery, id: :item_type_gallery, class: :item_type_radio %>
-        <%= f.label :item_type, "Gallery", for: :item_type_gallery %>
-
-        <%= f.radio_button :item_type, :video, id: :item_type_video, class: :item_type_radio %>
-        <%= f.label :item_type, "Video", for: :item_type_video %>
-      </div>
-    </div>
-    <div class="item_type_wrapper">
-      <div class="item_video_wrapper" data-id="item_type_video">
-        <%= f.fields_for :item_video do |f_v| %>
-            <%= render "seven_portfolio/item_videos/fields", f: f_v %>
-        <% end %>
-      </div>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-<% end %>
-
-
 <%= form_for @item, :html => {:class => 'form-horizontal form-validate'} do |f| %>
     <% if @item.errors.any? %>
         <div id="error_explanation">
