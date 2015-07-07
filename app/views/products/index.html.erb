@@ -36,7 +36,11 @@
 							<td><%= product.origin.title %></td>
 							<td><%= product.brand.title %></td>
 							<td><%= product.tile_size.height %> x <%= product.tile_size.width %> </td>
-							<td><%= product.colors %></td>
+							<td>
+                              <% product.colors.each do |color| %>
+                                <span><%= color.code %></span>
+                              <% end %>
+                            </td>
 							<td><%= product.code %></td>
 							<td><%= product.description %></td>
 							<td><%= image_tag(product.image.thumb.url) %></td>
