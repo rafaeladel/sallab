@@ -1,29 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="col-sm-12">
+		<p class="alert alert-block alert-info hide" id="notice">
+			<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+			<%= notice %>
+		</p>
 
-<h1>Listing Jobs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Applied Candidates</th>
-      <th colspan="4">Action</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.candidates.length %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Job', new_job_path %>
+		<div class="box border red">
+			<div class="box-title">
+				<h4><i class="fa fa-users"></i>Listing Jobs</h4>
+			</div>
+			<div class="box-body">
+				<div class="box-body table-responsive">
+			<div id="custem-toolbar" class="form-group">
+				<div class="btn-toolbar">
+					<a href="<%= new_job_url %>" class="btn btn-success"><i class="fa fa-plus-square"></i> New Job</a>
+				</div>
+			</div>
+				<table id="newTable" data-search="true" data-toolbar="#custem-toolbar" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-click-to-select="true" data-sort-name="name" data-sort-order="desc" data-pagination="true" cellpadding="0" cellspacing="0" border="0" class="center table table-striped table-bordered table-hover">
+					<thead>
+						<tr class="text-center">
+							<th data-field="name" data-sortable="true">Title</th>
+							<th data-sortable="true">Applied Candidates</th>
+							<th>Show</th>
+							<th>Edit</th>
+							<th>Destroy</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @jobs.each do |job| %>
+						<tr class="gradeX">
+							<td><%= job.title %></td>
+							<td><%= job.candidates.length %></td>
+							<td>
+								<%= link_to job, :class => "btn btn-default" do %>
+								  <i class='fa fa-eye'></i> Show
+								<% end %>
+							</td>
+							<td>
+								<%= link_to edit_job_path(job), :class => "btn btn-warning" do %>
+								  <i class='fa fa-pencil'></i> Edit
+								<% end %>
+							</td>
+							<td>
+								<%= link_to job, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+								  <i class='fa fa-times'></i> Remove
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>

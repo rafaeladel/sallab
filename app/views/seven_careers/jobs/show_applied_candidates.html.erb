@@ -1,50 +1,53 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Candidates for <%= @job.title %> vacancy.</h1>
-<% if @job.candidates.exists? %>
-<table>
-  <thead>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Resume</th>
-    <th>Applied At</th>
-    <th>Status</th>
-    <th></th>
-
-  </tr>
-  </thead>
-
-  <tbody>
-
-
-
-
-  <% @job.candidates.each do |candidate| %>
-      <tr>
-        <td><%= candidate.name %></td>
-        <td><%= candidate.email %></td>
-        <td><%= candidate.phone %></td>
-        <td><%= link_to "Download Resume", candidate.resume.url %></td>
-        <td><%= candidate.created_at %></td>
-        <td>
-          <%= form_for(candidate) do |status| %>
-              <%= collection_select :candidate, :status_id, SevenCareers::CandidateStatus.all, :id, :name, {:include_blank => true, :selected => candidate.status_id}, {:onchange => 'this.form.submit();' }  %>
-          <% end  %>
-
-        </td>
-        <td><%= link_to "Send Resume", candidate_send_resume_url(:id => candidate.id) %></td>
-
-
-
-
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<% else %>
-    No candidates applied fot this job.
-
-<% end %>
+<div class="row">
+	<div class="col-sm-12">
+		<p class="alert alert-block alert-info hide" id="notice">
+			<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+			<%= notice %>
+		</p>
+		<div class="box border red">
+			<div class="box-title">
+				<h4><i class="fa fa-users"></i>Listing Candidates for <%= @job.title %> vacancy.</h4>
+			</div>
+			<div class="box-body">
+				<div class="box-body table-responsive">
+			<div id="custem-toolbar" class="form-group">
+			</div>
+				<% if @job.candidates.exists? %>
+				<table id="newTable" data-search="true" data-toolbar="#custem-toolbar" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-click-to-select="true" data-sort-name="name" data-sort-order="desc" data-pagination="true" cellpadding="0" cellspacing="0" border="0" class="center table table-striped table-bordered table-hover">
+					<thead>
+						<tr class="text-center">
+							<th data-field="name" data-sortable="true">Name</th>
+							<th data-sortable="true">Email</th>
+							<th data-sortable="true">Phone</th>
+							<th>Resume</th>
+							<th data-sortable="true">Applied At</th>
+							<th data-sortable="true">Status</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @job.candidates.each do |candidate| %>
+						<tr class="gradeX">
+							<td><%= candidate.name %></td>
+							<td><%= candidate.email %></td>
+							<td><%= candidate.phone %></td>
+							<td><%= link_to "Download Resume", candidate.resume.url %></td>
+							<td><%= candidate.created_at %></td>
+							<td>
+							  <%= form_for(candidate) do |status| %>
+								  <%= collection_select :candidate, :status_id, SevenCareers::CandidateStatus.all, :id, :name, {:include_blank => true, :selected => candidate.status_id}, {:onchange => 'this.form.submit();' }  %>
+							  <% end  %>
+							</td>
+							<td><%= link_to "Send Resume", candidate_send_resume_url(:id => candidate.id), :class => "btn btn-info" %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>				
+				<% else %>
+					No candidates applied fot this job.
+				<% end %>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
