@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150627133310) do
+ActiveRecord::Schema.define(version: 20150707222028) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -36,19 +36,6 @@ ActiveRecord::Schema.define(version: 20150627133310) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "about_translations", force: :cascade do |t|
-    t.integer  "about_id",    limit: 4,     null: false
-    t.string   "locale",      limit: 255,   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.text     "keywords",    limit: 65535
-  end
-
-  add_index "about_translations", ["about_id"], name: "index_about_translations_on_about_id", using: :btree
-  add_index "about_translations", ["locale"], name: "index_about_translations_on_locale", using: :btree
-
   create_table "banner_translations", force: :cascade do |t|
     t.integer  "banner_id",  limit: 4,   null: false
     t.string   "locale",     limit: 255, null: false
@@ -67,17 +54,6 @@ ActiveRecord::Schema.define(version: 20150627133310) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
-
-  create_table "branch_translations", force: :cascade do |t|
-    t.integer  "branch_id",  limit: 4,     null: false
-    t.string   "locale",     limit: 255,   null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "address",    limit: 65535
-  end
-
-  add_index "branch_translations", ["branch_id"], name: "index_branch_translations_on_branch_id", using: :btree
-  add_index "branch_translations", ["locale"], name: "index_branch_translations_on_locale", using: :btree
 
   create_table "branches", force: :cascade do |t|
     t.string   "phone",      limit: 255
@@ -120,19 +96,6 @@ ActiveRecord::Schema.define(version: 20150627133310) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "home_translations", force: :cascade do |t|
-    t.integer  "home_id",     limit: 4,     null: false
-    t.string   "locale",      limit: 255,   null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.text     "keywords",    limit: 65535
-  end
-
-  add_index "home_translations", ["home_id"], name: "index_home_translations_on_home_id", using: :btree
-  add_index "home_translations", ["locale"], name: "index_home_translations_on_locale", using: :btree
-
   create_table "origin_translations", force: :cascade do |t|
     t.integer  "origin_id",  limit: 4,   null: false
     t.string   "locale",     limit: 255, null: false
@@ -147,6 +110,25 @@ ActiveRecord::Schema.define(version: 20150627133310) do
   create_table "origins", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "page_info_translations", force: :cascade do |t|
+    t.integer  "page_info_id",        limit: 4,     null: false
+    t.string   "locale",              limit: 255,   null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "general_title",       limit: 255
+    t.text     "general_description", limit: 65535
+    t.text     "general_keywords",    limit: 65535
+  end
+
+  add_index "page_info_translations", ["locale"], name: "index_page_info_translations_on_locale", using: :btree
+  add_index "page_info_translations", ["page_info_id"], name: "index_page_info_translations_on_page_info_id", using: :btree
+
+  create_table "page_infos", force: :cascade do |t|
+    t.integer  "info_type",  limit: 4, default: 0
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "product_section_translations", force: :cascade do |t|
@@ -215,11 +197,21 @@ ActiveRecord::Schema.define(version: 20150627133310) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "seven_careers_job_translations", force: :cascade do |t|
+    t.integer  "seven_careers_job_id", limit: 4,     null: false
+    t.string   "locale",               limit: 255,   null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "title",                limit: 255
+    t.text     "description",          limit: 65535
+  end
+
+  add_index "seven_careers_job_translations", ["locale"], name: "index_seven_careers_job_translations_on_locale", using: :btree
+  add_index "seven_careers_job_translations", ["seven_careers_job_id"], name: "index_seven_careers_job_translations_on_seven_careers_job_id", using: :btree
+
   create_table "seven_careers_jobs", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "seven_contact_contact_records", force: :cascade do |t|

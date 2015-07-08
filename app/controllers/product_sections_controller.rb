@@ -1,4 +1,6 @@
 class ProductSectionsController < ApplicationController
+  include ::PageInfoControllerConcern
+
   before_action :set_product_section, only: [:show, :edit, :update, :destroy]
 
   # GET /product_sections

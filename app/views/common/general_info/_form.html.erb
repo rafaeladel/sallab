@@ -9,25 +9,25 @@
         </div>
     <% end %>
 
-    <%= f.label :title_en %>
-    <%= f.text_field :title_en %>
+    <%= f.label :general_title_en %>
+    <%= f.text_field :general_title_en %>
 
-    <%= f.label :title_ar %>
-    <%= f.text_field :title_ar %>
-
-    <br/>
-    <%= f.label :description_en %>
-    <%= f.text_area :description_en %>
-
-    <%= f.label :description_ar %>
-    <%= f.text_area :description_ar %>
+    <%= f.label :general_title_ar %>
+    <%= f.text_field :general_title_ar %>
 
     <br/>
-    <%= f.label :keywords_en %>
-    <%= f.text_field :keywords_en %>
+    <%= f.label :general_description_en %>
+    <%= f.text_area :general_description_en %>
 
-    <%= f.label :keywords_ar %>
-    <%= f.text_field :keywords_ar %>
+    <%= f.label :general_description_ar %>
+    <%= f.text_area :general_description_ar %>
+
+    <br/>
+    <%= f.label :general_keywords_en %>
+    <%= f.text_field :general_keywords_en %>
+
+    <%= f.label :general_keywords_ar %>
+    <%= f.text_field :general_keywords_ar %>
 
     <%= f.submit "Save" %>
 <% end %>

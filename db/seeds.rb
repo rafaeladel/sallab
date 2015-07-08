@@ -1,2 +1,5 @@
-Home.create(title: "home title", description: "home description", keywords: "home, keywords, comma, separated")
-About.create(title: "about title", description: "about description", keywords: "about, keywords, comma, separated")
+pages_with_info = [:home, :about, :product_section, :product, :branch]
+
+pages_with_info.each do |p|
+  PageInfo.create(general_title: "#{p.to_s} title", general_description: "#{p.to_s} description", general_keywords: "#{p.to_s}, keywords, comma, separated", info_type: p)
+end

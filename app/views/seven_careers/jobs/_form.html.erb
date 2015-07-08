@@ -12,8 +12,11 @@
   <% end %>
 
     <%= fields_for "job" do |job| %>
-        Title <%= job.text_field :title %>
-        Description <%= job.text_area :description %>
+        Title <%= job.text_field :title_en %>
+        Title <%= job.text_field :title_ar %>
+
+        Description <%= job.text_area :description_en %>
+        Description <%= job.text_area :description_ar %>
     <% end %>
 
   <div class="actions">

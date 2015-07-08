@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  include ::PageInfoControllerConcern
+
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_associated_models, only: [:new, :edit]
 

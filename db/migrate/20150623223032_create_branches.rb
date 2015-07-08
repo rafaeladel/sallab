@@ -10,8 +10,5 @@ class CreateBranches < ActiveRecord::Migration
     end
 
     add_foreign_key :branches, :regions, on_delete: :cascade
-
-    Branch.create_translation_table! address: :text
-
   end
 end
