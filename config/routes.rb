@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   end
 
   get "/home", as: "frontend_home", to: "frontend/frontend_home#index"
+  get "/about/:slug", as: "frontend_about", to: "frontend/frontend_about#index"
+  get "/products/:slug", as: "frontend_product", to: "frontend/frontend_product#index"
+  get "/gallery", as: "frontend_gallery", to: "frontend/frontend_gallery#index"
+  get "/news", as: "frontend_news", to: "frontend/frontend_news#index"
+  get "/careers", as: "frontend_careers", to: "frontend/frontend_careers#index"
+  get "/contact", as: "frontend_contact", to: "frontend/frontend_contact#index"
 
   	scope "/admin" do
 	    resources :banners
