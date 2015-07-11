@@ -1,4 +1,4 @@
-class Frontend::FrontendSitemapController < Frontend::ApplicationController 
+class Frontend::FrontendSitemapController < Frontend::FrontendApplicationController 
 	def index 
 		
 	end
