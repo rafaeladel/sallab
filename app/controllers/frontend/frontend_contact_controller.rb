@@ -1,6 +1,4 @@
-class Frontend::FrontendContactController < ApplicationController 
-	layout "frontend/layout"
-
+class Frontend::FrontendContactController < Frontend::ApplicationController 
 	def index 
 		
 	end

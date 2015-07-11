@@ -1,6 +1,4 @@
-class Frontend::FrontendGalleryController < ApplicationController 
-	layout "frontend/layout"
-
+class Frontend::FrontendGalleryController < Frontend::ApplicationController 
 	def index 
 		
 	end

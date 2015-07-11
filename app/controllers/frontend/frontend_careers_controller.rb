@@ -1,6 +1,4 @@
-class Frontend::FrontendCareersController < ApplicationController 
-	layout "frontend/layout"
-
+class Frontend::FrontendCareersController < Frontend::ApplicationController 
 	def index 
 		
 	end

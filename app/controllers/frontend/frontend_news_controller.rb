@@ -1,6 +1,4 @@
-class Frontend::FrontendNewsController < ApplicationController 
-	layout "frontend/layout"
-
+class Frontend::FrontendNewsController < Frontend::ApplicationController 
 	def index 
 		
 	end
