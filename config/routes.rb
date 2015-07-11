@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   get "/gallery", as: "frontend_gallery", to: "frontend/frontend_gallery#index"
   get "/news", as: "frontend_news", to: "frontend/frontend_news#index"
   get "/careers", as: "frontend_careers", to: "frontend/frontend_careers#index"
-  get "/contact", as: "frontend_contact", to: "frontend/frontend_contact#index"
+  scope "/contact" do
+  	get "/branches", as: "frontend_contact_branches", to: "frontend/frontend_contact#branches"
+  	get "/contact_us", as: "frontend_contact_contact_us", to: "frontend/frontend_contact#contact_us"
+  end
+  get "/sitemap", as: "frontend_sitemap", to:"frontend/frontend_sitemap#index"
 
   	scope "/admin" do
 	    resources :banners
