@@ -1,4 +1,4 @@
-class Frontend::FrontendGalleryController < Frontend::ApplicationController 
+class Frontend::FrontendGalleryController < Frontend::FrontendApplicationController 
 	def index 
 		
 	end

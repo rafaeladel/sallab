@@ -1,4 +1,4 @@
-class Frontend::FrontendCareersController < Frontend::ApplicationController 
+class Frontend::FrontendCareersController < Frontend::FrontendApplicationController 
 	def index 
 		
 	end

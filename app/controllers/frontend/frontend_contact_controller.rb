@@ -1,4 +1,4 @@
-class Frontend::FrontendContactController < Frontend::ApplicationController 
+class Frontend::FrontendContactController < Frontend::FrontendApplicationController 
 	def index 
 		
 	end

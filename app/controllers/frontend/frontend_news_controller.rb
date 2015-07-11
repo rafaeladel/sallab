@@ -1,4 +1,4 @@
-class Frontend::FrontendNewsController < Frontend::ApplicationController 
+class Frontend::FrontendNewsController < Frontend::FrontendApplicationController 
 	def index 
 		
 	end
