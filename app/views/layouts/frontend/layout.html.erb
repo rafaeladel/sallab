@@ -65,8 +65,8 @@
                             <li class="<%= 'active' if current_page?(frontend_gallery_url) %>"><a href="<%= frontend_gallery_url %>">INSPIRATION GALLERY</a></li>
                             <li class="<%= 'active' if current_page?(frontend_news_url) %>"><a href="<%= frontend_news_url %>">NEWS</a></li>
                             <li class="<%= 'active' if current_page?(frontend_careers_url) %>"><a href="<%= frontend_careers_url %>">CAREERS</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle <%= 'active' if current_page?(frontend_contact_branches_url) or current_page?(frontend_contact_contact_us_url) &>" data-toggle="dropdown">CONTACT US</a>
+                            <li class="dropdown <%= 'active' if current_page?(frontend_contact_branches_url) or current_page?(frontend_contact_contact_us_url) %>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACT US</a>
                                 <ul class="dropdown-menu dropdown-menu-left" role="menu">
                                     <li><a href="<%= frontend_contact_branches_url %>">Store Location</a></li>
                                     <li><a href="<%= frontend_contact_contact_us_url %>">Drop us a line</a></li>
