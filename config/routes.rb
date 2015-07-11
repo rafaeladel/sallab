@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 		end
   end
 
+  get "/home", as: "frontend_home", to: "frontend_home#index"
+
   	scope "/admin" do
 	    resources :banners
 			resources :about_sections

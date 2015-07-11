@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <title>Welcome!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+        <%= stylesheet_link_tag 'application_fe', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= csrf_meta_tags %>
+
+		<% if I18n.locale!= :en %> 
+			<%= stylesheet_link_tag "locale/#{I18n.locale.to_s}" %>
+		<% end %>
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+	</head>
+	<body
+		<% if I18n.locale!= :en %> 
+			class="rtl"
+		<% end %>
+	>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <header>
+            <nav class="navbar" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMenu">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1 class="navbar-brand"><a href="#"><img alt="El-Sallab" src="img/logo.svg" class="img-responsive" alt="el Sallab"></a></h1>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navMenu">
+                        <ul class="nav navbar-nav navbar-right text-uppercase">
+                            <li class=""><a href="index.html">home</a></li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">about us</a>
+                                <ul class="dropdown-menu dropdown-menu-left" role="menu">
+                                    <li><a href="about.html">Chairman Message</a></li>
+                                    <li><a href="about.html">Mission & Vision</a></li>
+                                    <li><a href="about.html">Our History</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCTS</a>
+                                <ul class="dropdown-menu dropdown-menu-left" role="menu">
+                                    <li><a href="products.html">Ceramic / Porcelain</a></li>
+                                    <li><a href="products.html">Sanitary Wear</a></li>
+                                    <li><a href="products.html">Mixers</a></li>
+                                    <li><a href="products.html">Bathrooms Furniture</a></li>
+                                    <li><a href="products.html">Accessories</a></li>
+                                </ul>
+                            </li>
+                            <li class=""><a href="gallery.html">INSPIRATION GALLERY</a></li>
+                            <li class=""><a href="news.html">NEWS</a></li>
+                            <li class=""><a href="careers.html">CAREERS</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACT US</a>
+                                <ul class="dropdown-menu dropdown-menu-left" role="menu">
+                                    <li><a href="contact.html">Store Location</a></li>
+                                    <li><a href="contact2.html">Drop us a line</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </header>
+		
+		<%= yield %>
+        
+        <footer>
+            <div class="container">
+                <div class="left">
+                    <span>© 2015 DEVELOPED BY <a href="#">BRANDINC</a>  -  ALL RIGHTS RESERVED</span>
+                </div>
+                <div class="right">
+                    <div class="text-center">
+                        <a href='#' >Home</a><span>|</span>
+                        <a href='contact.html'>Contact Us</a><span>|</span>
+                        <a href='sitemap.html'>Site map</a>
+                        <div class="social">
+                            <a href="#" class="facebook"><i class="icon-facebook-with-circle"></i></a>
+                            <a href="#" class="twitter"><i class="icon-twitter-with-circle"></i></a>
+                            <a href="#" class="gplus"><i class="icon-google-with-circle"></i></a>
+                            <a href="#" class="instagram"><i class="icon-instagram-with-circle"></i></a>
+                            <a href="#" class="pinterest"><i class="icon-pinterest-with-circle"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+		<!-- CUSTOM SCRIPT -->
+		<%= javascript_include_tag 'application_fe', 'data-turbolinks-track' => true %>
+
+	</body>
+</html>

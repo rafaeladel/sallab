@@ -1,0 +1,22 @@
+
+        <div class="homeSections">
+            <ul class="list-unstyled clearfix">
+                <% @product_sections.each do |s| %>
+                    <li><a href="#"><div><span><%= s.title %></span></div>
+                        <img alt="Tropicana" src="img/section1.jpg" class="img-responsive"></a>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+                
+        <div id="home-banners" class="carousel slide banners carousel-fade" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <% @banner.photos.each_with_index |p, i| %>
+                    <div class="item <%= "index" if i == 0 %>">
+                        <div class="slider-height" style="background:url(#{p.url}) center center;background-size:cover;"></div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+     
