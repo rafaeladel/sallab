@@ -13,7 +13,7 @@
             <div class="carousel-inner" role="listbox">
                 <% @banner.photos.each_with_index do |p, i| %>
                     <div class="item <%= "index" if i == 0 %>">
-                        <div class="slider-height" style="background:url("<%= p.image_url(:large) %>") center center;background-size:cover;"></div>
+                        <div class="slider-height" style="background:url(<%= p.image_url(:large) %>) center center;background-size:cover;"></div>
                     </div>
                 <% end %>
             </div>
