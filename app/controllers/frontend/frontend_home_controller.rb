@@ -1,4 +1,4 @@
-class FrontendHomeController < ApplicationController 
+class Frontend::FrontendHomeController < ApplicationController 
 	layout "frontend/layout"
 
 	def index 
