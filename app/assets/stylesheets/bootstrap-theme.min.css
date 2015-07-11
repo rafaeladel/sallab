@@ -57,11 +57,11 @@
 
  @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/sallabIcons.eot?-43suo0');
-	src:url('../fonts/sallabIcons.eot?#iefix-43suo0') format('embedded-opentype'),
-		url('../fonts/sallabIcons.ttf?-43suo0') format('truetype'),
-		url('../fonts/sallabIcons.woff?-43suo0') format('woff'),
-		url('../fonts/sallabIcons.svg?-43suo0#icomoon') format('svg');
+	src:url('./fonts/sallabIcons.eot?-43suo0');
+	src:url('./fonts/sallabIcons.eot?#iefix-43suo0') format('embedded-opentype'),
+		url('./fonts/sallabIcons.ttf?-43suo0') format('truetype'),
+		url('./fonts/sallabIcons.woff?-43suo0') format('woff'),
+		url('./fonts/sallabIcons.svg?-43suo0#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
