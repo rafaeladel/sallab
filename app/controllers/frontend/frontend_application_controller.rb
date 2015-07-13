@@ -1,10 +1,11 @@
 class Frontend::FrontendApplicationController < ApplicationController
-	before_action :set_nav
 
 	layout "frontend/layout"
 
+	before_action :set_nav
 
 	def set_nav
+		@about_sections = AboutSection.all
 		@product_sections = ProductSection.all
  	end
 end

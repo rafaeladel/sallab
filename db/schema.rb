@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150707222028) do
+ActiveRecord::Schema.define(version: 20150713185512) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150707222028) do
     t.string   "image",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "slug",       limit: 255
   end
 
   create_table "banner_translations", force: :cascade do |t|
@@ -143,8 +144,10 @@ ActiveRecord::Schema.define(version: 20150707222028) do
   add_index "product_section_translations", ["product_section_id"], name: "index_product_section_translations_on_product_section_id", using: :btree
 
   create_table "product_sections", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "image",      limit: 255
+    t.string   "slug",       limit: 255
   end
 
   create_table "product_translations", force: :cascade do |t|

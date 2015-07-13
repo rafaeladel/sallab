@@ -69,7 +69,7 @@ class AboutSectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def about_section_params
-      permitted = AboutSection.globalize_attribute_names + [:image]
+      permitted = AboutSection.globalize_attribute_names + [:image, :slug]
       params.require(:about_section).permit(*permitted)
     end
 end

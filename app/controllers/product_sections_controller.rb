@@ -71,7 +71,7 @@ class ProductSectionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_section_params
-      permitted = ProductSection.globalize_attribute_names
+      permitted = ProductSection.globalize_attribute_names + [:image, :slug]
       params.require(:product_section).permit(*permitted)
     end
 end

@@ -4,4 +4,11 @@ class AboutSection < ActiveRecord::Base
   globalize_accessors locales: [:en, :ar], attributes: [:title, :content]
   validates :title_en, presence: true
   validates :content_en, presence: true
+
+  before_save :sluggify
+
+  private
+  def sluggify
+    self.slug = title_en.parameterize
+  end
 end

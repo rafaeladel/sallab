@@ -1,16 +1,10 @@
-<% content_for :title, "El Sallab - Contact Us" %>
-<div id="banner-careers" class="carousel slide banners" data-ride="carousel">
+<div id="home-banners" class="carousel slide banners carousel-fade <%= classes %>" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
-    <% @banner.photos.each_with_index do |p, i| %>
+    <% banner.photos.each_with_index do |p, i| %>
         <div class="item <%= "active" if i == 0 %>">
           <div class="slider-height" style="background-image:url('<%= p.image_url(:large) %>');background-size:cover;"></div>
         </div>
     <% end %>
-    <div class="carousel-caption">
-      <div class="container">
-        <h3 class="pageSlogan"><b>DESIGN IS NOT JUST WHAT IT LOOKS LIKE</b><em>DESIGN IS HOW IT WORKS</em></h3>
-      </div>
-    </div>
   </div>
   <!-- Controls -->
   <a class="left carousel-control" href="#banner-careers" role="button" data-slide="prev">
@@ -22,12 +16,3 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-<section class="Sbreadcrumb">
-  <div class="container">
-    <ol class="breadcrumb">
-      <li><a href="<%= frontend_home_url %>">Homepage</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ol>
-  </div>
-</section>

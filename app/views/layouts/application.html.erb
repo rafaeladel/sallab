@@ -60,10 +60,19 @@
             <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">General</span>
           </a>
         </li>
-        <li>
-          <a href="<%= main_app.get_about_admin_url %>">
+        <li class="has-sub">
+          <a href="javascript:;">
             <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">About</span>
+            <span class="arrow"></span>
+
           </a>
+          <ul class="sub">
+
+            <li><a class="" href="<%= main_app.get_about_admin_url %>"><span class="sub-menu-text">About Info</span></a></li>
+            <li><a class="" href="<%= main_app.about_sections_url %>"><span class="sub-menu-text">List about sections</span></a></li>
+            <li><a class="" href="<%= main_app.new_about_section_url %>"><span class="sub-menu-text">New about section</span></a></li>
+
+          </ul>
         </li>
         <li class="has-sub">
           <a href="javascript:;" class="">

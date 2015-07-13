@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	root "frontend/frontend_home#index"
 
 	concern :page_info do
 		collection do
@@ -8,18 +9,24 @@ Rails.application.routes.draw do
   end
 
   get "/home", as: "frontend_home", to: "frontend/frontend_home#index"
-  get "/about/:slug", as: "frontend_about", to: "frontend/frontend_about#index"
-  get "/products/:slug", as: "frontend_product", to: "frontend/frontend_product#index"
+  get "/about", as: "frontend_about", to: "frontend/frontend_about#index"
+  get "/about/:slug", as: "frontend_about_section", to: "frontend/frontend_about_section#index"
+
+  get "/product_sections/:slug", as: "frontend_product_sections", to: "frontend/frontend_product_section#index"
+  get "/products/:id", as: "frontend_product", to: "frontend/frontend_product#index"
+
   get "/gallery", as: "frontend_gallery", to: "frontend/frontend_gallery#index"
   get "/news", as: "frontend_news", to: "frontend/frontend_news#index"
   get "/careers", as: "frontend_careers", to: "frontend/frontend_careers#index"
+
   scope "/contact" do
   	get "/branches", as: "frontend_contact_branches", to: "frontend/frontend_contact#branches"
   	get "/contact_us", as: "frontend_contact_contact_us", to: "frontend/frontend_contact#contact_us"
   end
   get "/sitemap", as: "frontend_sitemap", to:"frontend/frontend_sitemap#index"
 
-  	scope "/admin" do
+
+	scope "/admin" do
 	    resources :banners
 			resources :about_sections
 			resources :product_sections, concerns: :page_info
