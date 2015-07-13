@@ -8,6 +8,8 @@
                 <% end %>
             </ul>
         </div>
-
+    <%= content_for :banner_partial do %>
+    <span></span>
+    <% end %>
     <%= banner_markup banner: @banner %>
 

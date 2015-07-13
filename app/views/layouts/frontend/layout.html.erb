@@ -92,6 +92,11 @@ class="rtl"
   </nav>
 </header>
 
+<% if content_for?(:banner_partial) %>
+    <%= yield(:banner_partial) %>
+<% else %>
+    <%= banner_markup banner: @banner %>
+<% end %>
 <%= yield %>
 
 <footer>

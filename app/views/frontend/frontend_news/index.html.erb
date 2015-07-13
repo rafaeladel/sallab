@@ -1,27 +1,5 @@
 <% content_for :title, "El Sallab - News" %>
-        <div id="banner-careers" class="carousel slide banners" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <% @banner.photos.each_with_index do |p, i| %>
-                    <div class="item <%= "active" if i == 0 %>">
-                        <div class="slider-height" style="background-image:url('<%= p.image_url(:large) %>');background-size:cover;"></div>
-                    </div>
-                <% end %>
-                <div class="carousel-caption">
-                    <div class="container">
-                        <h3 class="pageSlogan"><b>DESIGN IS NOT JUST WHAT IT LOOKS LIKE</b><em>DESIGN IS HOW IT WORKS</em> </h3>
-                    </div>
-                </div>
-            </div>
-              <!-- Controls -->
-              <a class="left carousel-control" href="#banner-careers" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#banner-careers" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-        </div>
+
 
         <section class="Sbreadcrumb">
             <div class="container">
