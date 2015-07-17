@@ -1,38 +1,5 @@
 <% content_for :title, "El Sallab - News" %>
-<% content_for :fb_script do %>
-    <div id="fb-root"></div>
 
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '609528352521818',
-                xfbml      : true,
-                version    : 'v2.4'
-            });
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-
-         $(function() {
-            $("body").on("click", ".facebook", function(e) {
-                e.preventDefault();
-                console.log($(e.target));
-                FB.ui({
-                    method: 'share',
-                    href: $(e.target).attr('href')
-                }, function(response){});
-            });
-
-        });
-
-    </script>
-<% end %>
 
 <section class="Sbreadcrumb">
   <div class="container">
@@ -83,7 +50,9 @@
                 <a href="#" class="btn btn-brown pull-left">Read More</a>
 
                 <div class="pull-right social">
-                  <a href="<%= frontend_news_url %>" class="facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on facebook"><i class="icon-facebook-with-circle"></i></a>
+                  <a href="<%= frontend_news_url %>" class="news_fb facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on facebook">
+                    <i class="icon-facebook-with-circle"></i>
+                  </a>
                   <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on twitter"><i class="icon-twitter-with-circle"></i></a>
                   <a href="#" class="gplus" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on google plus"><i class="icon-google-with-circle"></i></a>
                   <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on pinterest"><i class="icon-pinterest-with-circle"></i></a>
@@ -127,3 +96,20 @@
     </div>
   </div>
 </div>
+
+<% content_for :fb_script do %>
+    <script type="text/javascript" charset="utf-8">
+
+        $(function() {
+            $(".news_fb").on("click", function(e) {
+                e.preventDefault();
+                FB.ui({
+                    method: 'share',
+                    href: $(e.currentTarget).attr('href')
+                }, function(response){});
+            });
+
+        });
+
+    </script>
+<% end %>
