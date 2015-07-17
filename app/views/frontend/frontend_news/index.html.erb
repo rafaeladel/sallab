@@ -57,17 +57,7 @@
       <% end %>
     </div>
   </div>
-  <!--<div class="text-center">-->
-    <!--<ul class="pagination">-->
-      <!--<li class="disabled"><a href="#">«</a></li>-->
-      <!--<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>-->
-      <!--<li><a href="#">2</a></li>-->
-      <!--<li><a href="#">3</a></li>-->
-      <!--<li><a href="#">4</a></li>-->
-      <!--<li><a href="#">5</a></li>-->
-      <!--<li><a href="#">»</a></li>-->
-    <!--</ul>-->
-  <!--</div>-->
+
   <%= paginate @news_items %>
 </section>
 <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
@@ -91,7 +81,7 @@
   </div>
 </div>
 
-<% content_for :fb_share_script do %>
+<% content_for :custom_js do %>
     <script type="text/javascript" charset="utf-8">
 
         $(function() {
@@ -104,11 +94,6 @@
             });
         });
 
-    </script>
-<% end %>
-
-<% content_for :twitter_share_script do %>
-    <script type="text/javascript" charset="utf-8">
         twttr.events.bind('tweet', function (event) {
         });
     </script>

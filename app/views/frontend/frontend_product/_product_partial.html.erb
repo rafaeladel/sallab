@@ -1,0 +1,23 @@
+<div class="modal-body padding-50">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-cross"></i></button>
+  <div class="row">
+    <div class="col-sm-5">
+      <div id="productImg">
+        <img alt="product name" data-src="img/3.jpg" class="img-responsive" src="<%= @product.image.url %>"></div>
+    </div>
+    <div class="col-sm-7 productInfo">
+      <p><%= @product.description %></p>
+
+      <div><label>CODE:</label><span><%= @product.code %></span></div>
+      <div><label>BRAND:</label><span><%= @product.brand.title %></span></div>
+      <div><label>SIZE:</label><span><%= @product.tile_size.title %></span></div>
+      <div>
+        <label>COLORS:</label>
+        <% @product.colors.each do |color| %>
+        <span class="color" style="background: <%= color.code %>"></span>
+            <% end %>
+      </div>
+      <div><label>COUNTRY OF ORIGIN:</label><span><%= @product.origin.title %></span></div>
+    </div>
+  </div>
+</div>
