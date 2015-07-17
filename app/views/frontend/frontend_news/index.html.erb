@@ -47,7 +47,7 @@
                 <%= item.description[0..50].gsub(/\s\w+\s*$/, ' [...]') %>
               </div>
               <div class="panel-footer clearfix">
-                <a href="#" class="btn btn-brown pull-left">Read More</a>
+                <a href="<%= frontend_news_item_url item %>" class="btn btn-brown pull-left">Read More</a>
 
                 <div class="pull-right social">
                   <a href="<%= frontend_news_url %>" class="news_fb facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on facebook">

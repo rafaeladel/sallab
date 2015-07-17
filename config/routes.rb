@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get "/gallery", as: "frontend_gallery", to: "frontend/frontend_gallery#index"
   get "/news", as: "frontend_news", to: "frontend/frontend_news#index"
+  get "/news/:id", as: "frontend_news_item", to: "frontend/frontend_news#get_item"
   get "/careers", as: "frontend_careers", to: "frontend/frontend_careers#index"
 
   scope "/contact" do
