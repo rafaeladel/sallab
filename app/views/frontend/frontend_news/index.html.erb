@@ -10,34 +10,26 @@
                 version    : 'v2.4'
             });
         };
-//
-//        (function(d, s, id){
-//            var js, fjs = d.getElementsByTagName(s)[0];
-//            if (d.getElementById(id)) {return;}
-//            js = d.createElement(s); js.id = id;
-//            js.src = "//connect.facebook.net/en_US/sdk.js";
-//            fjs.parentNode.insertBefore(js, fjs);
-//        }(document, 'script', 'facebook-jssdk'));
 
-         (function(d, s, id) {
+        (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
+            if (d.getElementById(id)) {return;}
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=609528352521818";
+            js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
-//        $(function() {
-//            $("body").on("click", ".facebook", function(e) {
-//                e.preventDefault();
-//                console.log($(e.target));
-//                FB.ui({
-//                    method: 'share',
-//                    href: $(e.target).attr('href')
-//                }, function(response){});
-//            });
-//
-//        });
+         $(function() {
+            $("body").on("click", ".facebook", function(e) {
+                e.preventDefault();
+                console.log($(e.target));
+                FB.ui({
+                    method: 'share',
+                    href: $(e.target).attr('href')
+                }, function(response){});
+            });
+
+        });
 
     </script>
 <% end %>
@@ -91,7 +83,7 @@
                 <a href="#" class="btn btn-brown pull-left">Read More</a>
 
                 <div class="pull-right social">
-                  <div class="fb-share-button" data-href="<%= frontend_news_url %>" data-layout="button_count"></div>
+                  <a href="<%= frontend_news_url %>" class="facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on facebook"><i class="icon-facebook-with-circle"></i></a>
                   <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on twitter"><i class="icon-twitter-with-circle"></i></a>
                   <a href="#" class="gplus" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on google plus"><i class="icon-google-with-circle"></i></a>
                   <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on pinterest"><i class="icon-pinterest-with-circle"></i></a>
