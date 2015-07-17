@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/rafaeladel/seven-gallery.git
-  revision: 63dbb7becc99cc3c0968f592c0c48b272e2edb5a
+  revision: 23adbf94aec880c9ec8aa5e21170f124dcdd63ce
   branch: postgre
   specs:
     seven_gallery (0.0.6)
@@ -19,16 +19,16 @@ GIT
       jcrop-rails-v2
       jquery-rails
       jquery-ui-rails
+      kaminari
       mini_magick
       mysql2
       rails (~> 4.2.0)
       sass-rails
       uglifier
-      will_paginate
 
 GIT
   remote: https://github.com/rafaeladel/seven-portfolio.git
-  revision: 8741d5c8edda74672c0997de5f337f5affb6418d
+  revision: a3bf6503f5990a08b47a5ed435ab93776915d11d
   branch: postgre
   specs:
     seven_portfolio (0.0.1)
@@ -36,12 +36,12 @@ GIT
       bootstrap-sass
       coffee-rails
       jquery-rails
+      kaminari
       mysql2
       rails (~> 4.2.1)
       sass-rails
       seven_gallery
       uglifier
-      will_paginate
 
 GIT
   remote: https://github.com/rafaeladel/seven_contact.git
@@ -94,7 +94,7 @@ GEM
     auto_html (1.6.4)
       redcarpet (~> 3.1)
       rinku (~> 1.5.0)
-    autoprefixer-rails (5.2.1)
+    autoprefixer-rails (5.2.1.1)
       execjs
       json
     binding_of_caller (0.7.2)
@@ -205,15 +205,15 @@ GEM
     rdoc (4.2.0)
     redcarpet (3.3.2)
     rinku (1.5.1)
-    rspec-core (3.3.1)
+    rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
-    rspec-expectations (3.3.0)
+    rspec-expectations (3.3.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-mocks (3.3.1)
+    rspec-mocks (3.3.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-rails (3.3.2)
+    rspec-rails (3.3.3)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
       railties (>= 3.0, < 4.3)
@@ -252,7 +252,6 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    will_paginate (3.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 

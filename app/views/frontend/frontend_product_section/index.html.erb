@@ -1,0 +1,85 @@
+<section class="Sbreadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="#">Product Section</a></li>
+      <li><a href="#"><%= @product_section.title %></a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sectionTitle">
+  <div class="container">
+    <h2 class="text-center"><%= @product_section.title %></h2>
+  </div>
+</section>
+
+<section class="innerContainer about">
+  <div class="container">
+    <div class="row productsGrid text-uppercase">
+      <div class="col-sm-4 col-md-3">
+        <h5 class="red-header">SELECT BY</h5>
+
+        <%= form_tag frontend_product_sections_url, method: "get" do %>
+            <% fields_for :product do |f| %>
+                <div class="filterTitle">SELECT BY ORIGIN</div>
+                <%= f.collection_select(:origin_id, Origin.all, :id, :title, {prompt: "Select origin"}, class: "form-control") %>
+
+                <div class="filterTitle">SELECT BY BRAND</div>
+                <%= f.collection_select(:brand_id, Brand.all, :id, :title, {prompt: "Select brand"}, class: "form-control") %>
+
+                <div class="filterTitle">SELECT BY TILE SIZE</div>
+                <%= f.collection_select(:tile_size_id, TileSize.all, :id, :title, {prompt: "Select tile size"}, class: "form-control") %>
+
+                <%= f.submit("Search", class: "pull-right") %>
+            <% end %>
+        <% end %>
+      </div>
+      <div class="col-sm-8 col-md-9">
+        <div class="row products">
+          <% @products.each do |product| %>
+              <div class="col-md-3 col-sm-4 col-xs-6 productItem animated fadeInUp">
+                <div class="productContent">
+                  <a href="#" data-toggle="modal" data-target="#productModal" data-productid="1">
+                    <img class="img-responsive center-block" src="<%= product.image.url %>" alt="product name"></a>
+
+                  <div><label>CODE :</label><span><%= product.code %></span></div>
+                  <div><label>SIZE :</label><span><%= product.tile_size.title %></span></div>
+                </div>
+              </div>
+          <% end %>
+        </div>
+        <%= paginate @products %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body padding-50">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-cross"></i></button>
+        <div class="row">
+          <div class="col-sm-5">
+            <div id="productImg">
+              <img alt="product name" data-src="img/3.jpg" class="img-responsive" src="img/product1.jpg"></div>
+          </div>
+          <div class="col-sm-7 productInfo">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+              ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur. </p>
+
+            <div><label>CODE:</label><span>00478</span></div>
+            <div><label>BRAND:</label><span>ALFA</span></div>
+            <div><label>SIZE:</label><span>60 X 60  cm</span></div>
+            <div>
+              <label>COLORS:</label><span class="color" style="background: #ff6a00"></span><span class="color" style="background: #808080"></span><span class="color" style="background: #4cff00"></span>
+            </div>
+            <div><label>COUNTRY OF ORIGIN:</label><span>Germany</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

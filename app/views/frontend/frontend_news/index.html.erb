@@ -25,14 +25,7 @@
                     <div class="image-gal">
 
                       <% item.item_gallery.photos.each_with_index do |p, i| %>
-                          <% if i == 0 %>
-                              <a href="<%= p.image.url %>" class="picture">
-                                <i class="icon-search"></i>
-                                <img src="<%= p.image.url %>" class="img-responsive">
-                              </a>
-                          <% else %>
-                              <a href="<%= p.image.url %>" title="Banana" class="noBorder"></a>
-                          <% end %>
+                          <a href="<%= p.image.url %>" title="Banana" class="noBorder"></a>
                       <% end %>
                     </div>
                 <% elsif item.video? %>

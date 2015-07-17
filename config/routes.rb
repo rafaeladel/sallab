@@ -12,8 +12,11 @@ Rails.application.routes.draw do
   get "/about", as: "frontend_about", to: "frontend/frontend_about#index"
   get "/about/:slug", as: "frontend_about_section", to: "frontend/frontend_about_section#index"
 
-  get "/product_sections/:slug", as: "frontend_product_sections", to: "frontend/frontend_product_section#index"
-  get "/products/:id", as: "frontend_product", to: "frontend/frontend_product#index"
+  get "/product_sections/:slug",
+      as: "frontend_product_sections",
+      to: "frontend/frontend_product_section#index"
+
+	get "/products/:id", as: "frontend_product", to: "frontend/frontend_product#index"
 
   get "/gallery", as: "frontend_gallery", to: "frontend/frontend_gallery#index"
   get "/news", as: "frontend_news", to: "frontend/frontend_news#index"
