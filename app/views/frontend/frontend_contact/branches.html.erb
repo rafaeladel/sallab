@@ -9,3 +9,62 @@
     </ol>
   </div>
 </section>
+
+<section class="innerContainer contact">
+  <div class="container mtb-50">
+    <% @regions.each_with_index do |region, i| %>
+        <% if i.even? or i == 0 %>
+            <div class="row">
+        <% end %>
+                <div class="col-md-6">
+                  <h4><%= region.title %>:</h4>
+                  <% region.branches.each do |branch| %>
+                      <address data-gmapping='{"id":"<%= branch.id %>","latlng":{"lat":<%= branch.lat %>,"lng":<%= branch.long %>},"tags":"<%= region.title %>"}'>
+                        <span><%= branch.address %></span>
+                        <br>
+                        <p>Phone: <%= branch.phone %></p>
+                      </address>
+                      <a href="#">Get Directions</a>
+                  <% end %>
+                </div>
+        <% if i.odd? %>
+            </div>
+        <% end %>
+    <% end %>
+  </div>
+</section>
+<div class="embed-responsive-item ">
+  <div id="map_canvas" class="map"></div>
+</div>
+
+<% content_for :custom_js do %>
+
+    <script>
+        $(function () {
+            $('#map_canvas').gmap({
+                'styles': [{stylers: [{lightness: 7}, {saturation: -100}]}],
+                'center': '30.2282718,31.4734859',
+                'zoom': 11,
+                'disableDefaultUI': true,
+                'callback': function () {
+                    var self = this;
+                    $("[data-gmapping]").each(function (i, el) {
+                        var data = $(el).data('gmapping');
+                        self.addMarker({
+                            'id': data.id,
+                            'tags': data.tags,
+                            'position': new google.maps.LatLng(data.latlng.lat, data.latlng.lng)
+                        }, function (map, marker) {
+                            $(el).click(function () {
+                                $(marker).triggerEvent('click');
+                                $("html, body").animate({scrollTop: $(document).height()}, 1000);
+                            });
+                        }).click(function () {
+                            self.openInfoWindow({'content': $(el).find("span").text()}, this);
+                        });
+                    });
+                }
+            });
+        }).load();
+    </script>
+<% end %>

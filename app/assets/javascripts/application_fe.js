@@ -13,6 +13,7 @@
 //= require modernizr.custom
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.map.min
 //= require bootstrap.min
 //= require plugins
 //= require main

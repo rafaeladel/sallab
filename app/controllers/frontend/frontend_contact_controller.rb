@@ -6,6 +6,7 @@ class Frontend::FrontendContactController < Frontend::FrontendApplicationControl
 	end
 
 	def branches
+		@regions = Region.all
 	end
 
 	def contact_us

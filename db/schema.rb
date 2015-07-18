@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20150718153354) do
     t.datetime "updated_at",              null: false
   end
 
+  create_table "branch_translations", force: :cascade do |t|
+    t.integer  "branch_id",  limit: 4,     null: false
+    t.string   "locale",     limit: 255,   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "address",    limit: 65535
+  end
+
+  add_index "branch_translations", ["branch_id"], name: "index_branch_translations_on_branch_id", using: :btree
+  add_index "branch_translations", ["locale"], name: "index_branch_translations_on_locale", using: :btree
+
   create_table "branches", force: :cascade do |t|
     t.string   "phone",      limit: 255
     t.integer  "region_id",  limit: 4
