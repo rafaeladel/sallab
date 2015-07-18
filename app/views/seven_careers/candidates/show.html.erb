@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<p>Firstname: <%= @candidate.firstname %></p>
+<p>Lastname: <%= @candidate.lastname %></p>
+<p>Email: <%= @candidate.email %></p>
+<p>Current Salary: <%= @candidate.current_salary %></p>
+<p>Phone: <%= @candidate.phone %></p>
+
 <%= link_to "download resume", @candidate.resume.url %>
 
 <%= link_to 'Back', job_url(@job) %>

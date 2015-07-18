@@ -38,7 +38,7 @@
 				<% if @job.candidates.any? %>
 				  <% @job.candidates.each do |candidate| %>
 					  <div>
-						<span><%= candidate.name %></span>
+						<span><%= candidate.firstname + " " + candidate.lastname %></span>
 						<%= link_to 'Show', job_candidate_url(@job, candidate), :class => "btn btn-default" %>
 						<%= link_to 'Destroy', job_candidate_url(@job, candidate), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
 					  </div>
