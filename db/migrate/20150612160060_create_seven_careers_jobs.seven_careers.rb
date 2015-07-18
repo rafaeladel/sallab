@@ -4,6 +4,6 @@ class CreateSevenCareersJobs < ActiveRecord::Migration
     create_table :seven_careers_jobs do |t|
       t.timestamps null: false
     end
-    SevenCareers::Job.create_translation_table! title: :string, description: :text
+    SevenCareers::Job.create_translation_table! title: :string, description: :text, location: :string
   end
 end

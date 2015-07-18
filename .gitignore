@@ -19,6 +19,7 @@
 .idea/
 
 public/uploads/
+public/resumes/
 public/public/uploads/
 public/assets/
 config/database.yml

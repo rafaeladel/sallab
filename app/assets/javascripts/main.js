@@ -42,7 +42,6 @@ var bluegal = function(){
 }
 
 var careersForm = function () {
-    $(".form-validate").validate();
     $('#carrerModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var recipient = button.attr('data-vacancyID');

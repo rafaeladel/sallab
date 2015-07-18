@@ -19,4 +19,5 @@
 //= require colorpicker/js/bootstrap-colorpicker.min
 //= require jquery-validation-1.13.1/dist/jquery.validate.min
 //= require bootstrap-table.min
+//= require ckeditor/init
 //= require script

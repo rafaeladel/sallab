@@ -7,105 +7,28 @@
     </ol>
   </div>
 </section>
-
+<%= notice %>
 <section class="innerContainer">
   <div class="panel-group" id="careers" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingOne">
-        <div class="container">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#careers" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">MARKETING
-              MANAGER <br><span>Location: Cairo , Helioplis</span> <i class="icon-caret-right pull-right"></i></a>
-          </h4>
+    <% @jobs.each do |job| %>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <div class="container">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#careers" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><%= job.title %><br><span>Location: <%= job.location %></span> <i class="icon-caret-right pull-right"></i></a>
+              </h4>
+            </div>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body container">
+              <%= raw(job.description) %>
+              <button type="button" class="btn btn-yellow pull-right" data-url="<%= frontend_careers_candidate_new_url(job) %>" data-target="#carrerModal" data-job_id="<%= job.id %>">Apply
+                for this position
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        <div class="panel-body container">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-          haven't heard of them accusamus labore sustainable VHS.
-          <br>
-          <ul>
-            <li>Phasellus sagittis felis sed nisl laoreet tristique.</li>
-            <li>Donec gravida massa id velit hendrerit dapibus.</li>
-            <li>Vivamus vel mauris consequat, facilisis orci non, lobortis ex.</li>
-            <li>Phasellus sagittis felis sed nisl laoreet tristique.</li>
-            <li>Donec gravida massa id velit hendrerit dapibus.</li>
-            <li>Vivamus vel mauris consequat, facilisis orci non, lobortis ex.</li>
-          </ul>
-          <button type="button" class="btn btn-yellow pull-right" data-toggle="modal" data-target="#carrerModal" data-vacancyID="2">Apply
-            for this position
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingTwo">
-        <div class="container">
-          <h4 class="panel-title">
-            <a class="collapsed" data-toggle="collapse" data-parent="#careers" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">MARKETING
-              MANAGER <br><span>Location: Cairo , Helioplis</span> <i class="icon-caret-right pull-right"></i></a>
-          </h4>
-        </div>
-      </div>
-      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-        <div class="panel-body container">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-          haven't heard of them accusamus labore sustainable VHS.
-          <br>
-          <ul>
-            <li>Phasellus sagittis felis sed nisl laoreet tristique.</li>
-            <li>Donec gravida massa id velit hendrerit dapibus.</li>
-            <li>Vivamus vel mauris consequat, facilisis orci non, lobortis ex.</li>
-            <li>Phasellus sagittis felis sed nisl laoreet tristique.</li>
-            <li>Donec gravida massa id velit hendrerit dapibus.</li>
-            <li>Vivamus vel mauris consequat, facilisis orci non, lobortis ex.</li>
-          </ul>
-          <button type="button" class="btn btn-yellow pull-right" data-toggle="modal" data-target="#carrerModal" data-vacancyID="20">Apply
-            for this position
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingThree">
-        <div class="container">
-          <h4 class="panel-title">
-            <a class="collapsed" data-toggle="collapse" data-parent="#careers" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">MARKETING
-              MANAGER <br><span>Location: Cairo , Helioplis</span> <i class="icon-caret-right pull-right"></i></a>
-          </h4>
-        </div>
-      </div>
-      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-        <div class="panel-body container">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
-          officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
-          moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
-          keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-          butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
-          haven't heard of them accusamus labore sustainable VHS.
-          <br>
-          <ul>
-            <li>Phasellus sagittis felis sed nisl laoreet tristique.</li>
-            <li>Donec gravida massa id velit hendrerit dapibus.</li>
-            <li>Vivamus vel mauris consequat, facilisis orci non, lobortis ex.</li>
-            <li>Phasellus sagittis felis sed nisl laoreet tristique.</li>
-            <li>Donec gravida massa id velit hendrerit dapibus.</li>
-            <li>Vivamus vel mauris consequat, facilisis orci non, lobortis ex.</li>
-          </ul>
-          <button type="button" class="btn btn-yellow pull-right" data-toggle="modal" data-target="#carrerModal" data-vacancyID="22">Apply
-            for this position
-          </button>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </section>
 
@@ -113,57 +36,46 @@
 <div class="modal fade" id="carrerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-body">
-        <form class="form-validate" name="careers-form" data-vacancyID="0">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputEmail1">First Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" required>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputEmail2">Last Name</label>
-                <input type="text" class="form-control" id="exampleInputEmail2">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputEmail3">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail3">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputEmail4">Phone</label>
-                <input type="tel" class="form-control" id="exampleInputEmail4">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputPassword1">Current Salary</label>
-                <input type="number" class="form-control" id="exampleInputPassword1">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="exampleInputFile">Your Updated CV</label>
-                <input type="file" id="exampleInputFile">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-offset-6 col-sm-6">
-              <button type="submit" class="btn btn-yellow">Submit Application</button>
-            </div>
-          </div>
-        </form>
-      </div>
     </div>
   </div>
 </div>
+
+
+<% content_for :custom_js do %>
+    <script type="text/javascript" charset="utf-8">
+        $(function() {
+            $("body").on("click", "button[data-target=#carrerModal]", function(ev) {
+                ev.preventDefault();
+                var target = $(this).data("url");
+
+                // load the url and show modal on success
+                $("#carrerModal .modal-content").load(target, function() {
+                    $("#carrerModal").modal("show");
+                });
+            });
+            $("body").on("click", ".submit_candidate", function(e) {
+                e.preventDefault();
+                var form = $(e.target).closest("form");
+                form.validate({
+                    rules: {
+                        'candidate[firstname]': "required",
+                        'candidate[email]': {
+                            required: true,
+                            email: true
+                        },
+                        'candidate[phone]': {
+                            number: true
+                        },
+                        'candidate[current_salary]': {
+                            number: true
+                        }
+                    }
+                });
+                if(form.valid()) {
+                    form.submit();
+                }
+            });
+
+        })
+    </script>
+<% end %>

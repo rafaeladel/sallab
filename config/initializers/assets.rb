@@ -28,6 +28,6 @@ script_files = controllers.map { |c| "#{c}.js" }
 
 style_files = controllers.map { |c| "#{c}.css" }
 
-Rails.application.config.assets.precompile += %w( application_fe.css application_fe.js locale/*.css )
+Rails.application.config.assets.precompile += %w( application_fe.css application_fe.js locale/*.css ckeditor/* )
 Rails.application.config.assets.precompile += script_files
 Rails.application.config.assets.precompile += style_files

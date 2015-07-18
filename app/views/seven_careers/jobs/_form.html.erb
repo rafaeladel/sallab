@@ -1,16 +1,16 @@
 <%= form_for @job, :html => {:class => 'form-horizontal form-validate'} do |f| %>
-  <% if @job.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+    <% if @job.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
 
-      <ul>
-      <% @job.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="box border primary">
+          <ul>
+            <% @job.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="box border primary">
       <div class="box-title">
         <h4><i class="fa fa-money"></i>Brand Info</h4>
       </div>
@@ -24,36 +24,48 @@
           </ul>
           <div class="tab-content">
             <div class="tab-pane fade" id="box_tab1">
-			  <%= fields_for "job" do |job| %>
-              <div class="form-group clearfix">
-                <%= f.label :title_ar, class: "col-sm-3 control-label" %>
-                <div class="col-sm-9">
-                  <%= f.text_field :title_ar, class: "form-control" %>
-                </div>
-              </div>
-              <div class="form-group clearfix">
-                <%= f.label :description_ar, class: "col-sm-3 control-label" %>
-                <div class="col-sm-9">
-                  <%= f.text_area :description_ar, class: "form-control" %>
-                </div>
-              </div>
-			<% end %>
+              <%= fields_for "job" do |job| %>
+                  <div class="form-group clearfix">
+                    <%= f.label :title_ar, class: "col-sm-3 control-label" %>
+                    <div class="col-sm-9">
+                      <%= f.text_field :title_ar, class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group clearfix">
+                    <%= f.label :description_ar, class: "col-sm-3 control-label" %>
+                    <div class="col-sm-9">
+                      <%= f.cktext_area :description_ar, class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group clearfix">
+                    <%= f.label :location_ar, class: "col-sm-3 control-label" %>
+                    <div class="col-sm-9">
+                      <%= f.text_field :location_ar, class: "form-control" %>
+                    </div>
+                  </div>
+              <% end %>
             </div>
             <div class="tab-pane fade in active" id="box_tab2">
-			  <%= fields_for "job" do |job| %>
-              <div class="form-group clearfix">
-                <%= f.label :title_en, class: "col-sm-3 control-label" %>
-                <div class="col-sm-9">
-                  <%= f.text_field :title_en, class: "form-control" %>
-                </div>
-              </div>
-              <div class="form-group clearfix">
-                <%= f.label :description_en, class: "col-sm-3 control-label" %>
-                <div class="col-sm-9">
-                  <%= f.text_area :description_en, class: "form-control" %>
-                </div>
-              </div>
-			<% end %>
+              <%= fields_for "job" do |job| %>
+                  <div class="form-group clearfix">
+                    <%= f.label :title_en, class: "col-sm-3 control-label" %>
+                    <div class="col-sm-9">
+                      <%= f.text_field :title_en, class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group clearfix">
+                    <%= f.label :description_en, class: "col-sm-3 control-label" %>
+                    <div class="col-sm-9">
+                      <%= f.cktext_area :description_en, class: "form-control" %>
+                    </div>
+                  </div>
+                  <div class="form-group clearfix">
+                    <%= f.label :location_en, class: "col-sm-3 control-label" %>
+                    <div class="col-sm-9">
+                      <%= f.text_field :location_en, class: "form-control" %>
+                    </div>
+                  </div>
+              <% end %>
             </div>
           </div>
         </div>

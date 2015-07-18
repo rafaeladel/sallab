@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get "/news", as: "frontend_news", to: "frontend/frontend_news#index"
   get "/news/:id", as: "frontend_news_item", to: "frontend/frontend_news#get_item"
   get "/careers", as: "frontend_careers", to: "frontend/frontend_careers#index"
+  get "/careers/:id/candidate", as: "frontend_careers_candidate_new", to: "frontend/frontend_careers#new_candidate"
+  post "/careers/:id/candidate", as: "frontend_careers_candidates", to: "frontend/frontend_careers#create_candidate"
 
   scope "/contact" do
   	get "/branches", as: "frontend_contact_branches", to: "frontend/frontend_contact#branches"

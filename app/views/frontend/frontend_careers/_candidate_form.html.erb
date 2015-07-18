@@ -1,0 +1,62 @@
+<div class="modal-body">
+    <%= form_for @candidate, url:frontend_careers_candidates_url(@job), class: "form-validate", id: "candidate_form" do |f| %>
+      <% if @candidate.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+            <ul>
+              <% @candidate.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :firstname %>
+              <%= f.text_field :firstname, class: "form-control", required: "required" %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :lastname %>
+              <%= f.text_field :lastname, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control", required: "required" %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :phone %>
+              <%= f.text_field :phone, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :current_salary %>
+              <%= f.number_field :current_salary, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <%= f.label :resume %>
+              <%= f.file_field :resume %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-offset-6 col-sm-6">
+            <%= f.submit("Submit Application", class: "btn btn-yellow submit_candidate") %>
+          </div>
+        </div>
+    <% end %>
+</div>

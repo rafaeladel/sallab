@@ -191,13 +191,15 @@ ActiveRecord::Schema.define(version: 20150713185512) do
   end
 
   create_table "seven_careers_candidates", force: :cascade do |t|
-    t.integer  "job_id",      limit: 4
-    t.string   "name",        limit: 255
-    t.string   "email",       limit: 255
-    t.string   "phone",       limit: 255
-    t.string   "resume_path", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "job_id",         limit: 4
+    t.string   "firstname",      limit: 255
+    t.string   "lastname",       limit: 255
+    t.integer  "current_salary", limit: 4
+    t.string   "email",          limit: 255
+    t.string   "phone",          limit: 255
+    t.string   "resume",         limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "seven_careers_job_translations", force: :cascade do |t|
@@ -207,6 +209,7 @@ ActiveRecord::Schema.define(version: 20150713185512) do
     t.datetime "updated_at",                         null: false
     t.string   "title",                limit: 255
     t.text     "description",          limit: 65535
+    t.string   "location",             limit: 255
   end
 
   add_index "seven_careers_job_translations", ["locale"], name: "index_seven_careers_job_translations_on_locale", using: :btree
