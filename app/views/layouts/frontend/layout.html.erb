@@ -82,17 +82,20 @@ class="rtl"
           <span class="icon-bar"></span>
         </button>
         <h1 class="navbar-brand">
-          <a href="#"><img alt="El-Sallab" src="/assets/img/logo.svg" class="img-responsive" alt="<%= yield(:title) %>"></a>
+          <a href="<%= frontend_home_url %>">
+            <img alt="El-Sallab" src="/assets/img/logo.svg" class="img-responsive" alt="<%= yield(:title) %>">
+          </a>
         </h1>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="nav navbar-nav navbar-right text-uppercase">
-          <li class="<%= 'active' if current_page?(frontend_home_url) %>"><a href="<%= frontend_home_url %>">home</a>
+          <li class="<%= 'active' if current_page?(frontend_home_url) %>">
+            <a href="<%= frontend_home_url %>"><%= t("nav.home") %></a>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">about us</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("nav.about") %></a>
 
             <ul class="dropdown-menu dropdown-menu-left" role="menu">
               <% @about_sections.each do |a| %>
@@ -101,7 +104,7 @@ class="rtl"
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCTS</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("nav.product") %></a>
             <ul class="dropdown-menu dropdown-menu-left" role="menu">
               <% @product_sections.each do |p| %>
                   <li><a href="<%= frontend_product_sections_url slug: p.slug %>"><%= p.title %></a></li>
@@ -109,20 +112,21 @@ class="rtl"
             </ul>
           </li>
           <li class="<%= 'active' if current_page?(frontend_gallery_url) %>">
-            <a href="<%= frontend_gallery_url %>">INSPIRATION GALLERY</a></li>
-          <li class="<%= 'active' if current_page?(frontend_news_url) %>"><a href="<%= frontend_news_url %>">NEWS</a>
+            <a href="<%= frontend_gallery_url %>"><%= t("nav.gallery") %></a></li>
+          <li class="<%= 'active' if current_page?(frontend_news_url) %>"><a href="<%= frontend_news_url %>"><%= t("nav.news") %></a>
           </li>
           <li class="<%= 'active' if current_page?(frontend_careers_url) %>">
-            <a href="<%= frontend_careers_url %>">CAREERS</a></li>
+            <a href="<%= frontend_careers_url %>"><%= t("nav.careers") %></a></li>
           <li class="dropdown <%= 'active' if current_page?(frontend_contact_branches_url) or current_page?(frontend_contact_contact_us_url) %>">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">CONTACT US</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("nav.contact") %></a>
             <ul class="dropdown-menu dropdown-menu-left" role="menu">
-              <li><a href="<%= frontend_contact_branches_url %>">Store Location</a></li>
-              <li><a href="<%= frontend_contact_contact_us_url %>">Drop us a line</a></li>
+              <li><a href="<%= frontend_contact_branches_url %>"><%= t("nav.branches") %></a></li>
+              <li><a href="<%= frontend_contact_contact_us_url %>"><%= t("nav.dropline") %></a></li>
             </ul>
           </li>
         </ul>
       </div>
+      <a href="<%= frontend_change_locale_path(I18n.locale == :en ? :ar : :en) %>"><%= I18n.locale == :en ? "العربية  ":  "English" %></a>
       <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
@@ -143,16 +147,16 @@ class="rtl"
     </div>
     <div class="right">
       <div class="text-center">
-        <a href='<%= frontend_home_url %>'>Home</a><span>|</span>
-        <a href='<%= frontend_contact_contact_us_url %>'>Contact Us</a><span>|</span>
+        <a href='<%= frontend_home_url %>'><%= t("nav.home") %></a><span>|</span>
+        <a href='<%= frontend_contact_contact_us_url %>'><%= t("nav.contact") %></a><span>|</span>
         <a href='sitemap.html'>Site map</a>
 
         <div class="social">
-          <a href="#" class="facebook"><i class="icon-facebook-with-circle"></i></a>
-          <a href="#" class="twitter"><i class="icon-twitter-with-circle"></i></a>
-          <a href="#" class="gplus"><i class="icon-google-with-circle"></i></a>
-          <a href="#" class="instagram"><i class="icon-instagram-with-circle"></i></a>
-          <a href="#" class="pinterest"><i class="icon-pinterest-with-circle"></i></a>
+          <a href="<%= @general_info.facebook %>" class="facebook"><i class="icon-facebook-with-circle"></i></a>
+          <a href="<%= @general_info.twitter %>" class="twitter"><i class="icon-twitter-with-circle"></i></a>
+          <a href="<%= @general_info.google_plus %>" class="gplus"><i class="icon-google-with-circle"></i></a>
+          <a href="<%= @general_info.instagram %>" class="instagram"><i class="icon-instagram-with-circle"></i></a>
+          <a href="<%= @general_info.pinterest %>" class="pinterest"><i class="icon-pinterest-with-circle"></i></a>
         </div>
       </div>
     </div>
