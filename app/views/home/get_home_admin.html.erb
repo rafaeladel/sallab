@@ -1,1 +1,64 @@
-<%= render "common/general_info/general_info", model: @page_info, url: post_page_info_home_url  %>
+<%= render "common/general_info/general_info", model: @page_info, url: post_page_info_home_url %>
+
+<br>
+<br>
+<div>
+  <%= form_for @general_info, url: post_general_info_url(@general_info), method: :put do |f| %>
+      <% if @general_info.errors.any? %>
+          <div id="error_explanation">
+            <ul>
+              <% @general_info.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="box border lite">
+        <h4><i class="fa fa-bars"></i>General Info</h4>
+      </div>
+      <div class="box-body center">
+        <div class="form-group clearfix">
+          <div class="col-sm-9">
+            <%= f.label :contact_email %>
+            <%= f.email_field :contact_email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <div class="col-sm-9">
+            <%= f.label :facebook %>
+            <%= f.text_field :facebook, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <div class="col-sm-9">
+            <%= f.label :twitter %>
+            <%= f.text_field :twitter, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <div class="col-sm-9">
+            <%= f.label :google_plus %>
+            <%= f.text_field :google_plus, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <div class="col-sm-9">
+            <%= f.label :instagram %>
+            <%= f.text_field :instagram, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group clearfix">
+        <div class="col-sm-9">
+          <%= f.label :pinterest %>
+          <%= f.text_field :pinterest, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group clearfix">
+        <div class="col-sm-9">
+          <%= f.submit("Save") %>
+        </div>
+      </div>
+  <% end %>
+</div>

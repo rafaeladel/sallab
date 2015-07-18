@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713185512) do
+ActiveRecord::Schema.define(version: 20150718153354) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -91,6 +91,17 @@ ActiveRecord::Schema.define(version: 20150713185512) do
   end
 
   add_index "colors", ["product_id"], name: "fk_rails_4d68238213", using: :btree
+
+  create_table "general_infos", force: :cascade do |t|
+    t.string   "contact_email", limit: 255
+    t.string   "facebook",      limit: 255
+    t.string   "twitter",       limit: 255
+    t.string   "google_plus",   limit: 255
+    t.string   "instagram",     limit: 255
+    t.string   "pinterest",     limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "home", force: :cascade do |t|
     t.datetime "created_at", null: false

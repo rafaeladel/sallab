@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   scope "/contact" do
   	get "/branches", as: "frontend_contact_branches", to: "frontend/frontend_contact#branches"
-  	get "/contact_us", as: "frontend_contact_contact_us", to: "frontend/frontend_contact#contact_us"
+  	match "/contact_us", as: "frontend_contact_contact_us", to: "frontend/frontend_contact#contact_us", via: [:get, :post]
   end
   get "/sitemap", as: "frontend_sitemap", to:"frontend/frontend_sitemap#index"
 
@@ -47,6 +47,7 @@ Rails.application.routes.draw do
 
 			get "/home", as: "get_home_admin", to: "home#get_home_admin"
 	    put "/home", as: "post_home_admin", to: "home#post_home_admin"
+      put "/general_info/:id", as: "post_general_info", to: "home#post_general_info"
 	    put "/home/page_info", as: "post_page_info_home", to: "home#post_page_info"
 	    get "/about", as: "get_about_admin", to: "about#get_about_admin"
 	    put "/about", as: "post_about_admin", to: "about#post_about_admin"
