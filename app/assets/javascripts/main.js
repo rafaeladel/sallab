@@ -75,5 +75,6 @@ $(document).ready(function () {
     careersForm();
     newsGrid();
     productDetails();
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip();
+	$(".form-validate").validate()
 })
