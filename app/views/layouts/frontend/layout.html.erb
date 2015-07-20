@@ -91,10 +91,10 @@ class="rtl"
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="nav navbar-nav navbar-right text-uppercase">
-          <li class="<%= 'active' if current_page?(frontend_home_url) %>">
+          <li class="<%= is_current?(frontend_home_url) %>">
             <a href="<%= frontend_home_url %>"><%= t("nav.home") %></a>
           </li>
-          <li class="dropdown">
+          <li class="dropdown <%= is_current?("about") %>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("nav.about") %></a>
 
             <ul class="dropdown-menu dropdown-menu-left" role="menu">
@@ -103,7 +103,7 @@ class="rtl"
               <% end %>
             </ul>
           </li>
-          <li class="dropdown">
+          <li class="dropdown <%= is_current?("product") %>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("nav.product") %></a>
             <ul class="dropdown-menu dropdown-menu-left" role="menu">
               <% @product_sections.each do |p| %>
@@ -111,15 +111,16 @@ class="rtl"
               <% end %>
             </ul>
           </li>
-          <li class="<%= 'active' if current_page?(frontend_gallery_url) %>">
+          <li class="<%= 'active' if is_current?(frontend_gallery_url) %>">
             <a href="<%= frontend_gallery_url %>"><%= t("nav.gallery") %></a></li>
-          <li class="<%= 'active' if current_page?(frontend_news_url) %>"><a href="<%= frontend_news_url %>"><%= t("nav.news") %></a>
+          <li class="<%= 'active' if is_current?(frontend_news_url) %>">
+            <a href="<%= frontend_news_url %>"><%= t("nav.news") %></a>
           </li>
-          <li class="<%= 'active' if current_page?(frontend_careers_url) %>">
+          <li class="<%= 'active' if is_current?(frontend_careers_url) %>">
             <a href="<%= frontend_careers_url %>"><%= t("nav.careers") %></a></li>
-          <li class="dropdown <%= 'active' if current_page?(frontend_contact_branches_url) or current_page?(frontend_contact_contact_us_url) %>">
+          <li class="dropdown <%= 'active' if is_current?(frontend_contact_branches_url) or current_page?(frontend_contact_contact_us_url) %>">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t("nav.contact") %></a>
-            <ul class="dropdown-menu dropdown-menu-left" role="menu">
+            <ul class="dropdown-menu dropdown-menu-left <%= is_current?("contact") %>" role="menu">
               <li><a href="<%= frontend_contact_branches_url %>"><%= t("nav.branches") %></a></li>
               <li><a href="<%= frontend_contact_contact_us_url %>"><%= t("nav.dropline") %></a></li>
             </ul>

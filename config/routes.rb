@@ -5,8 +5,6 @@ Rails.application.routes.draw do
   scope "(/:locale)", locale: /en|ar/ do
     get "/home", as: "frontend_home", to: "frontend/frontend_home#index"
 
-    get "/about", as: "frontend_about", to: "frontend/frontend_about#index"
-
     get "/about/:slug", as: "frontend_about_section", to: "frontend/frontend_about_section#index"
 
     get "/product_sections/:slug",
