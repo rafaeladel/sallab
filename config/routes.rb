@@ -45,6 +45,8 @@ Rails.application.routes.draw do
   end
 
   scope "/admin" do
+    devise_for :users
+
     resources :banners
     resources :about_sections
     resources :product_sections, concerns: :page_info

@@ -1,4 +1,7 @@
-class Frontend::FrontendApplicationController < ApplicationController
+class Frontend::FrontendApplicationController < ActionController::Base
+
+	protect_from_forgery with: :exception
+
 
 	layout "frontend/layout"
 

@@ -18,30 +18,37 @@
       <!-- /COMPANY LOGO -->
       <!-- /TEAM STATUS FOR MOBILE -->
       <!-- SIDEBAR COLLAPSE -->
-      <div id="sidebar-collapse" class="sidebar-collapse btn">
-        <i class="fa fa-bars"
-           data-icon1="fa fa-bars"
-           data-icon2="fa fa-bars"></i>
-      </div>
+      <% if user_signed_in? %>
+
+          <div id="sidebar-collapse" class="sidebar-collapse btn">
+            <i class="fa fa-bars"
+               data-icon1="fa fa-bars"
+               data-icon2="fa fa-bars"></i>
+          </div>
+      <% end %>
       <!-- /SIDEBAR COLLAPSE -->
     </div>
     <!-- /NAVBAR LEFT -->
     <!-- BEGIN TOP NAVIGATION MENU -->
-    <ul class="nav navbar-nav pull-right">
+    <% if user_signed_in? %>
+        <ul class="nav navbar-nav pull-right">
 
-      <!-- BEGIN USER LOGIN DROPDOWN -->
-      <li class="dropdown" id="header-user">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <span class="username">Mina</span>
-          <i class="fa fa-angle-down"></i>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a href="#"><i class="fa fa-cog"></i> Account Settings</a></li>
-          <li><a href="login.html"><i class="fa fa-power-off"></i> Log Out</a></li>
+          <!-- BEGIN USER LOGIN DROPDOWN -->
+          <li class="dropdown" id="header-user">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="username"><%= current_user.email %></span>
+              <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="<%= edit_user_registration_path current_user %>"><i class="fa fa-cog"></i> Account Settings</a>
+              </li>
+              <li><a href="<%= destroy_user_session_path %>"><i class="fa fa-power-off"></i> Log Out</a></li>
+            </ul>
+          </li>
+          <!-- END USER LOGIN DROPDOWN -->
         </ul>
-      </li>
-      <!-- END USER LOGIN DROPDOWN -->
-    </ul>
+    <% end %>
     <!-- END TOP NAVIGATION MENU -->
   </div>
 
@@ -51,107 +58,152 @@
 <!-- PAGE -->
 <section id="page">
   <!-- SIDEBAR -->
-  <div id="sidebar" class="sidebar">
-    <div class="sidebar-menu nav-collapse">
-      <!-- SIDEBAR MENU -->
-      <ul>
-        <li>
-          <a href="<%= main_app.get_home_admin_url %>">
-            <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">General</span>
-          </a>
-        </li>
-        <li class="has-sub">
-          <a href="javascript:;">
-            <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">About</span>
-            <span class="arrow"></span>
+  <% if user_signed_in? %>
 
-          </a>
-          <ul class="sub">
+      <div id="sidebar" class="sidebar">
+        <div class="sidebar-menu nav-collapse">
+          <!-- SIDEBAR MENU -->
+          <ul>
+            <li>
+              <a href="<%= main_app.get_home_admin_url %>">
+                <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">General</span>
+              </a>
+            </li>
+            <li class="has-sub">
+              <a href="javascript:;">
+                <i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">About</span>
+                <span class="arrow"></span>
 
-            <li><a class="" href="<%= main_app.get_about_admin_url %>"><span class="sub-menu-text">About Info</span></a></li>
-            <li><a class="" href="<%= main_app.about_sections_url %>"><span class="sub-menu-text">List about sections</span></a></li>
-            <li><a class="" href="<%= main_app.new_about_section_url %>"><span class="sub-menu-text">New about section</span></a></li>
+              </a>
+              <ul class="sub">
+
+                <li>
+                  <a class="" href="<%= main_app.get_about_admin_url %>"><span class="sub-menu-text">About Info</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= main_app.about_sections_url %>"><span class="sub-menu-text">List about sections</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= main_app.new_about_section_url %>"><span class="sub-menu-text">New about section</span></a>
+                </li>
+
+              </ul>
+            </li>
+            <li class="has-sub">
+              <a href="javascript:;" class="">
+                <i class="fa fa-table fa-fw"></i> <span class="menu-text">Banners</span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="sub">
+                <li><a class="" href="<%= main_app.banners_url %>"><span class="sub-menu-text">List Banners</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.new_banner_url %>"><span class="sub-menu-text">Add Banner</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-sub">
+              <a href="javascript:;" class="">
+                <i class="fa fa-table fa-fw"></i> <span class="menu-text">Branches</span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="sub">
+                <li>
+                  <a class="" href="<%= main_app.page_info_branches_url %>"><span class="sub-menu-text">Branches Page info</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.regions_url %>"><span class="sub-menu-text">List Regions</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.new_region_url %>"><span class="sub-menu-text">Add Region</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.branches_url %>"><span class="sub-menu-text">List Branches</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.new_branch_url %>"><span class="sub-menu-text">Add Branch</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-sub">
+              <a href="javascript:;" class="">
+                <i class="fa fa-table fa-fw"></i> <span class="menu-text">News</span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="sub">
+                <li><a class="" href="<%= seven_portfolio.items_url %>"><span class="sub-menu-text">List News</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= seven_portfolio.new_item_url %>"><span class="sub-menu-text">Add News</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-sub">
+              <a href="javascript:;" class="">
+                <i class="fa fa-table fa-fw"></i> <span class="menu-text">Careers</span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="sub">
+                <li><a class="" href="<%= seven_careers.jobs_url %>"><span class="sub-menu-text">List Careers</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= seven_careers.new_job_url %>"><span class="sub-menu-text">Add Career</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-sub">
+              <a href="javascript:;" class="">
+                <i class="fa fa-table fa-fw"></i> <span class="menu-text">Products</span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="sub">
+                <li>
+                  <a class="" href="<%= main_app.new_product_section_url %>"><span class="sub-menu-text">Add Product Section</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.page_info_product_sections_url %>"><span class="sub-menu-text">Product Section Page info</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= main_app.product_sections_url %>"><span class="sub-menu-text">List Product Section</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= main_app.page_info_products_url %>"><span class="sub-menu-text">Product Page info</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= main_app.new_product_url %>"><span class="sub-menu-text">Add Product</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.products_url %>"><span class="sub-menu-text">List Products</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.new_origin_url %>"><span class="sub-menu-text">Add Origin</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.origins_url %>"><span class="sub-menu-text">List Origins</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.new_brand_url %>"><span class="sub-menu-text">Add Brand</span></a>
+                </li>
+                <li><a class="" href="<%= main_app.brands_url %>"><span class="sub-menu-text">List Brands</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= main_app.new_tile_size_url %>"><span class="sub-menu-text">Add Tile size</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= main_app.tile_sizes_url %>"><span class="sub-menu-text">List Tile sizes</span></a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-sub">
+              <a href="javascript:;" class="">
+                <i class="fa fa-table fa-fw"></i> <span class="menu-text">Galleries</span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="sub">
+                <li>
+                  <a class="" href="<%= seven_gallery.galleries_url %>"><span class="sub-menu-text">List Galleries</span></a>
+                </li>
+                <li>
+                  <a class="" href="<%= seven_gallery.new_gallery_url %>"><span class="sub-menu-text">Add Gallery</span></a>
+                </li>
+              </ul>
+            </li>
 
           </ul>
-        </li>
-        <li class="has-sub">
-          <a href="javascript:;" class="">
-            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Banners</span>
-            <span class="arrow"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="" href="<%= main_app.banners_url %>"><span class="sub-menu-text">List Banners</span></a></li>
-            <li><a class="" href="<%= main_app.new_banner_url %>"><span class="sub-menu-text">Add Banner</span></a></li>
-          </ul>
-        </li>
-        <li class="has-sub">
-          <a href="javascript:;" class="">
-            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Branches</span>
-            <span class="arrow"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="" href="<%= main_app.page_info_branches_url %>"><span class="sub-menu-text">Branches Page info</span></a></li>
-            <li><a class="" href="<%= main_app.regions_url %>"><span class="sub-menu-text">List Regions</span></a></li>
-            <li><a class="" href="<%= main_app.new_region_url %>"><span class="sub-menu-text">Add Region</span></a></li>
-            <li><a class="" href="<%= main_app.branches_url %>"><span class="sub-menu-text">List Branches</span></a></li>
-            <li><a class="" href="<%= main_app.new_branch_url %>"><span class="sub-menu-text">Add Branch</span></a></li>
-          </ul>
-        </li>
-        <li class="has-sub">
-          <a href="javascript:;" class="">
-            <i class="fa fa-table fa-fw"></i> <span class="menu-text">News</span>
-            <span class="arrow"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="" href="<%= seven_portfolio.items_url %>"><span class="sub-menu-text">List News</span></a></li>
-            <li><a class="" href="<%= seven_portfolio.new_item_url %>"><span class="sub-menu-text">Add News</span></a></li>
-          </ul>
-        </li>
-        <li class="has-sub">
-          <a href="javascript:;" class="">
-            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Careers</span>
-            <span class="arrow"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="" href="<%= seven_careers.jobs_url %>"><span class="sub-menu-text">List Careers</span></a></li>
-            <li><a class="" href="<%= seven_careers.new_job_url %>"><span class="sub-menu-text">Add Career</span></a></li>
-          </ul>
-        </li>
-        <li class="has-sub">
-          <a href="javascript:;" class="">
-            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Products</span>
-            <span class="arrow"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="" href="<%= main_app.new_product_section_url %>"><span class="sub-menu-text">Add Product Section</span></a></li>
-            <li><a class="" href="<%= main_app.page_info_product_sections_url %>"><span class="sub-menu-text">Product Section Page info</span></a></li>
-            <li><a class="" href="<%= main_app.product_sections_url %>"><span class="sub-menu-text">List Product Section</span></a></li>
-            <li><a class="" href="<%= main_app.page_info_products_url %>"><span class="sub-menu-text">Product Page info</span></a></li>
-            <li><a class="" href="<%= main_app.new_product_url %>"><span class="sub-menu-text">Add Product</span></a></li>
-            <li><a class="" href="<%= main_app.products_url %>"><span class="sub-menu-text">List Products</span></a></li>
-            <li><a class="" href="<%= main_app.new_origin_url %>"><span class="sub-menu-text">Add Origin</span></a></li>
-            <li><a class="" href="<%= main_app.origins_url %>"><span class="sub-menu-text">List Origins</span></a></li>
-            <li><a class="" href="<%= main_app.new_brand_url %>"><span class="sub-menu-text">Add Brand</span></a></li>
-            <li><a class="" href="<%= main_app.brands_url %>"><span class="sub-menu-text">List Brands</span></a></li>
-            <li><a class="" href="<%= main_app.new_tile_size_url %>"><span class="sub-menu-text">Add Tile size</span></a></li>
-            <li><a class="" href="<%= main_app.tile_sizes_url %>"><span class="sub-menu-text">List Tile sizes</span></a></li>
-          </ul>
-        </li>
-        <li class="has-sub">
-          <a href="javascript:;" class="">
-            <i class="fa fa-table fa-fw"></i> <span class="menu-text">Galleries</span>
-            <span class="arrow"></span>
-          </a>
-          <ul class="sub">
-            <li><a class="" href="<%= seven_gallery.galleries_url %>"><span class="sub-menu-text">List Galleries</span></a></li>
-            <li><a class="" href="<%= seven_gallery.new_gallery_url %>"><span class="sub-menu-text">Add Gallery</span></a></li>
-          </ul>
-        </li>
-
-      </ul>
-      <!-- /SIDEBAR MENU -->
-    </div>
-  </div>
+          <!-- /SIDEBAR MENU -->
+        </div>
+      </div>
+  <% end %>
   <!-- /SIDEBAR -->
   <div id="main-content">
     <div class="container">
@@ -185,7 +237,7 @@
         </div>
       </div>
     </div>
-      </div>
+  </div>
 </section>
 <!--/PAGE -->
 <!-- JAVASCRIPTS -->
@@ -195,10 +247,10 @@
 <!-- CUSTOM SCRIPT -->
 <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
 <script type="text/javascript" charset="utf-8">
-  $(function() {
-      App.init();
-      $("#newTable").bootstrapTable()
-  })
+    $(function () {
+        App.init();
+        $("#newTable").bootstrapTable()
+    })
 </script>
 </body>
 </html>
