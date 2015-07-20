@@ -2,7 +2,9 @@ class Frontend::FrontendCareersController < Frontend::FrontendApplicationControl
 
   before_action :set_job, only: [:new_candidate, :create_candidate]
 
-	def index 
+	def index
+		@page_info = get_page_info(:job)
+
 		@banner = Banner.find_by(banner_type: Banner.banner_types[:careers])
 		@jobs = SevenCareers::Job.all
 	end

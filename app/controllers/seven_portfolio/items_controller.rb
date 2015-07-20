@@ -1,5 +1,6 @@
 class SevenPortfolio::ItemsController < ApplicationController
   include SevenPortfolio::Concerns::ItemsController
+  include ::PageInfoControllerConcern
 
   private
   # Only allow a trusted parameter "white list" through.

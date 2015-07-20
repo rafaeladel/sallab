@@ -1,6 +1,50 @@
 Rails.application.routes.draw do
   root "frontend/frontend_home#index"
-  get '/:locale' => "frontend/frontend_home#index"
+  get '/:locale', to: "frontend/frontend_home#index", locale: /en|ar/
+
+  scope "/admin" do
+    concern :page_info do
+      collection do
+        get "/page_info", action: "get_page_info"
+        put "/page_info", action: "post_page_info"
+      end
+    end
+
+    devise_for :users
+    get "/", to: "home#get_home_admin"
+    resources :banners
+    resources :about_sections
+    resources :product_sections, concerns: :page_info
+    resources :origins
+    resources :brands
+    resources :tile_sizes
+    resources :colors
+    resources :products, concerns: :page_info
+    resources :branches, concerns: :page_info
+    resources :regions
+
+
+    get "/home", as: "get_home_admin", to: "home#get_home_admin"
+    put "/home", as: "post_home_admin", to: "home#post_home_admin"
+    put "/general_info/:id", as: "post_general_info", to: "home#post_general_info"
+    put "/home/page_info", as: "post_page_info_home", to: "home#post_page_info"
+    get "/about", as: "get_about_admin", to: "about#get_about_admin"
+    put "/about", as: "post_about_admin", to: "about#post_about_admin"
+    put "/about/page_info", as: "post_page_info_about", to: "about#post_page_info"
+
+
+    get "/galleries/page_info", to: "seven_gallery/galleries#get_page_info", as: "get_page_info_galleries"
+    put "/galleries/page_info", to: "seven_gallery/galleries#post_page_info", as: "post_page_info_galleries"
+    mount SevenGallery::Engine, at: "/"
+
+    get "/news/page_info", to: "seven_portfolio/items#get_page_info", as: "get_page_info_news"
+    put "/news/page_info", to: "seven_portfolio/items#post_page_info", as: "post_page_info_news"
+    mount SevenPortfolio::Engine, at: "/news"
+
+    get "/careers/page_info", to: "seven_careers/jobs#get_page_info", as: "get_page_info_careers"
+    put "/careers/page_info", to: "seven_careers/jobs#post_page_info", as: "post_page_info_careers"
+    mount SevenCareers::Engine, at: "/"
+  end
 
   scope "(/:locale)", locale: /en|ar/ do
     get "/home", as: "frontend_home", to: "frontend/frontend_home#index"
@@ -35,40 +79,7 @@ Rails.application.routes.draw do
     get "/change_locale/:locale", as: "frontend_change_locale", to: "frontend/frontend_settings#change_locale"
   end
 
-  concern :page_info do
-    collection do
-      get "/page_info", action: "get_page_info"
-      put "/page_info", action: "post_page_info"
-    end
-  end
-
-  scope "/admin" do
-    devise_for :users
-
-    resources :banners
-    resources :about_sections
-    resources :product_sections, concerns: :page_info
-    resources :origins
-    resources :brands
-    resources :tile_sizes
-    resources :colors
-    resources :products, concerns: :page_info
-    resources :branches, concerns: :page_info
-    resources :regions
 
 
-    get "/home", as: "get_home_admin", to: "home#get_home_admin"
-    put "/home", as: "post_home_admin", to: "home#post_home_admin"
-    put "/general_info/:id", as: "post_general_info", to: "home#post_general_info"
-    put "/home/page_info", as: "post_page_info_home", to: "home#post_page_info"
-    get "/about", as: "get_about_admin", to: "about#get_about_admin"
-    put "/about", as: "post_about_admin", to: "about#post_about_admin"
-    put "/about/page_info", as: "post_page_info_about", to: "about#post_page_info"
-
-
-    mount SevenGallery::Engine, at: "/"
-    mount SevenPortfolio::Engine, at: "/news"
-    mount SevenCareers::Engine, at: "/"
-  end
 
 end

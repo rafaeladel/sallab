@@ -41,9 +41,9 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="<%= edit_user_registration_path current_user %>"><i class="fa fa-cog"></i> Account Settings</a>
+                <a href="<%= main_app.edit_user_registration_path current_user %>"><i class="fa fa-cog"></i> Account Settings</a>
               </li>
-              <li><a href="<%= destroy_user_session_path %>"><i class="fa fa-power-off"></i> Log Out</a></li>
+              <li><a href="<%= main_app.destroy_user_session_path %>"><i class="fa fa-power-off"></i> Log Out</a></li>
             </ul>
           </li>
           <!-- END USER LOGIN DROPDOWN -->
@@ -126,6 +126,8 @@
                 <span class="arrow"></span>
               </a>
               <ul class="sub">
+                <li><a class="" href="<%= main_app.get_page_info_news_url %>"><span class="sub-menu-text">News page info</span></a>
+                </li>
                 <li><a class="" href="<%= seven_portfolio.items_url %>"><span class="sub-menu-text">List News</span></a>
                 </li>
                 <li>
@@ -139,6 +141,8 @@
                 <span class="arrow"></span>
               </a>
               <ul class="sub">
+                <li><a class="" href="<%= main_app.get_page_info_careers_url %>"><span class="sub-menu-text">Careers page info</span></a>
+                </li>
                 <li><a class="" href="<%= seven_careers.jobs_url %>"><span class="sub-menu-text">List Careers</span></a>
                 </li>
                 <li>
@@ -190,6 +194,10 @@
                 <span class="arrow"></span>
               </a>
               <ul class="sub">
+
+                <li>
+                  <a class="" href="<%= main_app.get_page_info_galleries_url %>"><span class="sub-menu-text">Gallery Page info</span></a>
+                </li>
                 <li>
                   <a class="" href="<%= seven_gallery.galleries_url %>"><span class="sub-menu-text">List Galleries</span></a>
                 </li>

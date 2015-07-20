@@ -30,4 +30,12 @@ class Frontend::FrontendApplicationController < ActionController::Base
 	def default_url_options(options = {})
 		{ locale: I18n.locale }.merge options
 	end
+
+	def get_page_info(page)
+		page_info = PageInfo.find_by_info_type(PageInfo.info_types[page])
+		if page_info.nil?
+			page_info = PageInfo.find_by_info_type(PageInfo.info_types[:home])
+		end
+		page_info
+	end
 end

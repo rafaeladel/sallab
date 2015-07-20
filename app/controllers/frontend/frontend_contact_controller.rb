@@ -1,6 +1,6 @@
 class Frontend::FrontendContactController < Frontend::FrontendApplicationController
 
-  before_action :set_banner
+  before_action :set_banner, :set_meta_page_info
 
 	def index
 	end
@@ -23,5 +23,9 @@ class Frontend::FrontendContactController < Frontend::FrontendApplicationControl
 
   def contact_params
 		params.permit(:fullname, :email, :subject, :content)
+	end
+
+  def set_meta_page_info
+		@page_info = get_page_info(:contact)
 	end
 end

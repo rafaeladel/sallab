@@ -1,6 +1,6 @@
 class Frontend::FrontendNewsController < Frontend::FrontendApplicationController
 
-  before_action :get_banner, only: [:index, :get_item]
+  before_action :get_banner, :set_meta_page_info, only: [:index, :get_item]
 
 	def index 
 		@news_items = SevenPortfolio::Item.page(params[:page]).per(7)
@@ -13,5 +13,9 @@ class Frontend::FrontendNewsController < Frontend::FrontendApplicationController
   private
   def get_banner
 		@banner = Banner.find_by(banner_type: Banner.banner_types[:news])
+	end
+
+  def set_meta_page_info
+		@page_info = get_page_info(:item)
 	end
 end

@@ -1,15 +1,15 @@
-<% content_for :title, t("title") %>
-        <div class="homeSections">
-            <ul class="list-unstyled clearfix">
-                <% @product_sections.each do |s| %>
-                    <li><a href="#"><div><span><%= s.title %></span></div>
-                        <img alt="Tropicana" src="<%= s.image.thumb.url %>" class="img-responsive"></a>
-                    </li>
-                <% end %>
-            </ul>
-        </div>
-    <%= content_for :banner_partial do %>
-    <span></span>
-    <% end %>
-    <%= banner_markup banner: @banner %>
+<%= render "frontend/common/meta_page_info", page_info: @page_info %>
+<div class="homeSections">
+    <ul class="list-unstyled clearfix">
+        <% @product_sections.each do |s| %>
+            <li><a href="#"><div><span><%= s.title %></span></div>
+                <img alt="Tropicana" src="<%= s.image.thumb.url %>" class="img-responsive"></a>
+            </li>
+        <% end %>
+    </ul>
+</div>
+<%= content_for :banner_partial do %>
+<span></span>
+<% end %>
+<%= banner_markup banner: @banner %>
 

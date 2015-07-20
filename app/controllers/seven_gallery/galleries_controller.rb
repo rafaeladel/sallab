@@ -1,5 +1,6 @@
 class SevenGallery::GalleriesController < ApplicationController
   include SevenGallery::Concerns::GalleriesController
+  include ::PageInfoControllerConcern
 
   private
   def gallery_params

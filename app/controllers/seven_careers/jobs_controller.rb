@@ -1,5 +1,6 @@
 class SevenCareers::JobsController < ApplicationController
   include SevenCareers::Concerns::JobsController
+  include ::PageInfoControllerConcern
 
   private
   def job_params

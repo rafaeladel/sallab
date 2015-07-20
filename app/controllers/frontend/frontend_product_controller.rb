@@ -11,4 +11,5 @@ class Frontend::FrontendProductController < Frontend::FrontendApplicationControl
     @banner = Banner.find_by(banner_type: Banner.banner_types[:product])
   end
 
+
 end
