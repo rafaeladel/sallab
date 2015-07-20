@@ -5,3 +5,4 @@ pages_with_info.each do |p|
 end
 
 GeneralInfo.create
+User.create(email: "sallab@staff.com", password: 12345678)

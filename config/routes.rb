@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       end
     end
 
-    devise_for :users
+    devise_for :users, controllers: { registrations: "users/registrations" }
     get "/", to: "home#get_home_admin"
     resources :banners
     resources :about_sections
