@@ -1,8 +1,4 @@
 <%= render "common/general_info/general_info", model: @page_info, url: post_page_info_home_url %>
-
-<br>
-<br>
-<div>
   <%= form_for @general_info, url: post_general_info_url(@general_info), method: :put do |f| %>
       <% if @general_info.errors.any? %>
           <div id="error_explanation">
@@ -14,50 +10,52 @@
           </div>
       <% end %>
 
-      <div class="box border lite">
-        <h4><i class="fa fa-bars"></i>General Info</h4>
+<div class="box border blue">
+	<div class="box-title">
+		<h4><i class="fa fa-bars"></i>Social Info</h4>
+	</div>        
       <div class="box-body center">
         <div class="form-group clearfix">
+			<%= f.label :contact_email, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-            <%= f.label :contact_email %>
             <%= f.email_field :contact_email, class: "form-control" %>
           </div>
         </div>
         <div class="form-group clearfix">
+			<%= f.label :facebook, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-            <%= f.label :facebook %>
             <%= f.text_field :facebook, class: "form-control" %>
           </div>
         </div>
         <div class="form-group clearfix">
+			<%= f.label :twitter, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-            <%= f.label :twitter %>
             <%= f.text_field :twitter, class: "form-control" %>
           </div>
         </div>
         <div class="form-group clearfix">
+			<%= f.label :google_plus, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-            <%= f.label :google_plus %>
             <%= f.text_field :google_plus, class: "form-control" %>
           </div>
         </div>
         <div class="form-group clearfix">
+			<%= f.label :instagram, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-            <%= f.label :instagram %>
             <%= f.text_field :instagram, class: "form-control" %>
           </div>
         </div>
       </div>
       <div class="form-group clearfix">
+		<%= f.label :pinterest, 'Youtube' , class: "col-sm-3 control-label" %>
         <div class="col-sm-9">
-          <%= f.label :pinterest %>
           <%= f.text_field :pinterest, class: "form-control" %>
         </div>
       </div>
-      <div class="form-group clearfix">
-        <div class="col-sm-9">
-          <%= f.submit("Save") %>
-        </div>
-      </div>
+		<div class="row">
+			<div class="col-sm-9 col-sm-offset-3">
+				<%= f.submit "Save", class: "btn btn-primary btn-block" %>
+			</div>
+		</div>
   <% end %>
-</div>
+</div></div>
