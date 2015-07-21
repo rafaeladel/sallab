@@ -129,7 +129,7 @@ class="rtl"
           </li>
         </ul>
       </div>
-      <a href="<%= frontend_change_locale_path(I18n.locale == :en ? :ar : :en) %>"><%= I18n.locale == :en ? "العربية  ":  "English" %></a>
+      <a id="language" href="<%= frontend_change_locale_path(I18n.locale == :en ? :ar : :en) %>"><%= I18n.locale == :en ? "العربية  ":  "English" %></a>
       <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->

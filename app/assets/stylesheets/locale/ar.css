@@ -98,7 +98,12 @@ h3.pageSlogan span {
   padding-right: 0;padding-left: 30px;
 }
 .pagination>li>a, .pagination>li>span {margin: 0 5px}
-
+#language {
+	right: auto;
+	left: 0;
+	padding: 2px 10px 6px 40px;
+	font: 400 16px tahoma;
+}
 @media (max-width: 767px) {
     footer {text-align: center}
     .navbar-brand {padding: 10px 20px 10px 0}
