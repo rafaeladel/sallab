@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720142158) do
+ActiveRecord::Schema.define(version: 20150726174228) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -192,6 +192,8 @@ ActiveRecord::Schema.define(version: 20150720142158) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "product_section_id", limit: 4
+    t.boolean  "is_wall",            limit: 1
+    t.boolean  "is_floor",           limit: 1
   end
 
   add_index "products", ["product_section_id"], name: "fk_rails_0b001f140b", using: :btree

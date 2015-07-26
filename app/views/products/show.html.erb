@@ -46,6 +46,18 @@
 					<input type="text" class="form-control" value="<%= @product.code %>" disabled>
 				</div>
 			</div>
+           <div class="form-group">
+				<label class="col-md-3 control-label">Wall</label>
+				<div class="col-md-9">
+					<input type="checkbox" class="" <%= @product.is_wall? ? "checked" : '' %> disabled>
+				</div>
+			</div>
+           <div class="form-group">
+				<label class="col-md-3 control-label">Floor</label>
+				<div class="col-md-9">
+					<input type="checkbox" class="" <%= @product.is_floor ? "checked" : '' %> disabled>
+				</div>
+			</div>
 			<div class="form-group">
 				<label class="col-md-3 control-label">Description</label>
 				<div class="col-md-9">

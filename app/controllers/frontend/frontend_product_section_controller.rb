@@ -5,7 +5,7 @@ class Frontend::FrontendProductSectionController < Frontend::FrontendApplication
     @page_info = get_page_info(:product_section)
 
     @product_section = ProductSection.find_by_slug(params[:slug])
-    @products = @product_section.products.where(get_search_params).page(params[:page]).per(8)
+    @products = @product_section.products.where( get_search_params).page(params[:page]).per(8)
   end
 
   private
@@ -14,6 +14,6 @@ class Frontend::FrontendProductSectionController < Frontend::FrontendApplication
   end
 
   def get_search_params
-    params.permit(:origin_id, :brand_id, :tile_size_id).reject{ |i, v| v.blank? }
+    params.permit(:origin_id, :brand_id, :tile_size_id, :is_wall, :is_floor).reject{ |i, v| v.blank? }
   end
 end

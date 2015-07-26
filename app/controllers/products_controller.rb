@@ -79,7 +79,7 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      permitted = Product.globalize_attribute_names + [:product_section_id, :origin_id, :brand_id, :tile_size_id, :code, :description, :image, colors_attributes: [:code, :_destroy, :id]]
+      permitted = Product.globalize_attribute_names + [:product_section_id, :origin_id, :brand_id, :tile_size_id, :code, :description, :is_wall, :is_floor, :image, colors_attributes: [:code, :_destroy, :id]]
       params.require(:product).permit(*permitted)
     end
 end

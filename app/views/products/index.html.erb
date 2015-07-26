@@ -22,6 +22,8 @@
 							<th data-field="Brand" data-sortable="true">Brand</th>
 							<th data-field="Tile" data-sortable="true">Tile size</th>
 							<th data-field="Colors" data-sortable="true">Colors</th>
+							<th data-field="Wall" data-sortable="true">Wall?</th>
+							<th data-field="Floor" data-sortable="true">Floor?</th>
 							<th data-field="Code" data-sortable="true">Code</th>
 							<th data-field="Description" data-sortable="true">Description</th>
 							<th data-field="Image">Image</th>
@@ -41,6 +43,8 @@
                                   <div style="background: <%= color.code %>; width: 100px; height: 30px;"></div>
                               <% end %>
                             </td>
+							<td><%= product.is_wall? ? "Yes" : "No" %></td>
+							<td><%= product.is_floor? ? "Yes" : "No"  %></td>
 							<td><%= product.code %></td>
 							<td><%= product.description %></td>
 							<td><%= image_tag(product.image.thumb.url) %></td>

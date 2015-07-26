@@ -31,6 +31,14 @@
             <div class="filterTitle">SELECT BY TILE SIZE</div>
             <%= select_tag(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, selected: params[:tile_size_id]), prompt: "Select tile size", class: "form-control") %>
 
+            <div>
+              <%= check_box_tag :is_wall, 1, params[:is_wall] %>
+              <%= label_tag :is_wall, "Wall" %>
+
+              <%= check_box_tag :is_floor, 1, params[:is_floor] %>
+              <%= label_tag :is_floor, "Floor" %>
+            </div>
+            
             <%= submit_tag("Search", name: nil, class: "pull-right") %>
         <% end %>
       </div>
@@ -64,13 +72,13 @@
 
 <% content_for :custom_js do %>
     <script type="text/javascript" charset="utf-8">
-        $(function() {
-            $("body").on("click", "a[data-target=#productModal]", function(ev) {
+        $(function () {
+            $("body").on("click", "a[data-target=#productModal]", function (ev) {
                 ev.preventDefault();
                 var target = $(this).attr("href");
 
                 // load the url and show modal on success
-                $("#productModal .modal-content").load(target, function() {
+                $("#productModal .modal-content").load(target, function () {
                     $("#productModal").modal("show");
                 });
             });
