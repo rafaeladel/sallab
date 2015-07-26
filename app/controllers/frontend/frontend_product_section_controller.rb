@@ -5,7 +5,7 @@ class Frontend::FrontendProductSectionController < Frontend::FrontendApplication
     @page_info = get_page_info(:product_section)
 
     @product_section = ProductSection.find_by_slug(params[:slug])
-    @products = @product_section.products.where( get_search_params).page(params[:page]).per(8)
+    @products = @product_section.products.where(get_search_params).page(params[:page]).per(8)
   end
 
   private
