@@ -85,27 +85,27 @@
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :is_wall, class: "col-sm-3 control-label" %>
-          <div class="col-sm-9" id="colors">
+          <div class="col-sm-9 col-sm-offset-3" id="colors">
 			  <%= f.check_box :is_wall %>
+		  <%= f.label :is_wall, class: "control-label" %>
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :is_floor, class: "col-sm-3 control-label" %>
-          <div class="col-sm-9" id="colors">
+          <div class="col-sm-9 col-sm-offset-3" id="colors">
 			  <%= f.check_box :is_floor %>
+			  <%= f.label :is_floor, class: "control-label" %>
           </div>
         </div>
         <div class="form-group clearfix">
 		  <%= f.label :code, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-			<%= f.text_field :code, class: "control-label" %>
+			<%= f.text_field :code, class: "form-control" %>
           </div>
         </div>
         <div class="form-group clearfix">
 		  <%= f.label :image, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-			<%= f.file_field :image, class: "control-label" %>
+			<%= f.file_field :image, class: "form-control" %>
           </div>
         </div>
       </div>
