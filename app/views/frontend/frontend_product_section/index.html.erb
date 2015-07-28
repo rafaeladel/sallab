@@ -32,11 +32,11 @@
             <%= select_tag(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, selected: params[:tile_size_id]), prompt: "Select tile size", class: "form-control") %>
 
             <div class="btn-group" data-toggle="buttons">
-			  <%= label_tag :is_wall, "Wall", class: "btn btn-grey" %>
+			  <%= label_tag :is_wall, "Wall", class: "btn btn-grey" do %>
 				  <%= check_box_tag :is_wall, 1, params[:is_wall] %>
 				  Walls
 			  <% end %>
-			  <%= label_tag :is_floor, "Wall", class: "btn btn-grey" %>
+			  <%= label_tag :is_floor, "Wall", class: "btn btn-grey" do %>
 				  <%= check_box_tag :is_floor, 1, params[:is_floor] %>
 				  Floors
 			  <% end %>
