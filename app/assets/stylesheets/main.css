@@ -318,6 +318,8 @@ a.list-group-item:hover, a.list-group-item:focus {background: #C8B07E;color: #68
 	padding: 2px 40px 6px 10px;
 	font: 400 16px tahoma;
 }
+.btn-2Col {width:100%;margin:10px 0}
+.btn-2Col label.btn {width:50%}
 @-moz-document url-prefix() {}
 @media (max-width: 767px) {
     footer {text-align: center}

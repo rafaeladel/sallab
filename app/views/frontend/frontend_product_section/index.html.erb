@@ -31,17 +31,18 @@
             <div class="filterTitle">SELECT BY TILE SIZE</div>
             <%= select_tag(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, selected: params[:tile_size_id]), prompt: "Select tile size", class: "form-control") %>
 
-            <div class="btn-group" data-toggle="buttons">
-			  <%= label_tag :is_wall, "Wall", class: "btn btn-grey" do %>
+            <div class="btn-group btn-2Col" data-toggle="buttons">
+			  <%= label_tag :is_wall, "Wall", class: "btn btn-yellow" do %>
 				  <%= check_box_tag :is_wall, 1, params[:is_wall] %>
 				  Walls
 			  <% end %>
-			  <%= label_tag :is_floor, "Wall", class: "btn btn-grey" do %>
+			  <%= label_tag :is_floor, "Wall", class: "btn btn-yellow" do %>
 				  <%= check_box_tag :is_floor, 1, params[:is_floor] %>
 				  Floors
 			  <% end %>
 			</div>
-            <%= submit_tag("Search", name: nil, class: "btn btn-block btn-yellow") %>
+            <%= submit_tag("SEARCH", name: nil, class: "btn btn-block btn-grey") %>
+			<p></p>
         <% end %>
       </div>
       <div class="col-sm-8 col-md-9">
