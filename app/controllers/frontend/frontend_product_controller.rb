@@ -2,6 +2,7 @@ class Frontend::FrontendProductController < Frontend::FrontendApplicationControl
   before_action :get_banner
 
   def index
+    @page_info = get_page_info(:product)
     @product = Product.find(params[:id])
     render partial: "frontend/frontend_product/product_partial", product: @product
   end
