@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726174228) do
+ActiveRecord::Schema.define(version: 20150831194932) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -198,6 +198,25 @@ ActiveRecord::Schema.define(version: 20150726174228) do
 
   add_index "products", ["product_section_id"], name: "fk_rails_0b001f140b", using: :btree
 
+  create_table "promotion_translations", force: :cascade do |t|
+    t.integer  "promotion_id", limit: 4,     null: false
+    t.string   "locale",       limit: 255,   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "title",        limit: 255
+    t.text     "description",  limit: 65535
+  end
+
+  add_index "promotion_translations", ["locale"], name: "index_promotion_translations_on_locale", using: :btree
+  add_index "promotion_translations", ["promotion_id"], name: "index_promotion_translations_on_promotion_id", using: :btree
+
+  create_table "promotions", force: :cascade do |t|
+    t.integer  "item_type",   limit: 4, default: 0
+    t.boolean  "is_featured", limit: 1, default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
   create_table "region_translations", force: :cascade do |t|
     t.integer  "region_id",  limit: 4,   null: false
     t.string   "locale",     limit: 255, null: false
@@ -257,9 +276,11 @@ ActiveRecord::Schema.define(version: 20150726174228) do
     t.datetime "updated_at",                        null: false
     t.integer  "banner_id",               limit: 4
     t.integer  "seven_portfolio_item_id", limit: 4
+    t.integer  "promotion_id",            limit: 4
   end
 
   add_index "seven_gallery_galleries", ["banner_id"], name: "index_seven_gallery_galleries_on_banner_id", using: :btree
+  add_index "seven_gallery_galleries", ["promotion_id"], name: "fk_rails_d0914f6de8", using: :btree
   add_index "seven_gallery_galleries", ["seven_portfolio_item_id"], name: "index_seven_gallery_galleries_on_seven_portfolio_item_id", using: :btree
 
   create_table "seven_gallery_gallery_translations", force: :cascade do |t|
@@ -307,8 +328,10 @@ ActiveRecord::Schema.define(version: 20150726174228) do
     t.integer  "seven_portfolio_item_id", limit: 4
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.integer  "promotion_id",            limit: 4
   end
 
+  add_index "seven_portfolio_item_videos", ["promotion_id"], name: "fk_rails_472ead7acc", using: :btree
   add_index "seven_portfolio_item_videos", ["seven_portfolio_item_id"], name: "index_seven_portfolio_item_videos_on_seven_portfolio_item_id", using: :btree
 
   create_table "seven_portfolio_items", force: :cascade do |t|
@@ -346,7 +369,9 @@ ActiveRecord::Schema.define(version: 20150726174228) do
   add_foreign_key "colors", "products", on_delete: :cascade
   add_foreign_key "products", "product_sections", on_delete: :cascade
   add_foreign_key "seven_gallery_galleries", "banners", on_delete: :cascade
+  add_foreign_key "seven_gallery_galleries", "promotions", on_delete: :cascade
   add_foreign_key "seven_gallery_galleries", "seven_portfolio_items", on_delete: :cascade
   add_foreign_key "seven_gallery_photos", "seven_gallery_galleries", on_delete: :cascade
+  add_foreign_key "seven_portfolio_item_videos", "promotions", on_delete: :cascade
   add_foreign_key "seven_portfolio_item_videos", "seven_portfolio_items", on_delete: :cascade
 end

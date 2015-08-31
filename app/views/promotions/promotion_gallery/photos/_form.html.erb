@@ -1,0 +1,8 @@
+<%= render "promotions/promotion_gallery/photos/uploader_wrapper" %>
+
+<%= link_to "rearrange", seven_gallery.arrange_photos_gallery_path(@promotion.promotion_gallery) %>
+
+<%= render "promotions/promotion_gallery/photos/photos_wrapper", photos: @promotion.promotion_gallery.photos %>
+<div class="row">
+  <%= paginate @photos %>
+</div>

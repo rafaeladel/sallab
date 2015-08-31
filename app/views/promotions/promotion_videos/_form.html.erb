@@ -1,0 +1,24 @@
+<%= form_for @promotion_video, :html => {:class => 'form-horizontal form-validate'} do |f| %>
+    <% if @promotion_video.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@promotion_video.errors.count, "error") %> prohibited this promotion_video from being saved:</h2>
+
+          <ul>
+            <% @promotion_video.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+<div class="box border primary">
+      <div class="box-title">
+        <h4><i class="fa fa-money"></i>Videos</h4>
+      </div>
+      <div class="box-body">
+		
+		<%= render "promotions/promotion_videos/fields", f: f %>
+      </div>
+    </div>
+    <%= f.submit class: "btn btn-primary btn-block" %>
+<% end %>

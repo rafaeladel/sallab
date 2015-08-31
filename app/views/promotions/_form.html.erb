@@ -1,0 +1,93 @@
+<%= form_for @promotion, :html => {:class => 'form-horizontal form-validate'} do |f| %>
+    <% if @promotion.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@promotion.errors.count, "error") %> prohibited this promotion from being saved:</h2>
+
+          <ul>
+            <% @promotion.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+	
+    <div class="box border primary">
+      <div class="box-title">
+        <h4><i class="fa fa-money"></i>Produst Info</h4>
+      </div>
+      <div class="box-body">
+        <div class="tabbable header-tabs">
+          <ul class="nav nav-tabs">
+            <li><a href="#box_tab1" data-toggle="tab"><i class="fa fa-keyboard-o"></i>
+              <span class="hidden-inline-mobile">Arabic</span></a></li>
+            <li class="active"><a href="#box_tab2" data-toggle="tab"><i class="fa fa-globe"></i>
+              <span class="hidden-inline-mobile">English</span></a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade" id="box_tab1">
+              <div class="form-group clearfix">
+                <%= f.label :title_ar, class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                  <%= f.text_field :title_ar, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group clearfix">
+                <%= f.label :description_ar, class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                  <%= f.text_area :description_ar, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade in active" id="box_tab2">
+              <div class="form-group clearfix">
+                <%= f.label :title_en, class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                  <%= f.text_field :title_en, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group clearfix">
+                <%= f.label :description_en, class: "col-sm-3 control-label" %>
+                <div class="col-sm-9">
+                  <%= f.text_area :description_en, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box border lite">
+      <div class="box-title">
+        <h4><i class="fa fa-bars"></i> General</h4>
+      </div>
+      <div class="box-body center">
+        <div class="form-group clearfix">
+		  <%= f.label :item_type, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9 text-left">
+			  <div class="item_type_radio_wrapper">
+				<div class="radio">
+					<%= f.radio_button :item_type, :no_media, id: :item_type_no_media, class: :item_type_radio %>
+					<%= f.label :item_type, "No Media", for: :item_type_no_media %>
+				</div>
+				<div class="radio">
+					<%= f.radio_button :item_type, :gallery, id: :item_type_gallery, class: :item_type_radio %>
+					<%= f.label :item_type, "Gallery", for: :item_type_gallery %>
+				</div>
+				<div class="radio">
+					<%= f.radio_button :item_type, :video, id: :item_type_video, class: :item_type_radio %>
+					<%= f.label :item_type, "Video", for: :item_type_video %>
+				</div>
+			  </div>
+          </div>
+        </div>
+		<div class="item_type_wrapper">
+		  <div class="item_video_wrapper" data-id="item_type_video">
+			<%= f.fields_for :promotion_video do |f_v| %>
+				<%= render "promotions/promotion_videos/fields", f: f_v %>
+			<% end %>
+		  </div>
+		</div>
+      </div>
+    </div>
+    <%= f.submit class: "btn btn-primary btn-block" %>
+<% end %>

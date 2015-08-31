@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :brands
     resources :tile_sizes
     resources :colors
+    resources :promotions, concerns: :page_info
     resources :products, concerns: :page_info
     resources :branches, concerns: :page_info
     resources :regions
