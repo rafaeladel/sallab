@@ -1,0 +1,8 @@
+<%= render "projects/project_gallery/photos/uploader_wrapper" %>
+
+<%= link_to "rearrange", seven_gallery.arrange_photos_gallery_path(@project.project_gallery) %>
+
+<%= render "projects/project_gallery/photos/photos_wrapper", photos: @project.project_gallery.photos %>
+<div class="row">
+  <%= paginate @photos %>
+</div>

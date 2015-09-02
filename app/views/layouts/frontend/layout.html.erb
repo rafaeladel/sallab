@@ -119,6 +119,12 @@ class="rtl"
           <li class="<%= 'active' if is_current?(frontend_news_url) %>">
             <a href="<%= frontend_news_url %>"><%= t("nav.news") %></a>
           </li>
+          <li class="<%= 'active' if is_current?(frontend_promotions_url) %>">
+            <a href="<%= frontend_promotions_url %>"><%= t("nav.promotions") %></a>
+          </li>
+          <li class="<%= 'active' if is_current?(frontend_projects_url) %>">
+            <a href="<%= frontend_projects_url %>"><%= t("nav.projects") %></a>
+          </li>
           <li class="<%= 'active' if is_current?(frontend_careers_url) %>">
             <a href="<%= frontend_careers_url %>"><%= t("nav.careers") %></a></li>
           <li class="dropdown <%= 'active' if is_current?(frontend_contact_branches_url) or current_page?(frontend_contact_contact_us_url) %>">

@@ -1,0 +1,88 @@
+<section class="Sbreadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="#">Promotion</a></li>
+      <li><a href="#"><%= @project.title %></a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="innerContainer about">
+  <div class="container">
+    <div class="padding-50">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <% if @project.gallery? %>
+                    <div class="image-gal">
+                      <% @project.project_gallery.photos.each_with_index do |p, i| %>
+                          <% if i == 0 %>
+                              <a href="<%= p.image.url %>" class="picture">
+                                <i class="icon-search"></i>
+                                <img src="<%= p.image.url %>" class="img-responsive">
+                              </a>
+                          <% else %>
+                              <a href="<%= p.image.url %>" title="Banana" class="noBorder"></a>
+                          <% end %>
+                      <% end %>
+                    </div>
+                <% elsif @project.video? %>
+                    <a href="#" class="video" data-target="#videoModal" data-toggle="modal" data-thevideo="<%= @project.project_video.url %>">
+                      <i class="icon-play"></i>
+                      <img src="http://img.youtube.com/vi/<%= @project.project_video.url.scan(/[a-zA-Z0-9]+$/).last %>/hqdefault.jpg" class="img-responsive">
+                    </a>
+                <% elsif @project.no_media? %>
+                <% end %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="media">
+            <div class="media-body">
+              <h2 class="media-heading"><%= @project.title %></h2>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="media">
+            <div class="media-body">
+              <p class="text-justify"><%= @project.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="media">
+            <div class="media-body">
+              <div class="panel-footer clearfix">
+
+                <div class="pull-right social">
+                  <a href="<%= frontend_projects_url  @project %>" class="news_fb facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on facebook">
+                    <i class="icon-facebook-with-circle"></i>
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?url=<%= frontend_projects_url  @project %>" class="news_twitter twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on twitter"><i class="icon-twitter-with-circle"></i></a>
+                  <a href="https://plus.google.com/share?url=<%= frontend_projects_url  @project %>" onclick="javascript:window.open(this.href,
+                          '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="gplus" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on google plus"><i class="icon-google-with-circle"></i></a>
+                  <a href="http://pinterest.com/pin/create/link/?url=<%= URI.encode(frontend_projects_url  @project) %>&media=<%= URI.encode('http://www.thehomepage.com.eg/app/webroot/img/upload/e9f63_logo2.jpg') %>" class="pinterest" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on pinterest"><i class="icon-pinterest-with-circle"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

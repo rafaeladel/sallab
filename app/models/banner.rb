@@ -4,7 +4,7 @@ class Banner < ActiveRecord::Base
 	translates :slogan1, :slogan2
 	globalize_accessors locales: [:en, :ar], attributes: [:slogan1, :slogan2]
 
-	enum banner_type: [:home, :about, :product, :news, :careers, :contact]
+	enum banner_type: [:home, :about, :product, :news, :promotions, :projects, :careers, :contact]
 
 	validates :banner_type, presence: true
 

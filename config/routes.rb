@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :tile_sizes
     resources :colors
     resources :promotions, concerns: :page_info
+    resources :projects, concerns: :page_info
     resources :products, concerns: :page_info
     resources :branches, concerns: :page_info
     resources :regions
@@ -63,6 +64,14 @@ Rails.application.routes.draw do
     get "/news", as: "frontend_news", to: "frontend/frontend_news#index"
 
     get "/news/:id", as: "frontend_news_item", to: "frontend/frontend_news#get_item"
+
+    get "/promotions", as: "frontend_promotions", to: "frontend/frontend_promotions#index"
+
+    get "/promotions/:id", as: "frontend_promotions_item", to: "frontend/frontend_promotions#get_item"
+
+    get "/projects", as: "frontend_projects", to: "frontend/frontend_projects#index"
+
+    get "/projects/:id", as: "frontend_projects_item", to: "frontend/frontend_projects#get_item"
 
     get "/careers", as: "frontend_careers", to: "frontend/frontend_careers#index"
 

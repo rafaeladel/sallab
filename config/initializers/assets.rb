@@ -22,7 +22,8 @@ controllers = [
     "branches",
     "news",
     "seven_portfolio/items",
-    "promotions"
+    "promotions",
+    "projects"
 ]
 
 script_files = controllers.map { |c| "#{c}.js" }

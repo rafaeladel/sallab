@@ -1,0 +1,54 @@
+<p class="alert alert-block alert-info hide" id="notice">
+	<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+	<%= notice %>
+</p>
+<div class="box border blue">
+	<div class="box-title">
+		<h4><i class="fa fa-calendar"></i> Section:</h4>
+	</div>
+	<div class="box-body">
+		 <div class="form-horizontal " action="#">
+			<div class="form-group">
+				<label class="col-md-3 control-label">Title (English)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @project.title_en %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Title (Arabic)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @project.title_ar %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Description (English)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @project.description_en %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Description (Arabic)</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @project.description_ar %>" disabled>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-3 control-label">Type</label>
+				<div class="col-md-9">
+					<input type="text" name="regular" class="form-control" value="<%= @project.item_type %>" disabled>
+				</div>
+			</div>
+			<div class="clearfix">
+				<% if @project.gallery? %>
+					<%= render "projects/project_gallery/photos/form" %>
+				<% elsif @project.video? %>
+					<%= render "projects/project_videos/show" %>
+				<% end %>
+			</div>
+			<div class="form-group text-center">
+				<%= link_to 'Edit', edit_project_path(@project), :class => "btn btn-warning" %> |
+				<%= link_to 'Back', projects_url,:class => "btn btn-primary" %>
+			</div>																			
+		</div>
+	</div>
+</div>

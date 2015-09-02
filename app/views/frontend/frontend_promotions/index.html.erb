@@ -1,0 +1,100 @@
+<%= render "frontend/common/meta_page_info", page_info: @page_info %>
+
+
+<section class="Sbreadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="<%= frontend_home_url %>">Homepage</a></li>
+      <li><a href="#">Promotion</a></li>
+    </ol>
+  </div>
+</section>
+
+<section class="innerContainer">
+  <div class="container">
+    <div class="row mtb-60 news">
+      <% @promotions.each do |promotion| %>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <a href="#"><i class="icon-caret-right"></i><%= promotion.title %></a>
+                <span class="date"><%= promotion.created_at.strftime("%B %Y , %e") %></span>
+              </div>
+              <div class="panel-media">
+                <% if promotion.gallery? %>
+                    <div class="image-gal">
+
+                      <% promotion.promotion_gallery.photos.each_with_index do |p, i| %>
+                          <a href="<%= p.image.url %>" title="Banana" class="noBorder"></a>
+                      <% end %>
+                    </div>
+                <% elsif promotion.video? %>
+                    <a href="#" class="video" data-target="#videoModal" data-toggle="modal" data-thevideo="<%= promotion.promotion_video.url %>">
+                      <i class="icon-play"></i>
+                      <img src="http://img.youtube.com/vi/<%= promotion.promotion_video.url.scan(/[a-zA-Z0-9]+$/).last %>/hqdefault.jpg" class="img-responsive">
+                    </a>
+                <% elsif promotion.no_media? %>
+                <% end %>
+              </div>
+              <div class="panel-body">
+                <%= promotion.description[0..50].gsub(/\s\w+\s*$/, ' [...]') %>
+              </div>
+              <div class="panel-footer clearfix">
+                <a href="<%= frontend_promotions_url promotion %>" class="btn btn-brown pull-left">Read More</a>
+
+                <div class="pull-right social">
+                  <a href="<%= frontend_news_url %>" class="news_fb facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on facebook">
+                    <i class="icon-facebook-with-circle"></i>
+                  </a>
+                  <a href="https://twitter.com/intent/tweet?url=<%= frontend_news_url %>" class="news_twitter twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on twitter"><i class="icon-twitter-with-circle"></i></a>
+                  <a href="https://plus.google.com/share?url=<%= frontend_news_url %>" onclick="javascript:window.open(this.href,
+                          '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="gplus" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on google plus"><i class="icon-google-with-circle"></i></a>
+                  <a href="http://pinterest.com/pin/create/link/?url=<%= URI.encode(frontend_news_url) %>&media=<%= URI.encode('http://www.thehomepage.com.eg/app/webroot/img/upload/e9f63_logo2.jpg') %>" class="pinterest" data-toggle="tooltip" data-placement="top" title="" data-original-title="share on pinterest"><i class="icon-pinterest-with-circle"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= paginate @promotions %>
+</section>
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-use-bootstrap-modal="false">
+  <div class="slides"></div>
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+</div>
+<div class="modal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModal" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog modal-lg modal-vertical-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-cross"></i></button>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="100%" height="1600" src="http://www.youtube.com/embed/F40PEL7w-yw" class="embed-responsive-item"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :custom_js do %>
+    <script type="text/javascript" charset="utf-8">
+
+        $(function() {
+            $(".news_fb").on("click", function(e) {
+                e.preventDefault();
+                FB.ui({
+                    method: 'share',
+                    href: $(e.currentTarget).attr('href')
+                }, function(response){});
+            });
+        });
+
+        twttr.events.bind('tweet', function (event) {
+        });
+    </script>
+<% end %>
