@@ -22,27 +22,34 @@
         <h5 class="red-header">SELECT BY</h5>
 
         <%= form_tag frontend_product_sections_url, method: "get" do %>
-            <div class="filterTitle">SELECT BY ORIGIN</div>
-            <%= select_tag(:origin_id, options_from_collection_for_select(Origin.all, :id, :title, selected: params[:origin_id]), prompt: "Select origin", class: "form-control") %>
-
-            <div class="filterTitle">SELECT BY BRAND</div>
-            <%= select_tag(:brand_id, options_from_collection_for_select(Brand.all, :id, :title, selected: params[:brand_id]), prompt: "Select brand", class: "form-control") %>
-
-            <div class="filterTitle">SELECT BY TILE SIZE</div>
-            <%= select_tag(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, selected: params[:tile_size_id]), prompt: "Select tile size", class: "form-control") %>
-
+            <% if @product_section.search_for? :origin %>
+                <div class="filterTitle">SELECT BY ORIGIN</div>
+                <%= select_tag(:origin_id, options_from_collection_for_select(Origin.all, :id, :title, selected: params[:origin_id]), prompt: "Select origin", class: "form-control") %>
+            <% end %>
+            <% if @product_section.search_for? :brand %>
+                <div class="filterTitle">SELECT BY BRAND</div>
+                <%= select_tag(:brand_id, options_from_collection_for_select(Brand.all, :id, :title, selected: params[:brand_id]), prompt: "Select brand", class: "form-control") %>
+            <% end %>
+            <% if @product_section.search_for? :size %>
+                <div class="filterTitle">SELECT BY TILE SIZE</div>
+                <%= select_tag(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, selected: params[:tile_size_id]), prompt: "Select tile size", class: "form-control") %>
+            <% end %>
             <div class="btn-group btn-2Col" data-toggle="buttons">
-			  <%= label_tag :is_wall, "Wall", class: "btn btn-yellow" do %>
-				  <%= check_box_tag :is_wall, 1, params[:is_wall] %>
-				  Walls
-			  <% end %>
-			  <%= label_tag :is_floor, "Wall", class: "btn btn-yellow" do %>
-				  <%= check_box_tag :is_floor, 1, params[:is_floor] %>
-				  Floors
-			  <% end %>
-			</div>
+              <% if @product_section.search_for? :walls %>
+                  <%= label_tag :is_wall, "Wall", class: "btn btn-yellow" do %>
+                      <%= check_box_tag :is_wall, 1, params[:is_wall] %>
+                      Walls
+                  <% end %>
+              <% end %>
+              <% if @product_section.search_for? :floors %>
+                  <%= label_tag :is_floor, "Wall", class: "btn btn-yellow" do %>
+                      <%= check_box_tag :is_floor, 1, params[:is_floor] %>
+                      Floors
+                  <% end %>
+              <% end %>
+            </div>
             <%= submit_tag("SEARCH", name: nil, class: "btn btn-block btn-grey") %>
-			<p></p>
+            <p></p>
         <% end %>
       </div>
       <div class="col-sm-8 col-md-9">

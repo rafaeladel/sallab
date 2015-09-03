@@ -48,6 +48,18 @@
 
     <div class="box border lite">
       <div class="box-title">
+        <h4><i class="fa fa-bars"></i>Search fields (Origin, brand, walls, floors or size)</h4>
+      </div>
+      <div class="box-body center">
+        <div class="form-group clearfix">
+          <div class="col-sm-9">
+            <%= f.text_area :search_fields, class: "form-control", placeholder: "Comma separated" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box border lite">
+      <div class="box-title">
         <h4><i class="fa fa-bars"></i>Product Section Image</h4>
       </div>
       <div class="box-body center">
@@ -58,5 +70,6 @@
         </div>
       </div>
     </div>
+
     <%= f.submit class: "btn btn-primary btn-block" %>
 <% end %>

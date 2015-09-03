@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831195333) do
+ActiveRecord::Schema.define(version: 20150903200358) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -166,10 +166,11 @@ ActiveRecord::Schema.define(version: 20150831195333) do
   add_index "product_section_translations", ["product_section_id"], name: "index_product_section_translations_on_product_section_id", using: :btree
 
   create_table "product_sections", force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "image",      limit: 255
-    t.string   "slug",       limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.string   "image",         limit: 255
+    t.string   "slug",          limit: 255
+    t.text     "search_fields", limit: 65535
   end
 
   create_table "product_translations", force: :cascade do |t|
