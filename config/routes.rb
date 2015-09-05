@@ -57,6 +57,7 @@ Rails.application.routes.draw do
         as: "frontend_product_sections",
         to: "frontend/frontend_product_section#index"
 
+    get "/products/:description", as: "frontend_product", to: "frontend/frontend_product#search"
     get "/products/:id", as: "frontend_product", to: "frontend/frontend_product#index"
 
     get "/gallery", as: "frontend_gallery", to: "frontend/frontend_gallery#index"

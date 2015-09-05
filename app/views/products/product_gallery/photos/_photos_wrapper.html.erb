@@ -1,0 +1,21 @@
+<div class="row">
+  <h3>Photos: </h3>
+
+  <div>
+
+  </div>
+</div>
+
+
+<div class="form-group">
+	<label class="col-md-3 control-label">Photos:</label>
+	<div class="col-md-9">
+		<% photos.each do |photo| %>
+			<div id="photo_<%= photo.id %>">
+			  <%= photo.caption %> - <%= image_tag photo.image_url(:thumb) %>
+			  <%= link_to 'edit', seven_gallery.edit_gallery_photo_path(@product.product_gallery, photo), :class => "btn btn-warning" %> -
+			  <%= link_to 'delete', seven_gallery.gallery_photo_path(@product.product_gallery, photo), method: :delete, data: {confirm: 'Sure?'}, :class => "btn btn-danger" %>
+			</div>
+		<% end %>
+	</div>
+</div>

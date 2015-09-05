@@ -14,6 +14,8 @@ class Frontend::FrontendProductSectionController < Frontend::FrontendApplication
   end
 
   def get_search_params
-    params.permit(:origin_id, :brand_id, :tile_size_id, :is_wall, :is_floor).reject{ |i, v| v.blank? }
+    if params.has_key? :product
+      params.require(:product).permit(:description, :origin_id, :brand_id, :tile_size_id, :is_imported, :is_wall, :is_floor).reject { |i, v| v.blank? }
+    end
   end
 end

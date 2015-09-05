@@ -50,62 +50,74 @@
       </div>
       <div class="box-body center">
         <div class="form-group clearfix">
-		  <%= f.label :product_section, class: "col-sm-3 control-label" %>
+          <%= f.label :product_section, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-			<%= f.collection_select :product_section_id, @product_sections, :id, :title, {},  class: 'form-control' %>
+            <%= f.collection_select :product_section_id, @product_sections, :id, :title, {}, class: 'form-control' %>
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :origin, class: "col-sm-3 control-label" %>
+          <%= f.label :origin, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-			<%= f.collection_select :origin_id, @origins, :id, :title, {},  class: 'form-control' %>
+            <%= f.collection_select :origin_id, @origins, :id, :title, {}, class: 'form-control' %>
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :brand, class: "col-sm-3 control-label" %>
+          <%= f.label :brand, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-			<%= f.collection_select :brand_id, @brands, :id, :title, {},  class: 'form-control' %>
+            <%= f.collection_select :brand_id, @brands, :id, :title, {}, class: 'form-control' %>
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :tile_size, class: "col-sm-3 control-label" %>
+          <%= f.label :tile_size, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-			<%= f.collection_select :tile_size_id, @tile_sizes, :id, :title, {},  class: 'form-control' %>
+            <%= f.collection_select :tile_size_id, @tile_sizes, :id, :title, {}, class: 'form-control' %>
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :color, class: "col-sm-3 control-label" %>
+          <%= f.label :color, class: "col-sm-3 control-label" %>
           <div class="col-sm-9" id="colors">
-			  <%= f.fields_for :colors do |c| %>
-				<%= render "colors/color_fields", f: c %>
-			  <% end %>
-			  <div class="links">
-				<%= link_to_add_association "add color", f, :colors, partial: "colors/color_fields" %>
-			  </div>
+            <%= f.fields_for :colors do |c| %>
+                <%= render "colors/color_fields", f: c %>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association "add color", f, :colors, partial: "colors/color_fields" %>
+            </div>
           </div>
         </div>
         <div class="form-group clearfix">
           <div class="col-sm-9 col-sm-offset-3 text-left" id="colors">
-			  <%= f.check_box :is_wall %>
-		  <%= f.label :is_wall %>
+            <%= f.check_box :is_wall %>
+            <%= f.label :is_wall %>
           </div>
         </div>
         <div class="form-group clearfix">
           <div class="col-sm-9 col-sm-offset-3 text-left" id="colors">
-			  <%= f.check_box :is_floor %>
-			  <%= f.label :is_floor %>
+            <%= f.check_box :is_floor %>
+            <%= f.label :is_floor %>
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :code, class: "col-sm-3 control-label" %>
-          <div class="col-sm-9">
-			<%= f.text_field :code, class: "form-control" %>
+          <div class="col-sm-9 col-sm-offset-3 text-left" id="colors">
+            <%= f.check_box :is_imported %>
+            <%= f.label :is_imported %>
           </div>
         </div>
         <div class="form-group clearfix">
-		  <%= f.label :image, class: "col-sm-3 control-label" %>
+          <%= f.label :code, class: "col-sm-3 control-label" %>
           <div class="col-sm-9">
-			<%= f.file_field :image, class: "form-control" %>
+            <%= f.text_field :code, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <%= f.label :related_products, class: "col-sm-3 control-label" %>
+          <div class="col-md-9">
+            <%= f.select(:related_product_ids, options_from_collection_for_select(Product.all, :id, :description, f.object.related_products.map(&:id)), {}, multiple: true, class: "form-control ") %>
+          </div>
+        </div>
+        <div class="form-group clearfix">
+          <%= f.label :image, class: "col-sm-3 control-label" %>
+          <div class="col-sm-9">
+            <%= f.file_field :image, class: "form-control" %>
           </div>
         </div>
       </div>

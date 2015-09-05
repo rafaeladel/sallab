@@ -22,34 +22,41 @@
         <h5 class="red-header">SELECT BY</h5>
 
         <%= form_tag frontend_product_sections_url, method: "get" do %>
-            <% if @product_section.search_for? :origin %>
-                <div class="filterTitle">SELECT BY ORIGIN</div>
-                <%= select_tag(:origin_id, options_from_collection_for_select(Origin.all, :id, :title, selected: params[:origin_id]), prompt: "Select origin", class: "form-control") %>
-            <% end %>
-            <% if @product_section.search_for? :brand %>
-                <div class="filterTitle">SELECT BY BRAND</div>
-                <%= select_tag(:brand_id, options_from_collection_for_select(Brand.all, :id, :title, selected: params[:brand_id]), prompt: "Select brand", class: "form-control") %>
-            <% end %>
-            <% if @product_section.search_for? :size %>
-                <div class="filterTitle">SELECT BY TILE SIZE</div>
-                <%= select_tag(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, selected: params[:tile_size_id]), prompt: "Select tile size", class: "form-control") %>
-            <% end %>
-            <div class="btn-group btn-2Col" data-toggle="buttons">
-              <% if @product_section.search_for? :walls %>
-                  <%= label_tag :is_wall, "Wall", class: "btn btn-yellow" do %>
-                      <%= check_box_tag :is_wall, 1, params[:is_wall] %>
-                      Walls
+            <%= fields_for :product do |f| %>
+                <% if @product_section.search_for? :origin %>
+                    <div class="filterTitle">SELECT BY ORIGIN</div>
+                    <%= f.select(:origin_id, options_from_collection_for_select(Origin.all, :id, :title, selected: get_search_value(:origin_id)), prompt: "Select origin", class: "form-control") %>
+                <% end %>
+                <% if @product_section.search_for? :brand %>
+                    <div class="filterTitle">SELECT BY BRAND</div>
+                    <%= f.select(:brand_id, options_from_collection_for_select(Brand.all, :id, :title, selected: get_search_value(:brand_id)), prompt: "Select brand", class: "form-control") %>
+                <% end %>
+                <% if @product_section.search_for? :size %>
+                    <div class="filterTitle">SELECT BY TILE SIZE</div>
+                    <%= f.select(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, get_search_value(:tile_size_id)), prompt: "Select tile size", class: "form-control") %>
+                <% end %>
+                <div class="btn-group btn-3Col" data-toggle="buttons">
+                  <% if @product_section.search_for? :walls %>
+                      <%= f.label :is_wall, "Wall", class: "btn btn-yellow" do %>
+                          <%= f.check_box :is_wall, { checked: get_search_value(:is_wall) == "1" }, 1, 0 %>
+                          Walls
+                      <% end %>
                   <% end %>
-              <% end %>
-              <% if @product_section.search_for? :floors %>
-                  <%= label_tag :is_floor, "Wall", class: "btn btn-yellow" do %>
-                      <%= check_box_tag :is_floor, 1, params[:is_floor] %>
-                      Floors
+                  <% if @product_section.search_for? :floors %>
+                      <%= f.label :is_floor, "Wall", class: "btn btn-yellow" do %>
+                          <%= f.check_box :is_floor, { checked: get_search_value(:is_floor) == "1" }, 1, 0 %>
+                          Floors
+                      <% end %>
                   <% end %>
-              <% end %>
-            </div>
-            <%= submit_tag("SEARCH", name: nil, class: "btn btn-block btn-grey") %>
-            <p></p>
+
+                  <%= f.label :is_imported, "Imported", class: "btn btn-yellow" do %>
+                      <%= f.check_box :is_imported,  { checked: get_search_value(:is_imported) == "1" }, 1, 0 %>
+                      Imported
+                  <% end %>
+                </div>
+                <%= f.submit("SEARCH", name: nil, class: "btn btn-block btn-grey") %>
+                <p></p>
+            <% end %>
         <% end %>
       </div>
       <div class="col-sm-8 col-md-9">

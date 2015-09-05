@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903200358) do
+ActiveRecord::Schema.define(version: 20150932294934) do
 
   create_table "about", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -190,11 +190,12 @@ ActiveRecord::Schema.define(version: 20150903200358) do
     t.integer  "tile_size_id",       limit: 4
     t.string   "code",               limit: 255
     t.string   "image",              limit: 255
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "product_section_id", limit: 4
     t.boolean  "is_wall",            limit: 1
     t.boolean  "is_floor",           limit: 1
+    t.boolean  "is_imported",        limit: 1,   default: false
   end
 
   add_index "products", ["product_section_id"], name: "fk_rails_0b001f140b", using: :btree
@@ -253,6 +254,14 @@ ActiveRecord::Schema.define(version: 20150903200358) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "related_products", id: false, force: :cascade do |t|
+    t.integer "product_id",         limit: 4
+    t.integer "related_product_id", limit: 4
+  end
+
+  add_index "related_products", ["product_id"], name: "index_related_products_on_product_id", using: :btree
+  add_index "related_products", ["related_product_id"], name: "index_related_products_on_related_product_id", using: :btree
+
   create_table "seven_careers_candidates", force: :cascade do |t|
     t.integer  "job_id",         limit: 4
     t.string   "firstname",      limit: 255
@@ -298,9 +307,11 @@ ActiveRecord::Schema.define(version: 20150903200358) do
     t.integer  "seven_portfolio_item_id", limit: 4
     t.integer  "promotion_id",            limit: 4
     t.integer  "project_id",              limit: 4
+    t.integer  "product_id",              limit: 4
   end
 
   add_index "seven_gallery_galleries", ["banner_id"], name: "index_seven_gallery_galleries_on_banner_id", using: :btree
+  add_index "seven_gallery_galleries", ["product_id"], name: "fk_rails_1e1b33d5e9", using: :btree
   add_index "seven_gallery_galleries", ["project_id"], name: "fk_rails_26dc63c007", using: :btree
   add_index "seven_gallery_galleries", ["promotion_id"], name: "fk_rails_d0914f6de8", using: :btree
   add_index "seven_gallery_galleries", ["seven_portfolio_item_id"], name: "index_seven_gallery_galleries_on_seven_portfolio_item_id", using: :btree
@@ -393,6 +404,7 @@ ActiveRecord::Schema.define(version: 20150903200358) do
   add_foreign_key "colors", "products", on_delete: :cascade
   add_foreign_key "products", "product_sections", on_delete: :cascade
   add_foreign_key "seven_gallery_galleries", "banners", on_delete: :cascade
+  add_foreign_key "seven_gallery_galleries", "products", on_delete: :cascade
   add_foreign_key "seven_gallery_galleries", "projects", on_delete: :cascade
   add_foreign_key "seven_gallery_galleries", "promotions", on_delete: :cascade
   add_foreign_key "seven_gallery_galleries", "seven_portfolio_items", on_delete: :cascade
