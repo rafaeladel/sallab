@@ -29,7 +29,7 @@
                 <% end %>
                 <% if @product_section.search_for? :brand %>
                     <div class="filterTitle">SELECT BY BRAND</div>
-                    <%= f.select(:brand_id, options_from_collection_for_select(Brand.all, :id, :title, selected: get_search_value(:brand_id)), prompt: "Select brand", class: "form-control") %>
+                    <%= f.select(:brand_id, options_from_collection_for_select(Brand.all, :id, :title, selected: get_search_value(:brand_id)), { prompt: "Select brand"}, {class: "form-control"}) %>
                 <% end %>
                 <% if @product_section.search_for? :size %>
                     <div class="filterTitle">SELECT BY TILE SIZE</div>
