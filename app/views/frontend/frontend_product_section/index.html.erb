@@ -25,7 +25,7 @@
             <%= fields_for :product do |f| %>
                 <% if @product_section.search_for? :origin %>
                     <div class="filterTitle">SELECT BY ORIGIN</div>
-                    <%= f.select(:origin_id, options_from_collection_for_select(Origin.all, :id, :title, selected: get_search_value(:origin_id)), prompt: "Select origin", class: "form-control") %>
+                    <%= f.select(:origin_id, options_from_collection_for_select(Origin.all, :id, :title, selected: get_search_value(:origin_id)), {prompt: "Select origin"}, {class: "form-control"}) %>
                 <% end %>
                 <% if @product_section.search_for? :brand %>
                     <div class="filterTitle">SELECT BY BRAND</div>
@@ -33,7 +33,7 @@
                 <% end %>
                 <% if @product_section.search_for? :size %>
                     <div class="filterTitle">SELECT BY TILE SIZE</div>
-                    <%= f.select(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, get_search_value(:tile_size_id)), prompt: "Select tile size", class: "form-control") %>
+                    <%= f.select(:tile_size_id, options_from_collection_for_select(TileSize.all, :id, :title, get_search_value(:tile_size_id)), {prompt: "Select tile size"}, {class: "form-control"}) %>
                 <% end %>
                 <div class="btn-group btn-3Col" data-toggle="buttons">
                   <% if @product_section.search_for? :walls %>
