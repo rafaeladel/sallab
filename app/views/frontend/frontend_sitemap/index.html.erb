@@ -3,7 +3,7 @@
         <section class="Sbreadcrumb">
             <div class="container">
                 <ol class="breadcrumb">
-                  <li><a href="<%= frontend_home_url %>">Homepage</a></li>
+                  <li><a href="<%= frontend_home_url %>"><%= t("nav.home") %></a></li>
                   <li><a href="#">Sitemap</a></li>
                 </ol>
             </div>
@@ -18,23 +18,23 @@
                 <div class="col-sm-6">
                   <h3>Pages</h3>
                     <div class="list-group">
-                      <a href="<%= frontend_home_url %>" class="list-group-item">Home Page</a>
+					  <a href="<%= frontend_home_url %>" class="list-group-item"><%= t("nav.home") %></a>
                       <a href="#" class="list-group-item">About US</a>
-                      <a href="<%= frontend_gallery_url %>" class="list-group-item">Gallery</a>
-                      <a href="<%= frontend_news_url %>" class="list-group-item">News</a>
-                      <a href="<%= frontend_careers_url %>" class="list-group-item">Careers</a>
-                      <a href="<%= frontend_contact_branches_url %>" class="list-group-item">Store Location</a>
-                      <a href="<%= frontend_contact_contact_us_url %>" class="list-group-item">Drop us a Line</a>
+					  <a href="<%= frontend_gallery_url %>" class="list-group-item"><%= t("nav.gallery") %></a>
+					  <a href="<%= frontend_news_url %>" class="list-group-item"><%= t("nav.news") %></a>
+					  <a href="<%= frontend_promotions_url %>" class="list-group-item"><%= t("nav.promotions") %></a>
+					  <a href="<%= frontend_projects_url %>" class="list-group-item"><%= t("nav.projects") %></a>
+					  <a href="<%= frontend_careers_url %>" class="list-group-item"><%= t("nav.careers") %></a>
+					  <a href="<%= frontend_contact_branches_url %>" class="list-group-item"><%= t("nav.branches") %></a>
+					  <a href="<%= frontend_contact_contact_us_url %>" class="list-group-item"><%= t("nav.dropline") %></a>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                  <h3>Products</h3>
+                  <h3><%= t("nav.product") %></h3>
                     <div class="list-group">
-                        <a href="#" class="list-group-item">Ceramic / Porcelain</a>
-                        <a href="#" class="list-group-item">Sanitary Wear</a>
-                        <a href="#" class="list-group-item">Mixers</a>
-                        <a href="#" class="list-group-item">Bathrooms Furniture</a>
-                        <a href="#" class="list-group-item">Accessories</a>
+					  <% @product_sections.each do |p| %>
+						  <a href="<%= frontend_product_sections_url slug: p.slug %>" class="list-group-item"><%= p.title %></a>
+					  <% end %>
                     </div>
                 </div>
               </div>

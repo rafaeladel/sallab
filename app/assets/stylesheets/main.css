@@ -232,7 +232,7 @@ a.list-group-item:hover, a.list-group-item:focus {background: #C8B07E;color: #68
     right: 15px;
 }
 .news .floated {float: right}
-.homeSections li {width: 20%;margin: 0;float: left;display: block;}
+.homeSections li {width: 16.66667%;margin: 0;float: left;display: block;}
 .homeSections ul {margin: 0}
 .homeSections li a {display: block;color: #fff;}
 .homeSections li a div {
@@ -309,17 +309,7 @@ a.list-group-item:hover, a.list-group-item:focus {background: #C8B07E;color: #68
 .productInfo div {text-transform: uppercase;font-size: 18px}
 .color {display: inline-block;width: 32px;height: 32px;margin-right: 10px;vertical-align: middle}
 .pageSlogan {text-align: left}
-#language {
-	position: absolute;
-	right: 0;
-	top: 45px;
-	background: #997C53;
-	color: #fff;
-	padding: 2px 40px 6px 10px;
-	font: 400 16px tahoma;
-}
-.btn-2Col {width:100%;margin:10px 0}
-.btn-2Col label.btn {width:50%}
+
 @-moz-document url-prefix() {}
 @media (max-width: 767px) {
     footer {text-align: center}
@@ -394,6 +384,7 @@ a.list-group-item:hover, a.list-group-item:focus {background: #C8B07E;color: #68
         opacity: 0.9;
         visibility: visible;
     }
+    header nav li > .dropdown-menu li .dropdown-menu {left: 100%;margin-left: 20px;margin-top: -50px}
 }
 @media (min-width: 1200px) {
     .banners .slider-height {height: 450px}
